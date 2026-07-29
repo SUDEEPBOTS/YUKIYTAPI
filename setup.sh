@@ -139,7 +139,7 @@ check_deno() {
         log "deno found: $(deno --version | head -1)"
     else
         log "deno not found, installing..."
-        curl -fsSL https://deno.land/install.sh | sh
+        curl -fsSL https://deno.land/install.sh | sh -s -- -y
         export PATH="$HOME/.deno/bin:$PATH"
         if ! command -v deno &>/dev/null; then
             err "deno install failed. Add \$HOME/.deno/bin to PATH manually and re-run."
