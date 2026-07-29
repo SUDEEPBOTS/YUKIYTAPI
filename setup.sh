@@ -109,6 +109,7 @@ setup_venv() {
             rm -rf "$VENV_DIR"
             exit 1
         fi
+    fi
     # shellcheck disable=SC1091
     source "$VENV_DIR/bin/activate"
 }
