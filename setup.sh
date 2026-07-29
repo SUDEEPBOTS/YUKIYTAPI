@@ -35,18 +35,42 @@ sudo_if_needed() {
     fi
 }
 
-check_python() {
-    if ! command -v python3 &>/dev/null; then
-        err "python3 not found. Install Python ${MIN_PY_MAJOR}.${MIN_PY_MINOR}+ first."
-        exit 1
-    fi
+check_python_version() {
+    if ! command -v python3 &>/dev/null; then return 1; fi
     PY_VER=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
     PY_MAJOR=$(echo "$PY_VER" | cut -d. -f1)
     PY_MINOR=$(echo "$PY_VER" | cut -d. -f2)
     if [ "$PY_MAJOR" -lt "$MIN_PY_MAJOR" ] || { [ "$PY_MAJOR" -eq "$MIN_PY_MAJOR" ] && [ "$PY_MINOR" -lt "$MIN_PY_MINOR" ]; }; then
-        err "Python $PY_VER found, need >= ${MIN_PY_MAJOR}.${MIN_PY_MINOR}"
-        exit 1
+        return 1
     fi
+    return 0
+}
+
+check_python() {
+    if check_python_version; then
+        return 0
+    fi
+    
+    # Try to install a compatible python version
+    if command -v apt-get &>/dev/null; then
+        sudo_if_needed apt-get update -qq
+        for ver in 12 11 10 9; do
+            if sudo_if_needed apt-get install -y "python3.${ver}" "python3.${ver}-venv" -qq >/dev/null 2>&1; then
+                # Ensure python3 command points to the newly installed version if possible
+                if command -v "python3.${ver}" &>/dev/null; then
+                    sudo_if_needed update-alternatives --install /usr/bin/python3 python3 "/usr/bin/python3.${ver}" 1 >/dev/null 2>&1 || true
+                fi
+                if check_python_version; then
+                    return 0
+                fi
+            fi
+        done
+    fi
+
+    # If all auto-installs fail
+    err "Compatible Python (>= ${MIN_PY_MAJOR}.${MIN_PY_MINOR}) not found and auto-install failed."
+    err "Please install Python ${MIN_PY_MAJOR}.${MIN_PY_MINOR}+ manually."
+    exit 1
 }
 
 ensure_pkg() {
