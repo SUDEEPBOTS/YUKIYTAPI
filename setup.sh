@@ -13,21 +13,18 @@ TEST_VIDEO_ID="dQw4w9WgXcQ"
 MIN_PY_MAJOR=3
 MIN_PY_MINOR=9
 
-log() { echo -e "\033[1;36m[YUKI]\033[0m \033[1;32m$1\033[0m"; }
-err() { echo -e "\033[1;31m[ERROR] $1\033[0m" >&2; }
+log() { echo "[*] $1"; }
+err() { echo "[!] $1" >&2; }
 
-spinner() {
+loading_bar() {
     local pid=$1
-    local delay=0.1
-    local spinstr='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+    local delay=0.5
+    printf "[*] Processing: "
     while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf "\033[1;35m[%c]\033[0m  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
+        printf "."
         sleep $delay
-        printf "\b\b\b\b\b"
     done
-    printf "    \b\b\b\b"
+    printf " Done!\n"
 }
 
 sudo_if_needed() {
@@ -155,15 +152,15 @@ check_deno() {
 install_requirements() {
     if [ -f "requirements.txt" ]; then
         log "Installing Python requirements..."
-        ( pip install --upgrade pip -q && pip install setuptools -q && pip install -r requirements.txt -q ) &
-        spinner $!
+        ( pip install --upgrade pip > /dev/null 2>&1 && pip install setuptools > /dev/null 2>&1 && pip install -r requirements.txt > /dev/null 2>&1 ) &
+        loading_bar $!
     else
         err "requirements.txt not found in ${REPO_DIR}, skipping"
     fi
 
     log "Compiling High-Security Cython Native Binaries..."
-    ( python3 setup.py build_ext --inplace -q ) &
-    spinner $!
+    ( python3 setup.py build_ext --inplace > /dev/null 2>&1 ) &
+    loading_bar $!
     
     log "Wiping Raw C Source Files for extra security..."
     rm -f YUKIYTAPI/main.c YUKIYTAPI/database/stats.c
