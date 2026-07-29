@@ -1,0 +1,31 @@
+# Python Environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# YouTube Cookies & Secrets (CRUCIAL: NEVER UPLOAD)
+cookies.txt
+credentials.json
+
+# Downloaded Media & Cache (Prevents uploading heavy files)
+YUKIYTAPI/saved/
+downloads/
+Hellfire_Vault/
+*.mp3
+*.mp4
+*.mkv
+*.webm
+*.part
+*.ytdl
+
+# PM2 & Logs
+logs/
+*.log
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
