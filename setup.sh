@@ -269,7 +269,17 @@ main() {
     verify_running
     test_download
     log "All done. Attach anytime with: tmux attach -t ${TMUX_SESSION}"
-    log "Project directory: $(pwd)"
+    
+    local public_ip
+    public_ip=$(curl -s --max-time 3 ifconfig.me || echo "YOUR_SERVER_IP")
+    echo ""
+    log "=================================================="
+    log "🚀 YUKI API IS LIVE!"
+    log "🌐 Public URL: http://${public_ip}:${PORT}"
+    log "💻 Local URL:  http://127.0.0.1:${PORT}"
+    log "📂 Directory:  $(pwd)"
+    log "=================================================="
+    echo ""
 }
 
 main
