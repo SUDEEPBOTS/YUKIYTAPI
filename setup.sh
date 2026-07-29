@@ -14,7 +14,7 @@ MIN_PY_MAJOR=3
 MIN_PY_MINOR=9
 
 log() { echo "[*] $1"; }
-err() { echo "[!] $1" >&2; }
+err() { echo -e "\033[1;31m[!] $1\033[0m" >&2; }
 
 loading_bar() {
     local pid=$1
