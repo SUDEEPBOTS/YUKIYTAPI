@@ -175,6 +175,7 @@ check_port_and_zombies() {
             err "Free the port manually or change PORT in this script."
             exit 1
         fi
+    fi
 
     PIDS=$(pgrep -f "$APP_MODULE" || true)
     if [ -n "$PIDS" ]; then
