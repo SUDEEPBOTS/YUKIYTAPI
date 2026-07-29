@@ -5,7 +5,7 @@ REPO_URL="https://github.com/SUDEEPBOTS/YUKIYTAPI.git"
 REPO_DIR="YUKIYTAPI"
 APP_NAME="yuki-yt-api"
 APP_MODULE="YUKIYTAPI.main:app"
-PORT=8080
+PORT=5001
 TMUX_SESSION="yuki_api"
 VENV_DIR="yvenv"
 LOG_FILE="yuki_api.log"
@@ -187,19 +187,19 @@ get_port_pid() {
 }
 
 check_port_and_zombies() {
-    if port_in_use "$PORT"; then
+    while port_in_use "$PORT"; do
         PID=$(get_port_pid "$PORT")
         CMD=$(ps -p "$PID" -o cmd= 2>/dev/null || true)
         if echo "$CMD" | grep -q "$APP_MODULE"; then
-            log "Port ${PORT} busy with an old/zombie instance of ${APP_NAME} (PID ${PID}). Killing it..."
+            log "Port ${PORT} busy with an old instance of ${APP_NAME}. Killing it..."
             kill -9 "$PID" 2>/dev/null
             sleep 1
+            break
         else
-            err "Port ${PORT} is busy with an unrelated process (PID ${PID}): ${CMD}"
-            err "Free the port manually or change PORT in this script."
-            exit 1
+            log "Port ${PORT} is busy with an unrelated process. Trying port $((PORT + 1))..."
+            PORT=$((PORT + 1))
         fi
-    fi
+    done
 
     PIDS=$(pgrep -f "$APP_MODULE" || true)
     if [ -n "$PIDS" ]; then
