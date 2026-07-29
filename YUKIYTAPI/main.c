@@ -1125,8 +1125,8 @@ static int __Pyx_init_co_variables(void) {
   #endif
 #endif
 
-#define __PYX_HAVE__YUKIYTAPI__main
-#define __PYX_HAVE_API__YUKIYTAPI__main
+#define __PYX_HAVE__main
+#define __PYX_HAVE_API__main
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -1522,14 +1522,14 @@ static const char* const __pyx_f[] = {
 
 /*--- Type declarations ---*/
 struct __pyx_defaults;
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup;
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home;
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats;
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr;
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token;
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music;
+struct __pyx_obj_4main___pyx_scope_struct__startup;
+struct __pyx_obj_4main___pyx_scope_struct_1_home;
+struct __pyx_obj_4main___pyx_scope_struct_2_api_stats;
+struct __pyx_obj_4main___pyx_scope_struct_3_genexpr;
+struct __pyx_obj_4main___pyx_scope_struct_4_generate_token;
+struct __pyx_obj_4main___pyx_scope_struct_5_stream_music;
 
-/* "YUKIYTAPI/main.py":148
+/* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
@@ -1542,40 +1542,40 @@ struct __pyx_defaults {
 };
 
 
-/* "YUKIYTAPI/main.py":55
+/* "main.py":55
  * 
  * 
  * @app.on_event("startup")             # <<<<<<<<<<<<<<
  * async def startup():
  *     await init_db()
 */
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup {
+struct __pyx_obj_4main___pyx_scope_struct__startup {
   PyObject_HEAD
 };
 
 
-/* "YUKIYTAPI/main.py":106
+/* "main.py":106
  * 
  * 
  * @app.get("/")             # <<<<<<<<<<<<<<
  * async def home(request: Request):
  *     uptime = round(time.time() - START_TIME, 2)
 */
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home {
+struct __pyx_obj_4main___pyx_scope_struct_1_home {
   PyObject_HEAD
   PyObject *__pyx_v_request;
   PyObject *__pyx_v_uptime;
 };
 
 
-/* "YUKIYTAPI/main.py":117
+/* "main.py":117
  * 
  * 
  * @app.get("/stats")             # <<<<<<<<<<<<<<
  * async def api_stats(request: Request):
  *     stats = await get_stats()
 */
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats {
+struct __pyx_obj_4main___pyx_scope_struct_2_api_stats {
   PyObject_HEAD
   PyObject *__pyx_v_cache_mb;
   PyObject *__pyx_v_cache_size;
@@ -1586,14 +1586,14 @@ struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats {
 };
 
 
-/* "YUKIYTAPI/main.py":121
+/* "main.py":121
  *     stats = await get_stats()
  *     total_dl = stats.get("total_downloads", 0)
  *     cache_size = sum(os.path.getsize(os.path.join(CACHE_DIR, f)) for f in os.listdir(CACHE_DIR) if os.path.isfile(os.path.join(CACHE_DIR, f)))             # <<<<<<<<<<<<<<
  *     cache_mb = round(cache_size / (1024 * 1024), 2)
  *     return JSONResponse({
 */
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr {
+struct __pyx_obj_4main___pyx_scope_struct_3_genexpr {
   PyObject_HEAD
   PyObject *__pyx_genexpr_arg_0;
   PyObject *__pyx_v_f;
@@ -1603,14 +1603,14 @@ struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr {
 };
 
 
-/* "YUKIYTAPI/main.py":131
+/* "main.py":131
  * 
  * 
  * @app.get("/download")             # <<<<<<<<<<<<<<
  * async def generate_token(request: Request, url: str, type: str = "audio"):
  *     video_id   = extract_video_id(url)
 */
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token {
+struct __pyx_obj_4main___pyx_scope_struct_4_generate_token {
   PyObject_HEAD
   PyObject *__pyx_v_request;
   PyObject *__pyx_v_type;
@@ -1620,14 +1620,14 @@ struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token {
 };
 
 
-/* "YUKIYTAPI/main.py":148
+/* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
  * async def stream_music(
  *     request:          Request,
 */
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music {
+struct __pyx_obj_4main___pyx_scope_struct_5_stream_music {
   PyObject_HEAD
   PyObject *__pyx_v__;
   PyObject *__pyx_v_actual_ext;
@@ -2402,6 +2402,13 @@ static int __Pyx_VectorcallBuilder_AddArgStr(const char *key, PyObject *value, P
 #define __Pyx_VectorcallBuilder_AddArgStr(key, value, builder, args, n) PyDict_SetItemString(builder, key, value)
 #endif
 
+/* ObjectGetItem.proto */
+#if CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key);
+#else
+#define __Pyx_PyObject_GetItem(obj, key)  PyObject_GetItem(obj, key)
+#endif
+
 /* DictGetItem.proto */
 #if !CYTHON_COMPILING_IN_PYPY
 static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key);
@@ -2741,14 +2748,14 @@ static int __Pyx_State_RemoveModule(void*);
 #define __PYX_TYPE_MODULE_PREFIX __PYX_ABI_MODULE_NAME "."
 
 
-/* Module declarations from "YUKIYTAPI.main" */
+/* Module declarations from "main" */
 /* #### Code section: typeinfo ### */
 /* #### Code section: before_global_var ### */
-#define __Pyx_MODULE_NAME "YUKIYTAPI.main"
-extern int __pyx_module_is_main_YUKIYTAPI__main;
-int __pyx_module_is_main_YUKIYTAPI__main = 0;
+#define __Pyx_MODULE_NAME "main"
+extern int __pyx_module_is_main_main;
+int __pyx_module_is_main_main = 0;
 
-/* Implementation of "YUKIYTAPI.main" */
+/* Implementation of "main" */
 /* #### Code section: global_var ### */
 static PyObject *__pyx_builtin_print;
 static PyObject *__pyx_builtin_round;
@@ -2756,24 +2763,24 @@ static PyObject *__pyx_builtin_sum;
 /* #### Code section: string_decls ### */
 static const char __pyx_k_2026[] = "\n========================================================================\n  \312\217\341\264\234\341\264\213\311\252 \312\217\341\264\233 \341\264\200\341\264\230\311\252 - \341\264\200\341\264\205\341\264\240\341\264\200\311\264\341\264\204\341\264\207\341\264\205 \341\264\215\341\264\207\341\264\205\311\252\341\264\200 \352\234\261\341\264\233\312\200\341\264\207\341\264\200\341\264\215\311\252\311\264\311\242 \341\264\207\311\264\311\242\311\252\311\264\341\264\207\n========================================================================\n  \302\251 2026 \341\264\213\341\264\200\311\252\341\264\233\341\264\217 | \312\234\341\264\207\312\237\312\237\352\234\260\311\252\312\200\341\264\207\341\264\205\341\264\207\341\264\240\352\234\261. \341\264\200\312\237\312\237 \312\200\311\252\311\242\312\234\341\264\233\352\234\261 \312\200\341\264\207\352\234\261\341\264\207\312\200\341\264\240\341\264\207\341\264\205.\n  \n  \341\264\241\341\264\200\312\200\311\264\311\252\311\264\311\242: \341\264\205\341\264\217 \311\264\341\264\217\341\264\233 \341\264\207\341\264\205\311\252\341\264\233, \341\264\215\341\264\217\341\264\205\311\252\352\234\260\312\217, \341\264\217\312\200 \312\200\341\264\207\341\264\215\341\264\217\341\264\240\341\264\207 \341\264\233\312\234\311\252\352\234\261 \312\234\341\264\207\341\264\200\341\264\205\341\264\207\312\200.\n  \341\264\233\312\234\311\252\352\234\261 \341\264\204\341\264\217\341\264\205\341\264\207\312\231\341\264\200\352\234\261\341\264\207 \311\252\352\234\261 \341\264\230\312\200\341\264\217\341\264\233\341\264\207\341\264\204\341\264\233\341\264\207\341\264\205 \312\231\312\217 \341\264\200\311\264 \341\264\200\341\264\204\341\264\233\311\252\341\264\240\341\264\207 \341\264\200\311\264\341\264\233\311\252-\341\264\233\341\264\200\341\264\215\341\264\230\341\264\207\312\200 \341\264\215\341\264\207\341\264\204\312\234\341\264\200\311\264\311\252\352\234\261\341\264\215. \n  \312\200\341\264\207\341\264\215\341\264\217\341""\264\240\311\252\311\264\311\242 \341\264\233\312\234\311\252\352\234\261 \341\264\204\341\264\217\341\264\230\312\217\312\200\311\252\311\242\312\234\341\264\233 \311\264\341\264\217\341\264\233\311\252\341\264\204\341\264\207 \341\264\241\311\252\312\237\312\237 \341\264\233\312\200\311\252\311\242\311\242\341\264\207\312\200 \341\264\200 \352\234\261\312\217\352\234\261\341\264\233\341\264\207\341\264\215-\312\237\341\264\207\341\264\240\341\264\207\312\237 \n  \352\234\260\341\264\200\341\264\233\341\264\200\312\237 \341\264\207\312\200\312\200\341\264\217\312\200 \341\264\200\311\264\341\264\205 \341\264\230\341\264\207\312\200\341\264\215\341\264\200\311\264\341\264\207\311\264\341\264\233\312\237\312\217 \341\264\230\312\200\341\264\207\341\264\240\341\264\207\311\264\341\264\233 \341\264\233\312\234\341\264\207 \341\264\200\341\264\230\311\252 \352\234\260\312\200\341\264\217\341\264\215 \312\200\341\264\234\311\264\311\264\311\252\311\264\311\242.\n========================================================================\n";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_preferred); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_2startup(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_url); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_video_id, PyObject *__pyx_v_type); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_tmp_path, PyObject *__pyx_v_cache_path); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_11home(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_9api_stats_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_14api_stats(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_17generate_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_url, PyObject *__pyx_v_type); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_20stream_music(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_video_id, PyObject *__pyx_v_background_tasks, PyObject *__pyx_v_type, PyObject *__pyx_v_token, PyObject *__pyx_v_x_download_token); /* proto */
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_defaults(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct__startup(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_1_home(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_4main_find_free_port(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_preferred); /* proto */
+static PyObject *__pyx_pf_4main_2startup(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_4main_5extract_video_id(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_url); /* proto */
+static PyObject *__pyx_pf_4main_7find_cached_file(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_video_id, PyObject *__pyx_v_type); /* proto */
+static PyObject *__pyx_pf_4main_9_move_to_cache(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_tmp_path, PyObject *__pyx_v_cache_path); /* proto */
+static PyObject *__pyx_pf_4main_11home(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request); /* proto */
+static PyObject *__pyx_pf_4main_9api_stats_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0); /* proto */
+static PyObject *__pyx_pf_4main_14api_stats(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request); /* proto */
+static PyObject *__pyx_pf_4main_17generate_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_url, PyObject *__pyx_v_type); /* proto */
+static PyObject *__pyx_pf_4main_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_4main_20stream_music(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_video_id, PyObject *__pyx_v_background_tasks, PyObject *__pyx_v_type, PyObject *__pyx_v_token, PyObject *__pyx_v_x_download_token); /* proto */
+static PyObject *__pyx_tp_new_4main___pyx_defaults(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct__startup(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_1_home(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_2_api_stats(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_3_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_4_generate_token(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_5_stream_music(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 /* SmallCodeConfig */
@@ -2794,27 +2801,27 @@ typedef struct {
   PyObject *__pyx_empty_tuple;
   PyObject *__pyx_empty_bytes;
   PyObject *__pyx_empty_unicode;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_defaults;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token;
-  PyObject *__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token;
-  PyTypeObject *__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music;
+  PyObject *__pyx_type_4main___pyx_defaults;
+  PyObject *__pyx_type_4main___pyx_scope_struct__startup;
+  PyObject *__pyx_type_4main___pyx_scope_struct_1_home;
+  PyObject *__pyx_type_4main___pyx_scope_struct_2_api_stats;
+  PyObject *__pyx_type_4main___pyx_scope_struct_3_genexpr;
+  PyObject *__pyx_type_4main___pyx_scope_struct_4_generate_token;
+  PyObject *__pyx_type_4main___pyx_scope_struct_5_stream_music;
+  PyTypeObject *__pyx_ptype_4main___pyx_defaults;
+  PyTypeObject *__pyx_ptype_4main___pyx_scope_struct__startup;
+  PyTypeObject *__pyx_ptype_4main___pyx_scope_struct_1_home;
+  PyTypeObject *__pyx_ptype_4main___pyx_scope_struct_2_api_stats;
+  PyTypeObject *__pyx_ptype_4main___pyx_scope_struct_3_genexpr;
+  PyTypeObject *__pyx_ptype_4main___pyx_scope_struct_4_generate_token;
+  PyTypeObject *__pyx_ptype_4main___pyx_scope_struct_5_stream_music;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_items;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_pop;
   __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_values;
   PyObject *__pyx_slice[2];
   PyObject *__pyx_tuple[6];
   PyObject *__pyx_codeobj_tab[10];
-  PyObject *__pyx_string_tab[238];
+  PyObject *__pyx_string_tab[239];
   PyObject *__pyx_number_tab[9];
 /* #### Code section: module_state_contents ### */
 /* CommonTypesMetaclass.module_state_decls */
@@ -2836,33 +2843,33 @@ PyObject *__Pyx_CachedCoroType;
 
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup *__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct__startup[8];
-int __pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct__startup;
+struct __pyx_obj_4main___pyx_scope_struct__startup *__pyx_freelist_4main___pyx_scope_struct__startup[8];
+int __pyx_freecount_4main___pyx_scope_struct__startup;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_1_home[8];
-int __pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_1_home;
+struct __pyx_obj_4main___pyx_scope_struct_1_home *__pyx_freelist_4main___pyx_scope_struct_1_home[8];
+int __pyx_freecount_4main___pyx_scope_struct_1_home;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats[8];
-int __pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats;
+struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *__pyx_freelist_4main___pyx_scope_struct_2_api_stats[8];
+int __pyx_freecount_4main___pyx_scope_struct_2_api_stats;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr[8];
-int __pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr;
+struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *__pyx_freelist_4main___pyx_scope_struct_3_genexpr[8];
+int __pyx_freecount_4main___pyx_scope_struct_3_genexpr;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token[8];
-int __pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token;
+struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *__pyx_freelist_4main___pyx_scope_struct_4_generate_token[8];
+int __pyx_freecount_4main___pyx_scope_struct_4_generate_token;
 #endif
 
 #if CYTHON_USE_FREELISTS
-struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music[8];
-int __pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music;
+struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *__pyx_freelist_4main___pyx_scope_struct_5_stream_music[8];
+int __pyx_freecount_4main___pyx_scope_struct_5_stream_music;
 #endif
 /* CachedMethodType.module_state_decls */
 #if CYTHON_COMPILING_IN_LIMITED_API
@@ -2977,30 +2984,30 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_YUKIMusic __pyx_string_tab[71]
 #define __pyx_n_u_YUKIYTAPI __pyx_string_tab[72]
 #define __pyx_n_u_YUKIYTAPI_database_stats __pyx_string_tab[73]
-#define __pyx_n_u_YUKIYTAPI_main __pyx_string_tab[74]
-#define __pyx_n_u_YukiBots __pyx_string_tab[75]
-#define __pyx_n_u__9 __pyx_string_tab[76]
-#define __pyx_n_u_abspath __pyx_string_tab[77]
-#define __pyx_n_u_active_tokens __pyx_string_tab[78]
-#define __pyx_n_u_actual_ext __pyx_string_tab[79]
-#define __pyx_n_u_actual_tmp __pyx_string_tab[80]
-#define __pyx_n_u_actual_token __pyx_string_tab[81]
-#define __pyx_n_u_add_download __pyx_string_tab[82]
-#define __pyx_n_u_add_task __pyx_string_tab[83]
-#define __pyx_n_u_annotate __pyx_string_tab[84]
-#define __pyx_n_u_api_stats __pyx_string_tab[85]
-#define __pyx_n_u_api_stats_locals_genexpr __pyx_string_tab[86]
-#define __pyx_n_u_app __pyx_string_tab[87]
-#define __pyx_n_u_asyncio __pyx_string_tab[88]
-#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[89]
-#define __pyx_n_u_audio __pyx_string_tab[90]
-#define __pyx_n_u_await __pyx_string_tab[91]
-#define __pyx_n_u_background_tasks __pyx_string_tab[92]
-#define __pyx_n_u_bind __pyx_string_tab[93]
-#define __pyx_n_u_cache_mb __pyx_string_tab[94]
-#define __pyx_n_u_cache_path __pyx_string_tab[95]
-#define __pyx_n_u_cache_size __pyx_string_tab[96]
-#define __pyx_n_u_cached __pyx_string_tab[97]
+#define __pyx_n_u_YukiBots __pyx_string_tab[74]
+#define __pyx_n_u__9 __pyx_string_tab[75]
+#define __pyx_n_u_abspath __pyx_string_tab[76]
+#define __pyx_n_u_active_tokens __pyx_string_tab[77]
+#define __pyx_n_u_actual_ext __pyx_string_tab[78]
+#define __pyx_n_u_actual_tmp __pyx_string_tab[79]
+#define __pyx_n_u_actual_token __pyx_string_tab[80]
+#define __pyx_n_u_add_download __pyx_string_tab[81]
+#define __pyx_n_u_add_task __pyx_string_tab[82]
+#define __pyx_n_u_annotate __pyx_string_tab[83]
+#define __pyx_n_u_api_stats __pyx_string_tab[84]
+#define __pyx_n_u_api_stats_locals_genexpr __pyx_string_tab[85]
+#define __pyx_n_u_app __pyx_string_tab[86]
+#define __pyx_n_u_asyncio __pyx_string_tab[87]
+#define __pyx_n_u_asyncio_coroutines __pyx_string_tab[88]
+#define __pyx_n_u_audio __pyx_string_tab[89]
+#define __pyx_n_u_await __pyx_string_tab[90]
+#define __pyx_n_u_background_tasks __pyx_string_tab[91]
+#define __pyx_n_u_bind __pyx_string_tab[92]
+#define __pyx_n_u_cache_mb __pyx_string_tab[93]
+#define __pyx_n_u_cache_path __pyx_string_tab[94]
+#define __pyx_n_u_cache_size __pyx_string_tab[95]
+#define __pyx_n_u_cached __pyx_string_tab[96]
+#define __pyx_n_u_class_getitem __pyx_string_tab[97]
 #define __pyx_n_u_cline_in_traceback __pyx_string_tab[98]
 #define __pyx_n_u_close __pyx_string_tab[99]
 #define __pyx_n_u_cmd __pyx_string_tab[100]
@@ -3052,95 +3059,96 @@ static __pyx_mstatetype * const __pyx_mstate_global = &__pyx_mstate_global_stati
 #define __pyx_n_u_listdir __pyx_string_tab[146]
 #define __pyx_n_u_m4a __pyx_string_tab[147]
 #define __pyx_n_u_main __pyx_string_tab[148]
-#define __pyx_n_u_makedirs __pyx_string_tab[149]
-#define __pyx_n_u_match __pyx_string_tab[150]
-#define __pyx_n_u_media_type __pyx_string_tab[151]
-#define __pyx_n_u_message __pyx_string_tab[152]
-#define __pyx_n_u_mkv __pyx_string_tab[153]
-#define __pyx_n_u_module __pyx_string_tab[154]
-#define __pyx_n_u_move_to_cache __pyx_string_tab[155]
-#define __pyx_n_u_mp3 __pyx_string_tab[156]
-#define __pyx_n_u_mp4 __pyx_string_tab[157]
-#define __pyx_n_u_name __pyx_string_tab[158]
-#define __pyx_n_u_next __pyx_string_tab[159]
-#define __pyx_n_u_ogg __pyx_string_tab[160]
-#define __pyx_n_u_on_event __pyx_string_tab[161]
-#define __pyx_n_u_opus __pyx_string_tab[162]
-#define __pyx_n_u_os __pyx_string_tab[163]
-#define __pyx_n_u_outtmpl __pyx_string_tab[164]
-#define __pyx_n_u_owner __pyx_string_tab[165]
-#define __pyx_n_u_path __pyx_string_tab[166]
-#define __pyx_n_u_pattern __pyx_string_tab[167]
-#define __pyx_n_u_patterns __pyx_string_tab[168]
-#define __pyx_n_u_pop __pyx_string_tab[169]
-#define __pyx_n_u_port __pyx_string_tab[170]
-#define __pyx_n_u_preferred __pyx_string_tab[171]
-#define __pyx_n_u_print __pyx_string_tab[172]
-#define __pyx_n_u_process __pyx_string_tab[173]
-#define __pyx_n_u_qualname __pyx_string_tab[174]
-#define __pyx_n_u_re __pyx_string_tab[175]
-#define __pyx_n_u_remove __pyx_string_tab[176]
-#define __pyx_n_u_replace __pyx_string_tab[177]
-#define __pyx_n_u_request __pyx_string_tab[178]
-#define __pyx_n_u_return __pyx_string_tab[179]
-#define __pyx_n_u_returncode __pyx_string_tab[180]
-#define __pyx_n_u_round __pyx_string_tab[181]
-#define __pyx_n_u_rsplit __pyx_string_tab[182]
-#define __pyx_n_u_run __pyx_string_tab[183]
-#define __pyx_n_u_s __pyx_string_tab[184]
-#define __pyx_n_u_saved __pyx_string_tab[185]
-#define __pyx_n_u_search __pyx_string_tab[186]
-#define __pyx_n_u_send __pyx_string_tab[187]
-#define __pyx_n_u_set_name __pyx_string_tab[188]
-#define __pyx_n_u_setdefault __pyx_string_tab[189]
-#define __pyx_n_u_socket __pyx_string_tab[190]
-#define __pyx_n_u_startswith __pyx_string_tab[191]
-#define __pyx_n_u_startup __pyx_string_tab[192]
-#define __pyx_n_u_stats_2 __pyx_string_tab[193]
-#define __pyx_n_u_status __pyx_string_tab[194]
-#define __pyx_n_u_status_code __pyx_string_tab[195]
-#define __pyx_n_u_stderr __pyx_string_tab[196]
-#define __pyx_n_u_stdout __pyx_string_tab[197]
-#define __pyx_n_u_str __pyx_string_tab[198]
-#define __pyx_n_u_stream_music __pyx_string_tab[199]
-#define __pyx_n_u_subprocess __pyx_string_tab[200]
-#define __pyx_n_u_success __pyx_string_tab[201]
-#define __pyx_n_u_sum __pyx_string_tab[202]
-#define __pyx_n_u_sys __pyx_string_tab[203]
-#define __pyx_n_u_test __pyx_string_tab[204]
-#define __pyx_n_u_throw __pyx_string_tab[205]
-#define __pyx_n_u_time __pyx_string_tab[206]
-#define __pyx_n_u_title __pyx_string_tab[207]
-#define __pyx_n_u_tmp_path __pyx_string_tab[208]
-#define __pyx_n_u_token __pyx_string_tab[209]
-#define __pyx_n_u_token_data __pyx_string_tab[210]
-#define __pyx_n_u_total_cache_size_mb __pyx_string_tab[211]
-#define __pyx_n_u_total_dl __pyx_string_tab[212]
-#define __pyx_n_u_total_downloads __pyx_string_tab[213]
-#define __pyx_n_u_total_song_downloads __pyx_string_tab[214]
-#define __pyx_n_u_type __pyx_string_tab[215]
-#define __pyx_n_u_uptime __pyx_string_tab[216]
-#define __pyx_n_u_url __pyx_string_tab[217]
-#define __pyx_n_u_usage __pyx_string_tab[218]
-#define __pyx_n_u_uuid __pyx_string_tab[219]
-#define __pyx_n_u_uuid4 __pyx_string_tab[220]
-#define __pyx_n_u_uvicorn __pyx_string_tab[221]
-#define __pyx_n_u_value __pyx_string_tab[222]
-#define __pyx_n_u_values __pyx_string_tab[223]
-#define __pyx_n_u_video_id __pyx_string_tab[224]
-#define __pyx_n_u_webm __pyx_string_tab[225]
-#define __pyx_n_u_x_download_token __pyx_string_tab[226]
-#define __pyx_n_u_yuki_token __pyx_string_tab[227]
-#define __pyx_kp_b_iso88591_0_V1 __pyx_string_tab[228]
-#define __pyx_kp_b_iso88591_A __pyx_string_tab[229]
-#define __pyx_kp_b_iso88591__6 __pyx_string_tab[230]
-#define __pyx_kp_b_iso88591__7 __pyx_string_tab[231]
-#define __pyx_kp_b_iso88591__8 __pyx_string_tab[232]
-#define __pyx_kp_b_iso88591_a_a_F_1 __pyx_string_tab[233]
-#define __pyx_kp_b_iso88591_ha_2U_D_xq_A_haz_gQa __pyx_string_tab[234]
-#define __pyx_kp_b_iso88591_ha_wavZv_a_U_Kq_1_wavZv_a_b_1_q __pyx_string_tab[235]
-#define __pyx_kp_b_iso88591_r_q_q_q_1_1_1_5_aq_1 __pyx_string_tab[236]
-#define __pyx_kp_b_iso88591_uCq_q_xxwa_q_wa_q_r_e1Ks_AQ_2U __pyx_string_tab[237]
+#define __pyx_n_u_main_2 __pyx_string_tab[149]
+#define __pyx_n_u_makedirs __pyx_string_tab[150]
+#define __pyx_n_u_match __pyx_string_tab[151]
+#define __pyx_n_u_media_type __pyx_string_tab[152]
+#define __pyx_n_u_message __pyx_string_tab[153]
+#define __pyx_n_u_mkv __pyx_string_tab[154]
+#define __pyx_n_u_module __pyx_string_tab[155]
+#define __pyx_n_u_move_to_cache __pyx_string_tab[156]
+#define __pyx_n_u_mp3 __pyx_string_tab[157]
+#define __pyx_n_u_mp4 __pyx_string_tab[158]
+#define __pyx_n_u_name __pyx_string_tab[159]
+#define __pyx_n_u_next __pyx_string_tab[160]
+#define __pyx_n_u_ogg __pyx_string_tab[161]
+#define __pyx_n_u_on_event __pyx_string_tab[162]
+#define __pyx_n_u_opus __pyx_string_tab[163]
+#define __pyx_n_u_os __pyx_string_tab[164]
+#define __pyx_n_u_outtmpl __pyx_string_tab[165]
+#define __pyx_n_u_owner __pyx_string_tab[166]
+#define __pyx_n_u_path __pyx_string_tab[167]
+#define __pyx_n_u_pattern __pyx_string_tab[168]
+#define __pyx_n_u_patterns __pyx_string_tab[169]
+#define __pyx_n_u_pop __pyx_string_tab[170]
+#define __pyx_n_u_port __pyx_string_tab[171]
+#define __pyx_n_u_preferred __pyx_string_tab[172]
+#define __pyx_n_u_print __pyx_string_tab[173]
+#define __pyx_n_u_process __pyx_string_tab[174]
+#define __pyx_n_u_qualname __pyx_string_tab[175]
+#define __pyx_n_u_re __pyx_string_tab[176]
+#define __pyx_n_u_remove __pyx_string_tab[177]
+#define __pyx_n_u_replace __pyx_string_tab[178]
+#define __pyx_n_u_request __pyx_string_tab[179]
+#define __pyx_n_u_return __pyx_string_tab[180]
+#define __pyx_n_u_returncode __pyx_string_tab[181]
+#define __pyx_n_u_round __pyx_string_tab[182]
+#define __pyx_n_u_rsplit __pyx_string_tab[183]
+#define __pyx_n_u_run __pyx_string_tab[184]
+#define __pyx_n_u_s __pyx_string_tab[185]
+#define __pyx_n_u_saved __pyx_string_tab[186]
+#define __pyx_n_u_search __pyx_string_tab[187]
+#define __pyx_n_u_send __pyx_string_tab[188]
+#define __pyx_n_u_set_name __pyx_string_tab[189]
+#define __pyx_n_u_setdefault __pyx_string_tab[190]
+#define __pyx_n_u_socket __pyx_string_tab[191]
+#define __pyx_n_u_startswith __pyx_string_tab[192]
+#define __pyx_n_u_startup __pyx_string_tab[193]
+#define __pyx_n_u_stats_2 __pyx_string_tab[194]
+#define __pyx_n_u_status __pyx_string_tab[195]
+#define __pyx_n_u_status_code __pyx_string_tab[196]
+#define __pyx_n_u_stderr __pyx_string_tab[197]
+#define __pyx_n_u_stdout __pyx_string_tab[198]
+#define __pyx_n_u_str __pyx_string_tab[199]
+#define __pyx_n_u_stream_music __pyx_string_tab[200]
+#define __pyx_n_u_subprocess __pyx_string_tab[201]
+#define __pyx_n_u_success __pyx_string_tab[202]
+#define __pyx_n_u_sum __pyx_string_tab[203]
+#define __pyx_n_u_sys __pyx_string_tab[204]
+#define __pyx_n_u_test __pyx_string_tab[205]
+#define __pyx_n_u_throw __pyx_string_tab[206]
+#define __pyx_n_u_time __pyx_string_tab[207]
+#define __pyx_n_u_title __pyx_string_tab[208]
+#define __pyx_n_u_tmp_path __pyx_string_tab[209]
+#define __pyx_n_u_token __pyx_string_tab[210]
+#define __pyx_n_u_token_data __pyx_string_tab[211]
+#define __pyx_n_u_total_cache_size_mb __pyx_string_tab[212]
+#define __pyx_n_u_total_dl __pyx_string_tab[213]
+#define __pyx_n_u_total_downloads __pyx_string_tab[214]
+#define __pyx_n_u_total_song_downloads __pyx_string_tab[215]
+#define __pyx_n_u_type __pyx_string_tab[216]
+#define __pyx_n_u_uptime __pyx_string_tab[217]
+#define __pyx_n_u_url __pyx_string_tab[218]
+#define __pyx_n_u_usage __pyx_string_tab[219]
+#define __pyx_n_u_uuid __pyx_string_tab[220]
+#define __pyx_n_u_uuid4 __pyx_string_tab[221]
+#define __pyx_n_u_uvicorn __pyx_string_tab[222]
+#define __pyx_n_u_value __pyx_string_tab[223]
+#define __pyx_n_u_values __pyx_string_tab[224]
+#define __pyx_n_u_video_id __pyx_string_tab[225]
+#define __pyx_n_u_webm __pyx_string_tab[226]
+#define __pyx_n_u_x_download_token __pyx_string_tab[227]
+#define __pyx_n_u_yuki_token __pyx_string_tab[228]
+#define __pyx_kp_b_iso88591_0_V1 __pyx_string_tab[229]
+#define __pyx_kp_b_iso88591_A __pyx_string_tab[230]
+#define __pyx_kp_b_iso88591__6 __pyx_string_tab[231]
+#define __pyx_kp_b_iso88591__7 __pyx_string_tab[232]
+#define __pyx_kp_b_iso88591__8 __pyx_string_tab[233]
+#define __pyx_kp_b_iso88591_a_a_Qa __pyx_string_tab[234]
+#define __pyx_kp_b_iso88591_ha_2U_D_xq_A_haz_gQa __pyx_string_tab[235]
+#define __pyx_kp_b_iso88591_ha_wavZv_a_U_Kq_1_wavZv_a_b_1_q __pyx_string_tab[236]
+#define __pyx_kp_b_iso88591_r_q_q_q_1_1_1_5_aq_1 __pyx_string_tab[237]
+#define __pyx_kp_b_iso88591_uCq_q_xxwa_q_wa_q_r_e1Ks_AQ_2U __pyx_string_tab[238]
 #define __pyx_int_0 __pyx_number_tab[0]
 #define __pyx_int_1 __pyx_number_tab[1]
 #define __pyx_int_2 __pyx_number_tab[2]
@@ -3164,24 +3172,24 @@ static CYTHON_SMALL_CODE int __pyx_m_clear(PyObject *m) {
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   __Pyx_State_RemoveModule(NULL);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_defaults);
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup);
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home);
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats);
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr);
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token);
-  Py_CLEAR(clear_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music);
-  Py_CLEAR(clear_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_defaults);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_defaults);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_scope_struct__startup);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_scope_struct__startup);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_scope_struct_1_home);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_scope_struct_1_home);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_scope_struct_2_api_stats);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_scope_struct_2_api_stats);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_scope_struct_3_genexpr);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_scope_struct_3_genexpr);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_scope_struct_4_generate_token);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_scope_struct_4_generate_token);
+  Py_CLEAR(clear_module_state->__pyx_ptype_4main___pyx_scope_struct_5_stream_music);
+  Py_CLEAR(clear_module_state->__pyx_type_4main___pyx_scope_struct_5_stream_music);
   for (int i=0; i<2; ++i) { Py_CLEAR(clear_module_state->__pyx_slice[i]); }
   for (int i=0; i<6; ++i) { Py_CLEAR(clear_module_state->__pyx_tuple[i]); }
   for (int i=0; i<10; ++i) { Py_CLEAR(clear_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<238; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<239; ++i) { Py_CLEAR(clear_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<9; ++i) { Py_CLEAR(clear_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_clear_contents ### */
 /* CommonTypesMetaclass.module_state_clear */
@@ -3212,24 +3220,24 @@ static CYTHON_SMALL_CODE int __pyx_m_traverse(PyObject *m, visitproc visit, void
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_tuple);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_bytes);
   __Pyx_VISIT_CONST(traverse_module_state->__pyx_empty_unicode);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_defaults);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token);
-  Py_VISIT(traverse_module_state->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music);
-  Py_VISIT(traverse_module_state->__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_defaults);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_defaults);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_scope_struct__startup);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_scope_struct__startup);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_scope_struct_1_home);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_scope_struct_1_home);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_scope_struct_2_api_stats);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_scope_struct_2_api_stats);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_scope_struct_3_genexpr);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_scope_struct_3_genexpr);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_scope_struct_4_generate_token);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_scope_struct_4_generate_token);
+  Py_VISIT(traverse_module_state->__pyx_ptype_4main___pyx_scope_struct_5_stream_music);
+  Py_VISIT(traverse_module_state->__pyx_type_4main___pyx_scope_struct_5_stream_music);
   for (int i=0; i<2; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_slice[i]); }
   for (int i=0; i<6; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_tuple[i]); }
   for (int i=0; i<10; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_codeobj_tab[i]); }
-  for (int i=0; i<238; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
+  for (int i=0; i<239; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_string_tab[i]); }
   for (int i=0; i<9; ++i) { __Pyx_VISIT_CONST(traverse_module_state->__pyx_number_tab[i]); }
 /* #### Code section: module_state_traverse_contents ### */
 /* CommonTypesMetaclass.module_state_traverse */
@@ -3251,7 +3259,7 @@ return 0;
 #endif
 /* #### Code section: module_code ### */
 
-/* "YUKIYTAPI/main.py":43
+/* "main.py":43
  * 
  * 
  * def find_free_port(preferred: int) -> int:             # <<<<<<<<<<<<<<
@@ -3260,15 +3268,15 @@ return 0;
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_1find_free_port(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_1find_free_port(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_1find_free_port = {"find_free_port", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_1find_free_port, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_1find_free_port(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_1find_free_port = {"find_free_port", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_1find_free_port, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_1find_free_port(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3331,12 +3339,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_preferred), (&PyLong_Type), 0, "preferred", 2))) __PYX_ERR(0, 43, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_find_free_port(__pyx_self, __pyx_v_preferred);
+  __pyx_r = __pyx_pf_4main_find_free_port(__pyx_self, __pyx_v_preferred);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3355,7 +3363,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_preferred) {
+static PyObject *__pyx_pf_4main_find_free_port(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_preferred) {
   PyObject *__pyx_v_s = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3382,7 +3390,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("find_free_port", 0);
 
-  /* "YUKIYTAPI/main.py":44
+  /* "main.py":44
  * 
  * def find_free_port(preferred: int) -> int:
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:             # <<<<<<<<<<<<<<
@@ -3468,7 +3476,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
           __pyx_v_s = __pyx_t_5;
           __pyx_t_5 = 0;
 
-          /* "YUKIYTAPI/main.py":45
+          /* "main.py":45
  * def find_free_port(preferred: int) -> int:
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         try:             # <<<<<<<<<<<<<<
@@ -3484,7 +3492,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
             __Pyx_XGOTREF(__pyx_t_14);
             /*try:*/ {
 
-              /* "YUKIYTAPI/main.py":46
+              /* "main.py":46
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         try:
  *             s.bind(("0.0.0.0", preferred))             # <<<<<<<<<<<<<<
@@ -3512,7 +3520,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
               }
               __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-              /* "YUKIYTAPI/main.py":47
+              /* "main.py":47
  *         try:
  *             s.bind(("0.0.0.0", preferred))
  *             return preferred             # <<<<<<<<<<<<<<
@@ -3524,7 +3532,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
               __pyx_r = __pyx_v_preferred;
               goto __pyx_L17_try_return;
 
-              /* "YUKIYTAPI/main.py":45
+              /* "main.py":45
  * def find_free_port(preferred: int) -> int:
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         try:             # <<<<<<<<<<<<<<
@@ -3540,7 +3548,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
             __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
             __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-            /* "YUKIYTAPI/main.py":48
+            /* "main.py":48
  *             s.bind(("0.0.0.0", preferred))
  *             return preferred
  *         except OSError:             # <<<<<<<<<<<<<<
@@ -3554,7 +3562,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
             }
             goto __pyx_L15_except_error;
 
-            /* "YUKIYTAPI/main.py":45
+            /* "main.py":45
  * def find_free_port(preferred: int) -> int:
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         try:             # <<<<<<<<<<<<<<
@@ -3580,7 +3588,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
             __Pyx_ExceptionReset(__pyx_t_12, __pyx_t_13, __pyx_t_14);
           }
 
-          /* "YUKIYTAPI/main.py":44
+          /* "main.py":44
  * 
  * def find_free_port(preferred: int) -> int:
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:             # <<<<<<<<<<<<<<
@@ -3600,7 +3608,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         /*except:*/ {
-          __Pyx_AddTraceback("YUKIYTAPI.main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          __Pyx_AddTraceback("main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
           if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L9_except_error)
           __Pyx_XGOTREF(__pyx_t_5);
           __Pyx_XGOTREF(__pyx_t_4);
@@ -3683,7 +3691,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
     __pyx_L24:;
   }
 
-  /* "YUKIYTAPI/main.py":50
+  /* "main.py":50
  *         except OSError:
  *             pass
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:             # <<<<<<<<<<<<<<
@@ -3769,7 +3777,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
           __Pyx_XDECREF_SET(__pyx_v_s, __pyx_t_2);
           __pyx_t_2 = 0;
 
-          /* "YUKIYTAPI/main.py":51
+          /* "main.py":51
  *             pass
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         s.bind(("0.0.0.0", 0))             # <<<<<<<<<<<<<<
@@ -3788,7 +3796,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
           }
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-          /* "YUKIYTAPI/main.py":52
+          /* "main.py":52
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         s.bind(("0.0.0.0", 0))
  *         return s.getsockname()[1]             # <<<<<<<<<<<<<<
@@ -3814,7 +3822,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
           __pyx_t_1 = 0;
           goto __pyx_L33_try_return;
 
-          /* "YUKIYTAPI/main.py":50
+          /* "main.py":50
  *         except OSError:
  *             pass
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:             # <<<<<<<<<<<<<<
@@ -3830,7 +3838,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
         __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         /*except:*/ {
-          __Pyx_AddTraceback("YUKIYTAPI.main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          __Pyx_AddTraceback("main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
           if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_6) < 0) __PYX_ERR(0, 50, __pyx_L31_except_error)
           __Pyx_XGOTREF(__pyx_t_1);
           __Pyx_XGOTREF(__pyx_t_2);
@@ -3912,7 +3920,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
     __pyx_L38:;
   }
 
-  /* "YUKIYTAPI/main.py":43
+  /* "main.py":43
  * 
  * 
  * def find_free_port(preferred: int) -> int:             # <<<<<<<<<<<<<<
@@ -3930,7 +3938,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("YUKIYTAPI.main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.find_free_port", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_s);
@@ -3938,9 +3946,9 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_find_free_port(CYTHON_UNUSED PyObject
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_4main_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "YUKIYTAPI/main.py":55
+/* "main.py":55
  * 
  * 
  * @app.on_event("startup")             # <<<<<<<<<<<<<<
@@ -3949,39 +3957,39 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__p
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_3startup(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_3startup = {"startup", (PyCFunction)__pyx_pw_9YUKIYTAPI_4main_3startup, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_3startup(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_4main_3startup(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_4main_3startup = {"startup", (PyCFunction)__pyx_pw_4main_3startup, METH_NOARGS, 0};
+static PyObject *__pyx_pw_4main_3startup(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("startup (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_2startup(__pyx_self);
+  __pyx_r = __pyx_pf_4main_2startup(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_2startup(CYTHON_UNUSED PyObject *__pyx_self) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup *__pyx_cur_scope;
+static PyObject *__pyx_pf_4main_2startup(CYTHON_UNUSED PyObject *__pyx_self) {
+  struct __pyx_obj_4main___pyx_scope_struct__startup *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("startup", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct__startup(__pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4main___pyx_scope_struct__startup *)__pyx_tp_new_4main___pyx_scope_struct__startup(__pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct__startup, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct__startup *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 55, __pyx_L1_error)
   } else {
     __Pyx_GOTREF((PyObject *)__pyx_cur_scope);
   }
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_9YUKIYTAPI_4main_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_startup, __pyx_mstate_global->__pyx_n_u_startup, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main); if (unlikely(!gen)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4main_4generator, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_startup, __pyx_mstate_global->__pyx_n_u_startup, __pyx_mstate_global->__pyx_n_u_main); if (unlikely(!gen)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3989,7 +3997,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_2startup(CYTHON_UNUSED PyObject *__py
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("YUKIYTAPI.main.startup", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.startup", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -3997,7 +4005,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_2startup(CYTHON_UNUSED PyObject *__py
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_4main_4generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
@@ -4023,7 +4031,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__p
     __PYX_ERR(0, 55, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":57
+  /* "main.py":57
  * @app.on_event("startup")
  * async def startup():
  *     await init_db()             # <<<<<<<<<<<<<<
@@ -4073,7 +4081,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__p
     __PYX_ERR(0, 57, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":55
+  /* "main.py":55
  * 
  * 
  * @app.on_event("startup")             # <<<<<<<<<<<<<<
@@ -4103,7 +4111,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__p
   return __pyx_r;
 }
 
-/* "YUKIYTAPI/main.py":63
+/* "main.py":63
  * 
  * 
  * def extract_video_id(url: str) -> str:             # <<<<<<<<<<<<<<
@@ -4112,15 +4120,15 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_4generator(__pyx_CoroutineObject *__p
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_6extract_video_id(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_6extract_video_id(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_6extract_video_id = {"extract_video_id", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_6extract_video_id, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_6extract_video_id(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_6extract_video_id = {"extract_video_id", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_6extract_video_id, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_6extract_video_id(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4182,12 +4190,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.extract_video_id", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.extract_video_id", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 63, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_5extract_video_id(__pyx_self, __pyx_v_url);
+  __pyx_r = __pyx_pf_4main_5extract_video_id(__pyx_self, __pyx_v_url);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4206,7 +4214,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_url) {
+static PyObject *__pyx_pf_4main_5extract_video_id(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_url) {
   PyObject *__pyx_v_patterns = NULL;
   PyObject *__pyx_v_pattern = NULL;
   PyObject *__pyx_v_match = NULL;
@@ -4225,7 +4233,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("extract_video_id", 0);
 
-  /* "YUKIYTAPI/main.py":64
+  /* "main.py":64
  * 
  * def extract_video_id(url: str) -> str:
  *     if re.match(r'^[a-zA-Z0-9_-]{11}$', url):             # <<<<<<<<<<<<<<
@@ -4262,7 +4270,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
 
-    /* "YUKIYTAPI/main.py":65
+    /* "main.py":65
  * def extract_video_id(url: str) -> str:
  *     if re.match(r'^[a-zA-Z0-9_-]{11}$', url):
  *         return url             # <<<<<<<<<<<<<<
@@ -4274,7 +4282,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
     __pyx_r = __pyx_v_url;
     goto __pyx_L0;
 
-    /* "YUKIYTAPI/main.py":64
+    /* "main.py":64
  * 
  * def extract_video_id(url: str) -> str:
  *     if re.match(r'^[a-zA-Z0-9_-]{11}$', url):             # <<<<<<<<<<<<<<
@@ -4283,7 +4291,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
 */
   }
 
-  /* "YUKIYTAPI/main.py":67
+  /* "main.py":67
  *         return url
  * 
  *     patterns = [             # <<<<<<<<<<<<<<
@@ -4310,7 +4318,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   __pyx_v_patterns = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":74
+  /* "main.py":74
  *         r'/live/([a-zA-Z0-9_-]{11})',
  *     ]
  *     for pattern in patterns:             # <<<<<<<<<<<<<<
@@ -4334,7 +4342,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_pattern, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "YUKIYTAPI/main.py":75
+    /* "main.py":75
  *     ]
  *     for pattern in patterns:
  *         match = re.search(pattern, url)             # <<<<<<<<<<<<<<
@@ -4370,7 +4378,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_match, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "YUKIYTAPI/main.py":76
+    /* "main.py":76
  *     for pattern in patterns:
  *         match = re.search(pattern, url)
  *         if match:             # <<<<<<<<<<<<<<
@@ -4380,7 +4388,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
     __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_v_match); if (unlikely((__pyx_t_6 < 0))) __PYX_ERR(0, 76, __pyx_L1_error)
     if (__pyx_t_6) {
 
-      /* "YUKIYTAPI/main.py":77
+      /* "main.py":77
  *         match = re.search(pattern, url)
  *         if match:
  *             return match.group(1)             # <<<<<<<<<<<<<<
@@ -4404,7 +4412,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L0;
 
-      /* "YUKIYTAPI/main.py":76
+      /* "main.py":76
  *     for pattern in patterns:
  *         match = re.search(pattern, url)
  *         if match:             # <<<<<<<<<<<<<<
@@ -4413,7 +4421,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
 */
     }
 
-    /* "YUKIYTAPI/main.py":74
+    /* "main.py":74
  *         r'/live/([a-zA-Z0-9_-]{11})',
  *     ]
  *     for pattern in patterns:             # <<<<<<<<<<<<<<
@@ -4423,7 +4431,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":79
+  /* "main.py":79
  *             return match.group(1)
  * 
  *     return url             # <<<<<<<<<<<<<<
@@ -4435,7 +4443,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   __pyx_r = __pyx_v_url;
   goto __pyx_L0;
 
-  /* "YUKIYTAPI/main.py":63
+  /* "main.py":63
  * 
  * 
  * def extract_video_id(url: str) -> str:             # <<<<<<<<<<<<<<
@@ -4450,7 +4458,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("YUKIYTAPI.main.extract_video_id", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.extract_video_id", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_patterns);
@@ -4461,7 +4469,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "YUKIYTAPI/main.py":82
+/* "main.py":82
  * 
  * 
  * def find_cached_file(video_id: str, type: str) -> str | None:             # <<<<<<<<<<<<<<
@@ -4470,15 +4478,15 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_5extract_video_id(CYTHON_UNUSED PyObj
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_8find_cached_file(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_8find_cached_file(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_8find_cached_file = {"find_cached_file", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_8find_cached_file, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_8find_cached_file(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_8find_cached_file = {"find_cached_file", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_8find_cached_file, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_8find_cached_file(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4548,13 +4556,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.find_cached_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.find_cached_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_video_id), (&PyUnicode_Type), 0, "video_id", 2))) __PYX_ERR(0, 82, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type), (&PyUnicode_Type), 0, "type", 2))) __PYX_ERR(0, 82, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_7find_cached_file(__pyx_self, __pyx_v_video_id, __pyx_v_type);
+  __pyx_r = __pyx_pf_4main_7find_cached_file(__pyx_self, __pyx_v_video_id, __pyx_v_type);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4573,7 +4581,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_video_id, PyObject *__pyx_v_type) {
+static PyObject *__pyx_pf_4main_7find_cached_file(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_video_id, PyObject *__pyx_v_type) {
   PyObject *__pyx_v_exts = NULL;
   PyObject *__pyx_v_ext = NULL;
   PyObject *__pyx_v_path = NULL;
@@ -4596,7 +4604,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("find_cached_file", 0);
 
-  /* "YUKIYTAPI/main.py":83
+  /* "main.py":83
  * 
  * def find_cached_file(video_id: str, type: str) -> str | None:
  *     if type == "audio":             # <<<<<<<<<<<<<<
@@ -4606,7 +4614,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   __pyx_t_1 = (__Pyx_PyUnicode_Equals(__pyx_v_type, __pyx_mstate_global->__pyx_n_u_audio, Py_EQ)); if (unlikely((__pyx_t_1 < 0))) __PYX_ERR(0, 83, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "YUKIYTAPI/main.py":84
+    /* "main.py":84
  * def find_cached_file(video_id: str, type: str) -> str | None:
  *     if type == "audio":
  *         exts = ["m4a", "opus", "webm", "mp3", "ogg"]             # <<<<<<<<<<<<<<
@@ -4633,7 +4641,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
     __pyx_v_exts = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":83
+    /* "main.py":83
  * 
  * def find_cached_file(video_id: str, type: str) -> str | None:
  *     if type == "audio":             # <<<<<<<<<<<<<<
@@ -4643,7 +4651,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
     goto __pyx_L3;
   }
 
-  /* "YUKIYTAPI/main.py":86
+  /* "main.py":86
  *         exts = ["m4a", "opus", "webm", "mp3", "ogg"]
  *     else:
  *         exts = ["mp4", "mkv", "webm"]             # <<<<<<<<<<<<<<
@@ -4667,7 +4675,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   }
   __pyx_L3:;
 
-  /* "YUKIYTAPI/main.py":88
+  /* "main.py":88
  *         exts = ["mp4", "mkv", "webm"]
  * 
  *     for ext in exts:             # <<<<<<<<<<<<<<
@@ -4691,7 +4699,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_ext, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "YUKIYTAPI/main.py":89
+    /* "main.py":89
  * 
  *     for ext in exts:
  *         path = os.path.join(CACHE_DIR, f"{video_id}.{ext}")             # <<<<<<<<<<<<<<
@@ -4730,7 +4738,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
     __Pyx_XDECREF_SET(__pyx_v_path, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "YUKIYTAPI/main.py":90
+    /* "main.py":90
  *     for ext in exts:
  *         path = os.path.join(CACHE_DIR, f"{video_id}.{ext}")
  *         if os.path.exists(path) and os.path.getsize(path) > 0:             # <<<<<<<<<<<<<<
@@ -4784,7 +4792,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "YUKIYTAPI/main.py":91
+      /* "main.py":91
  *         path = os.path.join(CACHE_DIR, f"{video_id}.{ext}")
  *         if os.path.exists(path) and os.path.getsize(path) > 0:
  *             return path             # <<<<<<<<<<<<<<
@@ -4800,7 +4808,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       goto __pyx_L0;
 
-      /* "YUKIYTAPI/main.py":90
+      /* "main.py":90
  *     for ext in exts:
  *         path = os.path.join(CACHE_DIR, f"{video_id}.{ext}")
  *         if os.path.exists(path) and os.path.getsize(path) > 0:             # <<<<<<<<<<<<<<
@@ -4809,7 +4817,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
 */
     }
 
-    /* "YUKIYTAPI/main.py":88
+    /* "main.py":88
  *         exts = ["mp4", "mkv", "webm"]
  * 
  *     for ext in exts:             # <<<<<<<<<<<<<<
@@ -4819,7 +4827,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":92
+  /* "main.py":92
  *         if os.path.exists(path) and os.path.getsize(path) > 0:
  *             return path
  *     return None             # <<<<<<<<<<<<<<
@@ -4830,7 +4838,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   __pyx_r = ((PyObject*)Py_None); __Pyx_INCREF(Py_None);
   goto __pyx_L0;
 
-  /* "YUKIYTAPI/main.py":82
+  /* "main.py":82
  * 
  * 
  * def find_cached_file(video_id: str, type: str) -> str | None:             # <<<<<<<<<<<<<<
@@ -4847,7 +4855,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("YUKIYTAPI.main.find_cached_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.find_cached_file", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_exts);
@@ -4858,7 +4866,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "YUKIYTAPI/main.py":95
+/* "main.py":95
  * 
  * 
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:             # <<<<<<<<<<<<<<
@@ -4867,15 +4875,15 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_7find_cached_file(CYTHON_UNUSED PyObj
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_10_move_to_cache(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_10_move_to_cache(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_10_move_to_cache = {"_move_to_cache", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_10_move_to_cache, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_10_move_to_cache(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_10_move_to_cache = {"_move_to_cache", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_10_move_to_cache, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_10_move_to_cache(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4945,13 +4953,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main._move_to_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main._move_to_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_tmp_path), (&PyUnicode_Type), 0, "tmp_path", 2))) __PYX_ERR(0, 95, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_cache_path), (&PyUnicode_Type), 0, "cache_path", 2))) __PYX_ERR(0, 95, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(__pyx_self, __pyx_v_tmp_path, __pyx_v_cache_path);
+  __pyx_r = __pyx_pf_4main_9_move_to_cache(__pyx_self, __pyx_v_tmp_path, __pyx_v_cache_path);
 
   /* function exit code */
   goto __pyx_L0;
@@ -4970,7 +4978,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_tmp_path, PyObject *__pyx_v_cache_path) {
+static PyObject *__pyx_pf_4main_9_move_to_cache(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_tmp_path, PyObject *__pyx_v_cache_path) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4995,7 +5003,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_move_to_cache", 0);
 
-  /* "YUKIYTAPI/main.py":96
+  /* "main.py":96
  * 
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:
  *     try:             # <<<<<<<<<<<<<<
@@ -5011,7 +5019,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "YUKIYTAPI/main.py":97
+      /* "main.py":97
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:
  *     try:
  *         if os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:             # <<<<<<<<<<<<<<
@@ -5065,7 +5073,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
       __pyx_L10_bool_binop_done:;
       if (__pyx_t_4) {
 
-        /* "YUKIYTAPI/main.py":98
+        /* "main.py":98
  *     try:
  *         if os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:
  *             os.replace(tmp_path, cache_path)             # <<<<<<<<<<<<<<
@@ -5100,7 +5108,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
         }
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "YUKIYTAPI/main.py":97
+        /* "main.py":97
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:
  *     try:
  *         if os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:             # <<<<<<<<<<<<<<
@@ -5109,7 +5117,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
 */
       }
 
-      /* "YUKIYTAPI/main.py":96
+      /* "main.py":96
  * 
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:
  *     try:             # <<<<<<<<<<<<<<
@@ -5127,7 +5135,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "YUKIYTAPI/main.py":99
+    /* "main.py":99
  *         if os.path.exists(tmp_path) and os.path.getsize(tmp_path) > 0:
  *             os.replace(tmp_path, cache_path)
  *     except Exception:             # <<<<<<<<<<<<<<
@@ -5136,13 +5144,13 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
 */
     __pyx_t_11 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_11) {
-      __Pyx_AddTraceback("YUKIYTAPI.main._move_to_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("main._move_to_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_6, &__pyx_t_5) < 0) __PYX_ERR(0, 99, __pyx_L5_except_error)
       __Pyx_XGOTREF(__pyx_t_7);
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_5);
 
-      /* "YUKIYTAPI/main.py":100
+      /* "main.py":100
  *             os.replace(tmp_path, cache_path)
  *     except Exception:
  *         try:             # <<<<<<<<<<<<<<
@@ -5158,7 +5166,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
         __Pyx_XGOTREF(__pyx_t_14);
         /*try:*/ {
 
-          /* "YUKIYTAPI/main.py":101
+          /* "main.py":101
  *     except Exception:
  *         try:
  *             os.remove(tmp_path)             # <<<<<<<<<<<<<<
@@ -5193,7 +5201,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
           }
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-          /* "YUKIYTAPI/main.py":100
+          /* "main.py":100
  *             os.replace(tmp_path, cache_path)
  *     except Exception:
  *         try:             # <<<<<<<<<<<<<<
@@ -5211,7 +5219,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
         __Pyx_XDECREF(__pyx_t_17); __pyx_t_17 = 0;
         __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-        /* "YUKIYTAPI/main.py":102
+        /* "main.py":102
  *         try:
  *             os.remove(tmp_path)
  *         except Exception:             # <<<<<<<<<<<<<<
@@ -5225,7 +5233,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
         }
         goto __pyx_L16_except_error;
 
-        /* "YUKIYTAPI/main.py":100
+        /* "main.py":100
  *             os.replace(tmp_path, cache_path)
  *     except Exception:
  *         try:             # <<<<<<<<<<<<<<
@@ -5252,7 +5260,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
     }
     goto __pyx_L5_except_error;
 
-    /* "YUKIYTAPI/main.py":96
+    /* "main.py":96
  * 
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:
  *     try:             # <<<<<<<<<<<<<<
@@ -5273,7 +5281,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
     __pyx_L8_try_end:;
   }
 
-  /* "YUKIYTAPI/main.py":95
+  /* "main.py":95
  * 
  * 
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:             # <<<<<<<<<<<<<<
@@ -5292,16 +5300,16 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9_move_to_cache(CYTHON_UNUSED PyObjec
   __Pyx_XDECREF(__pyx_t_15);
   __Pyx_XDECREF(__pyx_t_16);
   __Pyx_XDECREF(__pyx_t_17);
-  __Pyx_AddTraceback("YUKIYTAPI.main._move_to_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main._move_to_cache", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_4main_13generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "YUKIYTAPI/main.py":106
+/* "main.py":106
  * 
  * 
  * @app.get("/")             # <<<<<<<<<<<<<<
@@ -5310,15 +5318,15 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_12home(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_12home(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_12home = {"home", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_12home, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_12home(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_12home = {"home", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_12home, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_12home(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5380,11 +5388,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.home", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.home", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_11home(__pyx_self, __pyx_v_request);
+  __pyx_r = __pyx_pf_4main_11home(__pyx_self, __pyx_v_request);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -5394,17 +5402,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_11home(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *__pyx_cur_scope;
+static PyObject *__pyx_pf_4main_11home(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request) {
+  struct __pyx_obj_4main___pyx_scope_struct_1_home *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("home", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_1_home(__pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4main___pyx_scope_struct_1_home *)__pyx_tp_new_4main___pyx_scope_struct_1_home(__pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_1_home, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_1_home *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 106, __pyx_L1_error)
   } else {
@@ -5414,7 +5422,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_11home(CYTHON_UNUSED PyObject *__pyx_
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_request);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_request);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_9YUKIYTAPI_4main_13generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_home, __pyx_mstate_global->__pyx_n_u_home, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main); if (unlikely(!gen)) __PYX_ERR(0, 106, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4main_13generator1, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_home, __pyx_mstate_global->__pyx_n_u_home, __pyx_mstate_global->__pyx_n_u_main); if (unlikely(!gen)) __PYX_ERR(0, 106, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5422,7 +5430,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_11home(CYTHON_UNUSED PyObject *__pyx_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("YUKIYTAPI.main.home", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.home", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -5430,9 +5438,9 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_11home(CYTHON_UNUSED PyObject *__pyx_
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_4main_13generator1(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *__pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *)__pyx_generator->closure);
+  struct __pyx_obj_4main___pyx_scope_struct_1_home *__pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_1_home *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -5458,7 +5466,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
     __PYX_ERR(0, 106, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":108
+  /* "main.py":108
  * @app.get("/")
  * async def home(request: Request):
  *     uptime = round(time.time() - START_TIME, 2)             # <<<<<<<<<<<<<<
@@ -5511,7 +5519,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_uptime = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":109
+  /* "main.py":109
  * async def home(request: Request):
  *     uptime = round(time.time() - START_TIME, 2)
  *     return JSONResponse({             # <<<<<<<<<<<<<<
@@ -5523,7 +5531,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_JSONResponse); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "YUKIYTAPI/main.py":110
+  /* "main.py":110
  *     uptime = round(time.time() - START_TIME, 2)
  *     return JSONResponse({
  *         "status":  "Running...",             # <<<<<<<<<<<<<<
@@ -5535,7 +5543,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
   if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_status, __pyx_mstate_global->__pyx_kp_u_Running) < (0)) __PYX_ERR(0, 110, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_owner, __pyx_mstate_global->__pyx_n_u_YUKIMUSIC) < (0)) __PYX_ERR(0, 110, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":112
+  /* "main.py":112
  *         "status":  "Running...",
  *         "owner":   "YUKIMUSIC",
  *         "uptime":  f"{uptime}s",             # <<<<<<<<<<<<<<
@@ -5576,7 +5584,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "YUKIYTAPI/main.py":106
+  /* "main.py":106
  * 
  * 
  * @app.get("/")             # <<<<<<<<<<<<<<
@@ -5606,9 +5614,9 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_13generator1(__pyx_CoroutineObject *_
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_4main_16generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "YUKIYTAPI/main.py":117
+/* "main.py":117
  * 
  * 
  * @app.get("/stats")             # <<<<<<<<<<<<<<
@@ -5617,15 +5625,15 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_15api_stats(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_15api_stats(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_15api_stats = {"api_stats", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_15api_stats, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_15api_stats(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_15api_stats = {"api_stats", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_15api_stats, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_15api_stats(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5687,11 +5695,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.api_stats", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.api_stats", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_14api_stats(__pyx_self, __pyx_v_request);
+  __pyx_r = __pyx_pf_4main_14api_stats(__pyx_self, __pyx_v_request);
 
   /* function exit code */
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
@@ -5700,9 +5708,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_4main_9api_stats_2generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "YUKIYTAPI/main.py":121
+/* "main.py":121
  *     stats = await get_stats()
  *     total_dl = stats.get("total_downloads", 0)
  *     cache_size = sum(os.path.getsize(os.path.join(CACHE_DIR, f)) for f in os.listdir(CACHE_DIR) if os.path.isfile(os.path.join(CACHE_DIR, f)))             # <<<<<<<<<<<<<<
@@ -5710,17 +5718,17 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5(__pyx_Coroutin
  *     return JSONResponse({
 */
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_9api_stats_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *__pyx_cur_scope;
+static PyObject *__pyx_pf_4main_9api_stats_genexpr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_genexpr_arg_0) {
+  struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("genexpr", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(__pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *)__pyx_tp_new_4main___pyx_scope_struct_3_genexpr(__pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_3_genexpr, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 121, __pyx_L1_error)
   } else {
@@ -5730,7 +5738,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9api_stats_genexpr(CYTHON_UNUSED PyOb
   __Pyx_INCREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_genexpr_arg_0);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_api_stats_locals_genexpr, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main); if (unlikely(!gen)) __PYX_ERR(0, 121, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_4main_9api_stats_2generator5, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_genexpr, __pyx_mstate_global->__pyx_n_u_api_stats_locals_genexpr, __pyx_mstate_global->__pyx_n_u_main); if (unlikely(!gen)) __PYX_ERR(0, 121, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5738,7 +5746,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9api_stats_genexpr(CYTHON_UNUSED PyOb
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("YUKIYTAPI.main.api_stats.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.api_stats.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -5746,9 +5754,9 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_9api_stats_genexpr(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_4main_9api_stats_2generator5(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *__pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *)__pyx_generator->closure);
+  struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *__pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
@@ -5959,7 +5967,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5(__pyx_Coroutin
   return __pyx_r;
 }
 
-/* "YUKIYTAPI/main.py":117
+/* "main.py":117
  * 
  * 
  * @app.get("/stats")             # <<<<<<<<<<<<<<
@@ -5967,18 +5975,18 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5(__pyx_Coroutin
  *     stats = await get_stats()
 */
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_14api_stats(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *__pyx_cur_scope;
-  PyObject *__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5 = 0;
+static PyObject *__pyx_pf_4main_14api_stats(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request) {
+  struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *__pyx_cur_scope;
+  PyObject *__pyx_gb_4main_9api_stats_2generator5 = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("api_stats", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(__pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *)__pyx_tp_new_4main___pyx_scope_struct_2_api_stats(__pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_2_api_stats, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 117, __pyx_L1_error)
   } else {
@@ -5988,7 +5996,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_14api_stats(CYTHON_UNUSED PyObject *_
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_request);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_request);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_9YUKIYTAPI_4main_16generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_api_stats, __pyx_mstate_global->__pyx_n_u_api_stats, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main); if (unlikely(!gen)) __PYX_ERR(0, 117, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4main_16generator2, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_api_stats, __pyx_mstate_global->__pyx_n_u_api_stats, __pyx_mstate_global->__pyx_n_u_main); if (unlikely(!gen)) __PYX_ERR(0, 117, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -5996,18 +6004,18 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_14api_stats(CYTHON_UNUSED PyObject *_
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("YUKIYTAPI.main.api_stats", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.api_stats", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
-  __Pyx_XDECREF(__pyx_gb_9YUKIYTAPI_4main_9api_stats_2generator5);
+  __Pyx_XDECREF(__pyx_gb_4main_9api_stats_2generator5);
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_4main_16generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *__pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *)__pyx_generator->closure);
+  struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *__pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -6036,7 +6044,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
     __PYX_ERR(0, 117, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":119
+  /* "main.py":119
  * @app.get("/stats")
  * async def api_stats(request: Request):
  *     stats = await get_stats()             # <<<<<<<<<<<<<<
@@ -6090,7 +6098,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_stats = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":120
+  /* "main.py":120
  * async def api_stats(request: Request):
  *     stats = await get_stats()
  *     total_dl = stats.get("total_downloads", 0)             # <<<<<<<<<<<<<<
@@ -6106,7 +6114,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_total_dl = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "YUKIYTAPI/main.py":121
+  /* "main.py":121
  *     stats = await get_stats()
  *     total_dl = stats.get("total_downloads", 0)
  *     cache_size = sum(os.path.getsize(os.path.join(CACHE_DIR, f)) for f in os.listdir(CACHE_DIR) if os.path.isfile(os.path.join(CACHE_DIR, f)))             # <<<<<<<<<<<<<<
@@ -6143,7 +6151,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
     if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_8 = __pyx_pf_9YUKIYTAPI_4main_9api_stats_genexpr(NULL, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_8 = __pyx_pf_4main_9api_stats_genexpr(NULL, __pyx_t_2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = 1;
@@ -6159,7 +6167,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_cache_size = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "YUKIYTAPI/main.py":122
+  /* "main.py":122
  *     total_dl = stats.get("total_downloads", 0)
  *     cache_size = sum(os.path.getsize(os.path.join(CACHE_DIR, f)) for f in os.listdir(CACHE_DIR) if os.path.isfile(os.path.join(CACHE_DIR, f)))
  *     cache_mb = round(cache_size / (1024 * 1024), 2)             # <<<<<<<<<<<<<<
@@ -6182,7 +6190,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_cache_mb = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "YUKIYTAPI/main.py":123
+  /* "main.py":123
  *     cache_size = sum(os.path.getsize(os.path.join(CACHE_DIR, f)) for f in os.listdir(CACHE_DIR) if os.path.isfile(os.path.join(CACHE_DIR, f)))
  *     cache_mb = round(cache_size / (1024 * 1024), 2)
  *     return JSONResponse({             # <<<<<<<<<<<<<<
@@ -6194,7 +6202,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_JSONResponse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
 
-  /* "YUKIYTAPI/main.py":124
+  /* "main.py":124
  *     cache_mb = round(cache_size / (1024 * 1024), 2)
  *     return JSONResponse({
  *         "status":               "success",             # <<<<<<<<<<<<<<
@@ -6205,7 +6213,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_status, __pyx_mstate_global->__pyx_n_u_success) < (0)) __PYX_ERR(0, 124, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":125
+  /* "main.py":125
  *     return JSONResponse({
  *         "status":               "success",
  *         "total_song_downloads": total_dl,             # <<<<<<<<<<<<<<
@@ -6214,7 +6222,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
 */
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_total_song_downloads, __pyx_cur_scope->__pyx_v_total_dl) < (0)) __PYX_ERR(0, 124, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":126
+  /* "main.py":126
  *         "status":               "success",
  *         "total_song_downloads": total_dl,
  *         "total_cache_size_mb":  cache_mb,             # <<<<<<<<<<<<<<
@@ -6223,7 +6231,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
 */
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_total_cache_size_mb, __pyx_cur_scope->__pyx_v_cache_mb) < (0)) __PYX_ERR(0, 124, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":127
+  /* "main.py":127
  *         "total_song_downloads": total_dl,
  *         "total_cache_size_mb":  cache_mb,
  *         "active_tokens":        len(TOKENS),             # <<<<<<<<<<<<<<
@@ -6264,7 +6272,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "YUKIYTAPI/main.py":117
+  /* "main.py":117
  * 
  * 
  * @app.get("/stats")             # <<<<<<<<<<<<<<
@@ -6294,9 +6302,9 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_16generator2(__pyx_CoroutineObject *_
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_4main_19generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "YUKIYTAPI/main.py":131
+/* "main.py":131
  * 
  * 
  * @app.get("/download")             # <<<<<<<<<<<<<<
@@ -6305,15 +6313,15 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
 */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_18generate_token(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_18generate_token(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_18generate_token = {"generate_token", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_18generate_token, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_18generate_token(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_18generate_token = {"generate_token", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_18generate_token, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_18generate_token(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6398,13 +6406,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.generate_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.generate_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 2))) __PYX_ERR(0, 132, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type), (&PyUnicode_Type), 0, "type", 2))) __PYX_ERR(0, 132, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_17generate_token(__pyx_self, __pyx_v_request, __pyx_v_url, __pyx_v_type);
+  __pyx_r = __pyx_pf_4main_17generate_token(__pyx_self, __pyx_v_request, __pyx_v_url, __pyx_v_type);
 
   /* function exit code */
   goto __pyx_L0;
@@ -6423,17 +6431,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_17generate_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_url, PyObject *__pyx_v_type) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *__pyx_cur_scope;
+static PyObject *__pyx_pf_4main_17generate_token(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_url, PyObject *__pyx_v_type) {
+  struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("generate_token", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token(__pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *)__pyx_tp_new_4main___pyx_scope_struct_4_generate_token(__pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_4_generate_token, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 131, __pyx_L1_error)
   } else {
@@ -6449,7 +6457,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_17generate_token(CYTHON_UNUSED PyObje
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_type);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_type);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_9YUKIYTAPI_4main_19generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main); if (unlikely(!gen)) __PYX_ERR(0, 131, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4main_19generator3, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_mstate_global->__pyx_n_u_main); if (unlikely(!gen)) __PYX_ERR(0, 131, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6457,7 +6465,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_17generate_token(CYTHON_UNUSED PyObje
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("YUKIYTAPI.main.generate_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.generate_token", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -6465,9 +6473,9 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_17generate_token(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_4main_19generator3(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *__pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *)__pyx_generator->closure);
+  struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *__pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -6493,7 +6501,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
     __PYX_ERR(0, 131, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":133
+  /* "main.py":133
  * @app.get("/download")
  * async def generate_token(request: Request, url: str, type: str = "audio"):
  *     video_id   = extract_video_id(url)             # <<<<<<<<<<<<<<
@@ -6527,7 +6535,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_video_id = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":134
+  /* "main.py":134
  * async def generate_token(request: Request, url: str, type: str = "audio"):
  *     video_id   = extract_video_id(url)
  *     yuki_token = f"YUKIMusic{uuid.uuid4().hex[:16]}YukiBots"             # <<<<<<<<<<<<<<
@@ -6562,7 +6570,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_yuki_token = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":136
+  /* "main.py":136
  *     yuki_token = f"YUKIMusic{uuid.uuid4().hex[:16]}YukiBots"
  *     TOKENS[yuki_token] = {
  *         "video_id": video_id,             # <<<<<<<<<<<<<<
@@ -6573,7 +6581,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_video_id, __pyx_cur_scope->__pyx_v_video_id) < (0)) __PYX_ERR(0, 136, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":137
+  /* "main.py":137
  *     TOKENS[yuki_token] = {
  *         "video_id": video_id,
  *         "type":     type,             # <<<<<<<<<<<<<<
@@ -6582,7 +6590,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
 */
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_type, __pyx_cur_scope->__pyx_v_type) < (0)) __PYX_ERR(0, 136, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":138
+  /* "main.py":138
  *         "video_id": video_id,
  *         "type":     type,
  *         "expires":  time.time() + 300,             # <<<<<<<<<<<<<<
@@ -6621,7 +6629,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_expires, __pyx_t_7) < (0)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "YUKIYTAPI/main.py":135
+  /* "main.py":135
  *     video_id   = extract_video_id(url)
  *     yuki_token = f"YUKIMusic{uuid.uuid4().hex[:16]}YukiBots"
  *     TOKENS[yuki_token] = {             # <<<<<<<<<<<<<<
@@ -6634,7 +6642,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":140
+  /* "main.py":140
  *         "expires":  time.time() + 300,
  *     }
  *     return JSONResponse({             # <<<<<<<<<<<<<<
@@ -6646,7 +6654,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_JSONResponse); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "YUKIYTAPI/main.py":141
+  /* "main.py":141
  *     }
  *     return JSONResponse({
  *         "status":         "success",             # <<<<<<<<<<<<<<
@@ -6657,7 +6665,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_status, __pyx_mstate_global->__pyx_n_u_success) < (0)) __PYX_ERR(0, 141, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":142
+  /* "main.py":142
  *     return JSONResponse({
  *         "status":         "success",
  *         "video_id":       video_id,             # <<<<<<<<<<<<<<
@@ -6666,7 +6674,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
 */
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_video_id, __pyx_cur_scope->__pyx_v_video_id) < (0)) __PYX_ERR(0, 141, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":143
+  /* "main.py":143
  *         "status":         "success",
  *         "video_id":       video_id,
  *         "download_token": yuki_token,             # <<<<<<<<<<<<<<
@@ -6701,7 +6709,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "YUKIYTAPI/main.py":131
+  /* "main.py":131
  * 
  * 
  * @app.get("/download")             # <<<<<<<<<<<<<<
@@ -6730,9 +6738,9 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_19generator3(__pyx_CoroutineObject *_
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_4main_22generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "YUKIYTAPI/main.py":148
+/* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
@@ -6740,7 +6748,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
  *     request:          Request,
 */
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_4main_23__defaults__(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6751,11 +6759,11 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_23__defaults__(CYTHON_UNUSED PyObject
   __Pyx_RefNannySetupContext("__defaults__", 0);
   __Pyx_XDECREF(__pyx_r);
 
-  /* "YUKIYTAPI/main.py":154
+  /* "main.py":154
  *     background_tasks: BackgroundTasks,
  *     type:             str = "audio",
  *     token:            str = None,             # <<<<<<<<<<<<<<
- *     x_download_token: str = Header(None),
+ *     x_download_token = Header(None),
  * ):
 */
   __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
@@ -6770,7 +6778,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_23__defaults__(CYTHON_UNUSED PyObject
   __Pyx_GIVEREF(__Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0);
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_1, 2, __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_self)->arg0) != (0)) __PYX_ERR(0, 148, __pyx_L1_error);
 
-  /* "YUKIYTAPI/main.py":148
+  /* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
@@ -6793,7 +6801,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_23__defaults__(CYTHON_UNUSED PyObject
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("YUKIYTAPI.main.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.__defaults__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6802,15 +6810,15 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_23__defaults__(CYTHON_UNUSED PyObject
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_21stream_music(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_4main_21stream_music(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9YUKIYTAPI_4main_21stream_music = {"stream_music", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9YUKIYTAPI_4main_21stream_music, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9YUKIYTAPI_4main_21stream_music(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_4main_21stream_music = {"stream_music", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_4main_21stream_music, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_4main_21stream_music(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6880,11 +6888,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "stream_music", 0) < (0)) __PYX_ERR(0, 148, __pyx_L3_error)
       if (!values[3]) values[3] = __Pyx_NewRef(((PyObject*)((PyObject*)__pyx_mstate_global->__pyx_n_u_audio)));
 
-      /* "YUKIYTAPI/main.py":154
+      /* "main.py":154
  *     background_tasks: BackgroundTasks,
  *     type:             str = "audio",
  *     token:            str = None,             # <<<<<<<<<<<<<<
- *     x_download_token: str = Header(None),
+ *     x_download_token = Header(None),
  * ):
 */
       if (!values[4]) values[4] = __Pyx_NewRef(((PyObject*)Py_None));
@@ -6925,7 +6933,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
     __pyx_v_background_tasks = values[2];
     __pyx_v_type = ((PyObject*)values[3]);
     __pyx_v_token = ((PyObject*)values[4]);
-    __pyx_v_x_download_token = ((PyObject*)values[5]);
+    __pyx_v_x_download_token = values[5];
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
@@ -6936,17 +6944,16 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
     Py_XDECREF(values[__pyx_temp]);
   }
-  __Pyx_AddTraceback("YUKIYTAPI.main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_video_id), (&PyUnicode_Type), 0, "video_id", 2))) __PYX_ERR(0, 151, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type), (&PyUnicode_Type), 0, "type", 2))) __PYX_ERR(0, 153, __pyx_L1_error)
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_token), (&PyUnicode_Type), 1, "token", 2))) __PYX_ERR(0, 154, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_x_download_token), (&PyUnicode_Type), 0, "x_download_token", 2))) __PYX_ERR(0, 155, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9YUKIYTAPI_4main_20stream_music(__pyx_self, __pyx_v_request, __pyx_v_video_id, __pyx_v_background_tasks, __pyx_v_type, __pyx_v_token, __pyx_v_x_download_token);
+  __pyx_r = __pyx_pf_4main_20stream_music(__pyx_self, __pyx_v_request, __pyx_v_video_id, __pyx_v_background_tasks, __pyx_v_type, __pyx_v_token, __pyx_v_x_download_token);
 
-  /* "YUKIYTAPI/main.py":148
+  /* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
@@ -6971,17 +6978,17 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9YUKIYTAPI_4main_20stream_music(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_video_id, PyObject *__pyx_v_background_tasks, PyObject *__pyx_v_type, PyObject *__pyx_v_token, PyObject *__pyx_v_x_download_token) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *__pyx_cur_scope;
+static PyObject *__pyx_pf_4main_20stream_music(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_request, PyObject *__pyx_v_video_id, PyObject *__pyx_v_background_tasks, PyObject *__pyx_v_type, PyObject *__pyx_v_token, PyObject *__pyx_v_x_download_token) {
+  struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("stream_music", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(__pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music, __pyx_mstate_global->__pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *)__pyx_tp_new_4main___pyx_scope_struct_5_stream_music(__pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_5_stream_music, __pyx_mstate_global->__pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 148, __pyx_L1_error)
   } else {
@@ -7006,7 +7013,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_20stream_music(CYTHON_UNUSED PyObject
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_x_download_token);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_x_download_token);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_9YUKIYTAPI_4main_22generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_stream_music, __pyx_mstate_global->__pyx_n_u_stream_music, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main); if (unlikely(!gen)) __PYX_ERR(0, 148, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Coroutine_New((__pyx_coroutine_body_t) __pyx_gb_4main_22generator4, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5]), (PyObject *) __pyx_cur_scope, __pyx_mstate_global->__pyx_n_u_stream_music, __pyx_mstate_global->__pyx_n_u_stream_music, __pyx_mstate_global->__pyx_n_u_main); if (unlikely(!gen)) __PYX_ERR(0, 148, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -7014,7 +7021,7 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_20stream_music(CYTHON_UNUSED PyObject
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("YUKIYTAPI.main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF((PyObject *)__pyx_cur_scope);
   __Pyx_XGIVEREF(__pyx_r);
@@ -7022,9 +7029,9 @@ static PyObject *__pyx_pf_9YUKIYTAPI_4main_20stream_music(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_4main_22generator4(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *__pyx_cur_scope = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *)__pyx_generator->closure);
+  struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *__pyx_cur_scope = ((struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   int __pyx_t_2;
@@ -7076,8 +7083,8 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __PYX_ERR(0, 148, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":157
- *     x_download_token: str = Header(None),
+  /* "main.py":157
+ *     x_download_token = Header(None),
  * ):
  *     actual_token = token or x_download_token             # <<<<<<<<<<<<<<
  *     if not actual_token or actual_token not in TOKENS:
@@ -7094,24 +7101,17 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_t_1 = __pyx_cur_scope->__pyx_v_x_download_token;
   __pyx_L4_bool_binop_done:;
   __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_actual_token = ((PyObject*)__pyx_t_1);
+  __pyx_cur_scope->__pyx_v_actual_token = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":158
+  /* "main.py":158
  * ):
  *     actual_token = token or x_download_token
  *     if not actual_token or actual_token not in TOKENS:             # <<<<<<<<<<<<<<
  *         raise HTTPException(status_code=401, detail="Invalid Token Access Denied")
  * 
 */
-  if (__pyx_cur_scope->__pyx_v_actual_token == Py_None) __pyx_t_3 = 0;
-  else
-  {
-    Py_ssize_t __pyx_temp = __Pyx_PyUnicode_IS_TRUE(__pyx_cur_scope->__pyx_v_actual_token);
-    if (unlikely(((!CYTHON_ASSUME_SAFE_SIZE) && __pyx_temp < 0))) __PYX_ERR(0, 158, __pyx_L1_error)
-    __pyx_t_3 = (__pyx_temp != 0);
-  }
-
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_actual_token); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 158, __pyx_L1_error)
   __pyx_t_4 = (!__pyx_t_3);
   if (!__pyx_t_4) {
   } else {
@@ -7126,7 +7126,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_L7_bool_binop_done:;
   if (unlikely(__pyx_t_2)) {
 
-    /* "YUKIYTAPI/main.py":159
+    /* "main.py":159
  *     actual_token = token or x_download_token
  *     if not actual_token or actual_token not in TOKENS:
  *         raise HTTPException(status_code=401, detail="Invalid Token Access Denied")             # <<<<<<<<<<<<<<
@@ -7165,7 +7165,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 159, __pyx_L1_error)
 
-    /* "YUKIYTAPI/main.py":158
+    /* "main.py":158
  * ):
  *     actual_token = token or x_download_token
  *     if not actual_token or actual_token not in TOKENS:             # <<<<<<<<<<<<<<
@@ -7174,7 +7174,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
   }
 
-  /* "YUKIYTAPI/main.py":161
+  /* "main.py":161
  *         raise HTTPException(status_code=401, detail="Invalid Token Access Denied")
  * 
  *     token_data = TOKENS[actual_token]             # <<<<<<<<<<<<<<
@@ -7183,14 +7183,14 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_TOKENS); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_actual_token); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_cur_scope->__pyx_v_actual_token); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 161, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_6);
   __pyx_cur_scope->__pyx_v_token_data = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "YUKIYTAPI/main.py":162
+  /* "main.py":162
  * 
  *     token_data = TOKENS[actual_token]
  *     if time.time() > token_data["expires"] or token_data["video_id"] != video_id:             # <<<<<<<<<<<<<<
@@ -7243,7 +7243,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_L10_bool_binop_done:;
   if (unlikely(__pyx_t_2)) {
 
-    /* "YUKIYTAPI/main.py":163
+    /* "main.py":163
  *     token_data = TOKENS[actual_token]
  *     if time.time() > token_data["expires"] or token_data["video_id"] != video_id:
  *         TOKENS.pop(actual_token, None)             # <<<<<<<<<<<<<<
@@ -7278,7 +7278,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "YUKIYTAPI/main.py":164
+    /* "main.py":164
  *     if time.time() > token_data["expires"] or token_data["video_id"] != video_id:
  *         TOKENS.pop(actual_token, None)
  *         raise HTTPException(status_code=401, detail="Token Expired")             # <<<<<<<<<<<<<<
@@ -7317,7 +7317,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __PYX_ERR(0, 164, __pyx_L1_error)
 
-    /* "YUKIYTAPI/main.py":162
+    /* "main.py":162
  * 
  *     token_data = TOKENS[actual_token]
  *     if time.time() > token_data["expires"] or token_data["video_id"] != video_id:             # <<<<<<<<<<<<<<
@@ -7326,7 +7326,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
   }
 
-  /* "YUKIYTAPI/main.py":166
+  /* "main.py":166
  *         raise HTTPException(status_code=401, detail="Token Expired")
  * 
  *     cached = find_cached_file(video_id, type)             # <<<<<<<<<<<<<<
@@ -7360,7 +7360,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_cached = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":167
+  /* "main.py":167
  * 
  *     cached = find_cached_file(video_id, type)
  *     if cached:             # <<<<<<<<<<<<<<
@@ -7370,7 +7370,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_cur_scope->__pyx_v_cached); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 167, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "YUKIYTAPI/main.py":168
+    /* "main.py":168
  *     cached = find_cached_file(video_id, type)
  *     if cached:
  *         await add_download({"video_id": video_id})             # <<<<<<<<<<<<<<
@@ -7424,7 +7424,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __PYX_ERR(0, 168, __pyx_L1_error)
     }
 
-    /* "YUKIYTAPI/main.py":169
+    /* "main.py":169
  *     if cached:
  *         await add_download({"video_id": video_id})
  *         return FileResponse(             # <<<<<<<<<<<<<<
@@ -7436,7 +7436,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_FileResponse); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 169, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
 
-    /* "YUKIYTAPI/main.py":171
+    /* "main.py":171
  *         return FileResponse(
  *             cached,
  *             media_type="audio/mp4" if type == "audio" else "video/mp4",             # <<<<<<<<<<<<<<
@@ -7480,7 +7480,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "YUKIYTAPI/main.py":167
+    /* "main.py":167
  * 
  *     cached = find_cached_file(video_id, type)
  *     if cached:             # <<<<<<<<<<<<<<
@@ -7489,7 +7489,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
   }
 
-  /* "YUKIYTAPI/main.py":174
+  /* "main.py":174
  *         )
  * 
  *     outtmpl = os.path.join(CACHE_DIR, f"{video_id}.tmp.%(ext)s")             # <<<<<<<<<<<<<<
@@ -7522,7 +7522,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_outtmpl = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "YUKIYTAPI/main.py":176
+  /* "main.py":176
  *     outtmpl = os.path.join(CACHE_DIR, f"{video_id}.tmp.%(ext)s")
  * 
  *     if type == "audio":             # <<<<<<<<<<<<<<
@@ -7532,7 +7532,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_t_2 = (__Pyx_PyUnicode_Equals(__pyx_cur_scope->__pyx_v_type, __pyx_mstate_global->__pyx_n_u_audio, Py_EQ)); if (unlikely((__pyx_t_2 < 0))) __PYX_ERR(0, 176, __pyx_L1_error)
   if (__pyx_t_2) {
 
-    /* "YUKIYTAPI/main.py":179
+    /* "main.py":179
  *         cmd = [
  *             "yt-dlp",
  *             "--cookies", COOKIES_FILE,             # <<<<<<<<<<<<<<
@@ -7542,7 +7542,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_mstate_global->__pyx_n_u_COOKIES_FILE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
 
-    /* "YUKIYTAPI/main.py":177
+    /* "main.py":177
  * 
  *     if type == "audio":
  *         cmd = [             # <<<<<<<<<<<<<<
@@ -7600,7 +7600,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __pyx_cur_scope->__pyx_v_cmd = ((PyObject*)__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "YUKIYTAPI/main.py":176
+    /* "main.py":176
  *     outtmpl = os.path.join(CACHE_DIR, f"{video_id}.tmp.%(ext)s")
  * 
  *     if type == "audio":             # <<<<<<<<<<<<<<
@@ -7610,7 +7610,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     goto __pyx_L14;
   }
 
-  /* "YUKIYTAPI/main.py":189
+  /* "main.py":189
  *         ]
  *     else:
  *         cmd = [             # <<<<<<<<<<<<<<
@@ -7619,7 +7619,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
   /*else*/ {
 
-    /* "YUKIYTAPI/main.py":191
+    /* "main.py":191
  *         cmd = [
  *             "yt-dlp",
  *             "--cookies", COOKIES_FILE,             # <<<<<<<<<<<<<<
@@ -7629,7 +7629,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_COOKIES_FILE); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
 
-    /* "YUKIYTAPI/main.py":189
+    /* "main.py":189
  *         ]
  *     else:
  *         cmd = [             # <<<<<<<<<<<<<<
@@ -7689,7 +7689,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   }
   __pyx_L14:;
 
-  /* "YUKIYTAPI/main.py":201
+  /* "main.py":201
  *         ]
  * 
  *     try:             # <<<<<<<<<<<<<<
@@ -7703,7 +7703,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_XGOTREF(__pyx_t_13);
     /*try:*/ {
 
-      /* "YUKIYTAPI/main.py":202
+      /* "main.py":202
  * 
  *     try:
  *         process = await asyncio.create_subprocess_exec(             # <<<<<<<<<<<<<<
@@ -7716,7 +7716,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "YUKIYTAPI/main.py":203
+      /* "main.py":203
  *     try:
  *         process = await asyncio.create_subprocess_exec(
  *             *cmd,             # <<<<<<<<<<<<<<
@@ -7726,7 +7726,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __pyx_t_1 = PySequence_Tuple(__pyx_cur_scope->__pyx_v_cmd); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L15_error)
       __Pyx_GOTREF(__pyx_t_1);
 
-      /* "YUKIYTAPI/main.py":204
+      /* "main.py":204
  *         process = await asyncio.create_subprocess_exec(
  *             *cmd,
  *             stdout=asyncio.subprocess.PIPE,             # <<<<<<<<<<<<<<
@@ -7746,7 +7746,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_stdout, __pyx_t_10) < (0)) __PYX_ERR(0, 204, __pyx_L15_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "YUKIYTAPI/main.py":205
+      /* "main.py":205
  *             *cmd,
  *             stdout=asyncio.subprocess.PIPE,
  *             stderr=asyncio.subprocess.PIPE,             # <<<<<<<<<<<<<<
@@ -7764,7 +7764,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_stderr, __pyx_t_10) < (0)) __PYX_ERR(0, 204, __pyx_L15_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "YUKIYTAPI/main.py":202
+      /* "main.py":202
  * 
  *     try:
  *         process = await asyncio.create_subprocess_exec(             # <<<<<<<<<<<<<<
@@ -7815,7 +7815,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __pyx_cur_scope->__pyx_v_process = __pyx_t_10;
       __pyx_t_10 = 0;
 
-      /* "YUKIYTAPI/main.py":207
+      /* "main.py":207
  *             stderr=asyncio.subprocess.PIPE,
  *         )
  *         _, stderr = await process.communicate()             # <<<<<<<<<<<<<<
@@ -7924,7 +7924,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __pyx_cur_scope->__pyx_v_stderr = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "YUKIYTAPI/main.py":209
+      /* "main.py":209
  *         _, stderr = await process.communicate()
  * 
  *         if process.returncode != 0:             # <<<<<<<<<<<<<<
@@ -7937,7 +7937,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (unlikely(__pyx_t_2)) {
 
-        /* "YUKIYTAPI/main.py":210
+        /* "main.py":210
  * 
  *         if process.returncode != 0:
  *             raise HTTPException(             # <<<<<<<<<<<<<<
@@ -7948,7 +7948,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
         __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_HTTPException); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 210, __pyx_L15_error)
         __Pyx_GOTREF(__pyx_t_5);
 
-        /* "YUKIYTAPI/main.py":212
+        /* "main.py":212
  *             raise HTTPException(
  *                 status_code=500,
  *                 detail=f"yt-dlp error: {stderr.decode()[:300]}",             # <<<<<<<<<<<<<<
@@ -8004,7 +8004,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         __PYX_ERR(0, 210, __pyx_L15_error)
 
-        /* "YUKIYTAPI/main.py":209
+        /* "main.py":209
  *         _, stderr = await process.communicate()
  * 
  *         if process.returncode != 0:             # <<<<<<<<<<<<<<
@@ -8013,7 +8013,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
       }
 
-      /* "YUKIYTAPI/main.py":201
+      /* "main.py":201
  *         ]
  * 
  *     try:             # <<<<<<<<<<<<<<
@@ -8032,7 +8032,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "YUKIYTAPI/main.py":214
+    /* "main.py":214
  *                 detail=f"yt-dlp error: {stderr.decode()[:300]}",
  *             )
  *     except HTTPException:             # <<<<<<<<<<<<<<
@@ -8047,13 +8047,13 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_ErrRestore(__pyx_t_10, __pyx_t_5, __pyx_t_6);
     __pyx_t_10 = 0; __pyx_t_5 = 0; __pyx_t_6 = 0;
     if (__pyx_t_15) {
-      __Pyx_AddTraceback("YUKIYTAPI.main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_5, &__pyx_t_10) < 0) __PYX_ERR(0, 214, __pyx_L17_except_error)
       __Pyx_XGOTREF(__pyx_t_6);
       __Pyx_XGOTREF(__pyx_t_5);
       __Pyx_XGOTREF(__pyx_t_10);
 
-      /* "YUKIYTAPI/main.py":215
+      /* "main.py":215
  *             )
  *     except HTTPException:
  *         raise             # <<<<<<<<<<<<<<
@@ -8068,7 +8068,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __PYX_ERR(0, 215, __pyx_L17_except_error)
     }
 
-    /* "YUKIYTAPI/main.py":216
+    /* "main.py":216
  *     except HTTPException:
  *         raise
  *     except Exception as e:             # <<<<<<<<<<<<<<
@@ -8077,7 +8077,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
     __pyx_t_15 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(((PyTypeObject*)PyExc_Exception))));
     if (__pyx_t_15) {
-      __Pyx_AddTraceback("YUKIYTAPI.main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("main.stream_music", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_10, &__pyx_t_5, &__pyx_t_6) < 0) __PYX_ERR(0, 216, __pyx_L17_except_error)
       __Pyx_XGOTREF(__pyx_t_10);
       __Pyx_XGOTREF(__pyx_t_5);
@@ -8087,7 +8087,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __pyx_cur_scope->__pyx_v_e = __pyx_t_5;
       /*try:*/ {
 
-        /* "YUKIYTAPI/main.py":217
+        /* "main.py":217
  *         raise
  *     except Exception as e:
  *         raise HTTPException(status_code=500, detail=str(e))             # <<<<<<<<<<<<<<
@@ -8130,7 +8130,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
         __PYX_ERR(0, 217, __pyx_L33_error)
       }
 
-      /* "YUKIYTAPI/main.py":216
+      /* "main.py":216
  *     except HTTPException:
  *         raise
  *     except Exception as e:             # <<<<<<<<<<<<<<
@@ -8176,7 +8176,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     }
     goto __pyx_L17_except_error;
 
-    /* "YUKIYTAPI/main.py":201
+    /* "main.py":201
  *         ]
  * 
  *     try:             # <<<<<<<<<<<<<<
@@ -8192,7 +8192,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __pyx_L20_try_end:;
   }
 
-  /* "YUKIYTAPI/main.py":219
+  /* "main.py":219
  *         raise HTTPException(status_code=500, detail=str(e))
  * 
  *     actual_tmp = None             # <<<<<<<<<<<<<<
@@ -8203,7 +8203,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __Pyx_GIVEREF(Py_None);
   __pyx_cur_scope->__pyx_v_actual_tmp = Py_None;
 
-  /* "YUKIYTAPI/main.py":220
+  /* "main.py":220
  * 
  *     actual_tmp = None
  *     for fname in os.listdir(CACHE_DIR):             # <<<<<<<<<<<<<<
@@ -8294,7 +8294,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_GIVEREF(__pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "YUKIYTAPI/main.py":221
+    /* "main.py":221
  *     actual_tmp = None
  *     for fname in os.listdir(CACHE_DIR):
  *         if fname.startswith(f"{video_id}.tmp.") and not fname.endswith(".tmp"):             # <<<<<<<<<<<<<<
@@ -8338,7 +8338,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __pyx_L42_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "YUKIYTAPI/main.py":222
+      /* "main.py":222
  *     for fname in os.listdir(CACHE_DIR):
  *         if fname.startswith(f"{video_id}.tmp.") and not fname.endswith(".tmp"):
  *             actual_tmp = os.path.join(CACHE_DIR, fname)             # <<<<<<<<<<<<<<
@@ -8369,7 +8369,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
       __Pyx_GIVEREF(__pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "YUKIYTAPI/main.py":223
+      /* "main.py":223
  *         if fname.startswith(f"{video_id}.tmp.") and not fname.endswith(".tmp"):
  *             actual_tmp = os.path.join(CACHE_DIR, fname)
  *             break             # <<<<<<<<<<<<<<
@@ -8378,7 +8378,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
       goto __pyx_L40_break;
 
-      /* "YUKIYTAPI/main.py":221
+      /* "main.py":221
  *     actual_tmp = None
  *     for fname in os.listdir(CACHE_DIR):
  *         if fname.startswith(f"{video_id}.tmp.") and not fname.endswith(".tmp"):             # <<<<<<<<<<<<<<
@@ -8387,7 +8387,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
     }
 
-    /* "YUKIYTAPI/main.py":220
+    /* "main.py":220
  * 
  *     actual_tmp = None
  *     for fname in os.listdir(CACHE_DIR):             # <<<<<<<<<<<<<<
@@ -8402,7 +8402,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   goto __pyx_L44_for_end;
   __pyx_L44_for_end:;
 
-  /* "YUKIYTAPI/main.py":225
+  /* "main.py":225
  *             break
  * 
  *     if not actual_tmp or not os.path.exists(actual_tmp):             # <<<<<<<<<<<<<<
@@ -8439,7 +8439,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_L46_bool_binop_done:;
   if (unlikely(__pyx_t_2)) {
 
-    /* "YUKIYTAPI/main.py":226
+    /* "main.py":226
  * 
  *     if not actual_tmp or not os.path.exists(actual_tmp):
  *         raise HTTPException(status_code=500, detail="Download failed  file not found")             # <<<<<<<<<<<<<<
@@ -8478,7 +8478,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __PYX_ERR(0, 226, __pyx_L1_error)
 
-    /* "YUKIYTAPI/main.py":225
+    /* "main.py":225
  *             break
  * 
  *     if not actual_tmp or not os.path.exists(actual_tmp):             # <<<<<<<<<<<<<<
@@ -8487,7 +8487,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 */
   }
 
-  /* "YUKIYTAPI/main.py":228
+  /* "main.py":228
  *         raise HTTPException(status_code=500, detail="Download failed  file not found")
  * 
  *     actual_ext  = actual_tmp.rsplit(".", 1)[-1]             # <<<<<<<<<<<<<<
@@ -8506,7 +8506,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_actual_ext = __pyx_t_8;
   __pyx_t_8 = 0;
 
-  /* "YUKIYTAPI/main.py":229
+  /* "main.py":229
  * 
  *     actual_ext  = actual_tmp.rsplit(".", 1)[-1]
  *     final_cache = os.path.join(CACHE_DIR, f"{video_id}.{actual_ext}")             # <<<<<<<<<<<<<<
@@ -8546,7 +8546,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __pyx_cur_scope->__pyx_v_final_cache = __pyx_t_8;
   __pyx_t_8 = 0;
 
-  /* "YUKIYTAPI/main.py":231
+  /* "main.py":231
  *     final_cache = os.path.join(CACHE_DIR, f"{video_id}.{actual_ext}")
  * 
  *     await add_download({"video_id": video_id})             # <<<<<<<<<<<<<<
@@ -8600,7 +8600,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
     __PYX_ERR(0, 231, __pyx_L1_error)
   }
 
-  /* "YUKIYTAPI/main.py":233
+  /* "main.py":233
  *     await add_download({"video_id": video_id})
  * 
  *     background_tasks.add_task(_move_to_cache, actual_tmp, final_cache)             # <<<<<<<<<<<<<<
@@ -8622,7 +8622,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   }
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "YUKIYTAPI/main.py":235
+  /* "main.py":235
  *     background_tasks.add_task(_move_to_cache, actual_tmp, final_cache)
  * 
  *     return FileResponse(             # <<<<<<<<<<<<<<
@@ -8634,7 +8634,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   __Pyx_GetModuleGlobalName(__pyx_t_18, __pyx_mstate_global->__pyx_n_u_FileResponse); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_18);
 
-  /* "YUKIYTAPI/main.py":237
+  /* "main.py":237
  *     return FileResponse(
  *         actual_tmp,
  *         media_type="audio/mp4" if type == "audio" else "video/mp4",             # <<<<<<<<<<<<<<
@@ -8679,7 +8679,7 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
   goto __pyx_L0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "YUKIYTAPI/main.py":148
+  /* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
@@ -8713,22 +8713,23 @@ static PyObject *__pyx_gb_9YUKIYTAPI_4main_22generator4(__pyx_CoroutineObject *_
 }
 /* #### Code section: module_exttypes ### */
 
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_defaults(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_4main___pyx_defaults(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   o = __Pyx_AllocateExtensionType(t, 1);
   if (unlikely(!o)) return 0;
   return o;
 }
 
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_defaults(PyObject *o) {
+static void __pyx_tp_dealloc_4main___pyx_defaults(PyObject *o) {
   struct __pyx_defaults *p = (struct __pyx_defaults *)o;
   #if CYTHON_USE_TP_FINALIZE
-  if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_defaults) {
+  if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_defaults) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
+  PyObject_GC_UnTrack(o);
   Py_CLEAR(p->arg0);
   PyTypeObject *tp = Py_TYPE(o);
   #if CYTHON_USE_TYPE_SLOTS
@@ -8743,331 +8744,51 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_defaults(PyObject *o) {
   Py_DECREF(tp);
   #endif
 }
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_defaults_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_defaults},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_defaults},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_defaults_spec = {
-  "YUKIYTAPI.main.__pyx_defaults",
-  sizeof(struct __pyx_defaults),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER,
-  __pyx_type_9YUKIYTAPI_4main___pyx_defaults_slots,
-};
-#else
 
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_defaults = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_defaults", /*tp_name*/
-  sizeof(struct __pyx_defaults), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_defaults, /*tp_dealloc*/
-  0, /*tp_vectorcall_offset*/
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER, /*tp_flags*/
-  0, /*tp_doc*/
-  0, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_defaults, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if !CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct__startup(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct__startup > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup))))
-  {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct__startup[--__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct__startup];
-    #if CYTHON_USE_TYPE_SPECS
-    Py_DECREF(Py_TYPE(o));
-    #endif
-    memset(o, 0, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup));
-    #if CYTHON_COMPILING_IN_LIMITED_API
-    (void) PyObject_Init(o, t);
-    #else
-    (void) PyObject_INIT(o, t);
-    #endif
-  } else
-  #endif
-  {
-    o = __Pyx_AllocateExtensionType(t, 1);
-    if (unlikely(!o)) return 0;
-  }
-  return o;
-}
-
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct__startup(PyObject *o) {
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct__startup) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct__startup < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup))))
-  {
-    __pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct__startup[__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct__startup++] = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup *)o);
-  } else
-  #endif
-  {
-    PyTypeObject *tp = Py_TYPE(o);
-    #if CYTHON_USE_TYPE_SLOTS
-    (*tp->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(tp, Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-    #if CYTHON_USE_TYPE_SPECS
-    Py_DECREF(tp);
-    #endif
-  }
-}
-#if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct__startup},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct__startup},
-  {0, 0},
-};
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup_spec = {
-  "YUKIYTAPI.main.__pyx_scope_struct__startup",
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup),
-  0,
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER,
-  __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup_slots,
-};
-#else
-
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_scope_struct__startup", /*tp_name*/
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct__startup), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct__startup, /*tp_dealloc*/
-  0, /*tp_vectorcall_offset*/
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  0, /*tp_as_async*/
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER, /*tp_flags*/
-  0, /*tp_doc*/
-  0, /*tp_traverse*/
-  0, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  #if !CYTHON_USE_TYPE_SPECS
-  0, /*tp_dictoffset*/
-  #endif
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct__startup, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if CYTHON_USE_TP_FINALIZE
-  0, /*tp_finalize*/
-  #else
-  NULL, /*tp_finalize*/
-  #endif
-  #if !CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800
-  0, /*tp_vectorcall*/
-  #endif
-  #if __PYX_NEED_TP_PRINT_SLOT == 1
-  0, /*tp_print*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030C0000
-  0, /*tp_watched*/
-  #endif
-  #if PY_VERSION_HEX >= 0x030d00A4
-  0, /*tp_versions_used*/
-  #endif
-  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
-  0, /*tp_pypy_flags*/
-  #endif
-};
-#endif
-
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_1_home(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_1_home > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home))))
-  {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_1_home[--__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_1_home];
-    #if CYTHON_USE_TYPE_SPECS
-    Py_DECREF(Py_TYPE(o));
-    #endif
-    memset(o, 0, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home));
-    #if CYTHON_COMPILING_IN_LIMITED_API
-    (void) PyObject_Init(o, t);
-    #else
-    (void) PyObject_INIT(o, t);
-    #endif
-    PyObject_GC_Track(o);
-  } else
-  #endif
-  {
-    o = __Pyx_AllocateExtensionType(t, 1);
-    if (unlikely(!o)) return 0;
-  }
-  return o;
-}
-
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_1_home(PyObject *o) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *)o;
-  #if CYTHON_USE_TP_FINALIZE
-  if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_1_home) {
-      if (PyObject_CallFinalizerFromDealloc(o)) return;
-    }
-  }
-  #endif
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_request);
-  Py_CLEAR(p->__pyx_v_uptime);
-  #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_1_home < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home))))
-  {
-    __pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_1_home[__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_1_home++] = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *)o);
-  } else
-  #endif
-  {
-    PyTypeObject *tp = Py_TYPE(o);
-    #if CYTHON_USE_TYPE_SLOTS
-    (*tp->tp_free)(o);
-    #else
-    {
-      freefunc tp_free = (freefunc)PyType_GetSlot(tp, Py_tp_free);
-      if (tp_free) tp_free(o);
-    }
-    #endif
-    #if CYTHON_USE_TYPE_SPECS
-    Py_DECREF(tp);
-    #endif
-  }
-}
-
-static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_1_home(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_4main___pyx_defaults(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home *)o;
+  struct __pyx_defaults *p = (struct __pyx_defaults *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
   }
-  if (p->__pyx_v_request) {
-    e = (*v)(p->__pyx_v_request, a); if (e) return e;
-  }
-  if (p->__pyx_v_uptime) {
-    e = (*v)(p->__pyx_v_uptime, a); if (e) return e;
+  if (p->arg0) {
+    e = (*v)(p->arg0, a); if (e) return e;
   }
   return 0;
 }
+
+static int __pyx_tp_clear_4main___pyx_defaults(PyObject *o) {
+  PyObject* tmp;
+  struct __pyx_defaults *p = (struct __pyx_defaults *)o;
+  tmp = ((PyObject*)p->arg0);
+  p->arg0 = Py_None; Py_INCREF(Py_None);
+  Py_XDECREF(tmp);
+  return 0;
+}
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_1_home},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_1_home},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_1_home},
+static PyType_Slot __pyx_type_4main___pyx_defaults_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_defaults},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_4main___pyx_defaults},
+  {Py_tp_clear, (void *)__pyx_tp_clear_4main___pyx_defaults},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_defaults},
   {0, 0},
 };
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home_spec = {
-  "YUKIYTAPI.main.__pyx_scope_struct_1_home",
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home),
+static PyType_Spec __pyx_type_4main___pyx_defaults_spec = {
+  "main.__pyx_defaults",
+  sizeof(struct __pyx_defaults),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home_slots,
+  __pyx_type_4main___pyx_defaults_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home = {
+static PyTypeObject __pyx_type_4main___pyx_defaults = {
   PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_scope_struct_1_home", /*tp_name*/
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_1_home), /*tp_basicsize*/
+  "main.""__pyx_defaults", /*tp_name*/
+  sizeof(struct __pyx_defaults), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_1_home, /*tp_dealloc*/
+  __pyx_tp_dealloc_4main___pyx_defaults, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -9084,8 +8805,8 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_1_home, /*tp_traverse*/
-  0, /*tp_clear*/
+  __pyx_tp_traverse_4main___pyx_defaults, /*tp_traverse*/
+  __pyx_tp_clear_4main___pyx_defaults, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -9102,7 +8823,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_1_home, /*tp_new*/
+  __pyx_tp_new_4main___pyx_defaults, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9135,16 +8856,157 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home = {
 };
 #endif
 
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct__startup(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct__startup > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct__startup, sizeof(struct __pyx_obj_4main___pyx_scope_struct__startup))))
   {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats[--__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats];
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct__startup[--__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct__startup];
     #if CYTHON_USE_TYPE_SPECS
     Py_DECREF(Py_TYPE(o));
     #endif
-    memset(o, 0, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats));
+    memset(o, 0, sizeof(struct __pyx_obj_4main___pyx_scope_struct__startup));
+    #if CYTHON_COMPILING_IN_LIMITED_API
+    (void) PyObject_Init(o, t);
+    #else
+    (void) PyObject_INIT(o, t);
+    #endif
+  } else
+  #endif
+  {
+    o = __Pyx_AllocateExtensionType(t, 1);
+    if (unlikely(!o)) return 0;
+  }
+  return o;
+}
+
+static void __pyx_tp_dealloc_4main___pyx_scope_struct__startup(PyObject *o) {
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && (!PyType_IS_GC(Py_TYPE(o)) || !__Pyx_PyObject_GC_IsFinalized(o))) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_scope_struct__startup) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct__startup < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct__startup, sizeof(struct __pyx_obj_4main___pyx_scope_struct__startup))))
+  {
+    __pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct__startup[__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct__startup++] = ((struct __pyx_obj_4main___pyx_scope_struct__startup *)o);
+  } else
+  #endif
+  {
+    PyTypeObject *tp = Py_TYPE(o);
+    #if CYTHON_USE_TYPE_SLOTS
+    (*tp->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(tp, Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+    #if CYTHON_USE_TYPE_SPECS
+    Py_DECREF(tp);
+    #endif
+  }
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_4main___pyx_scope_struct__startup_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_scope_struct__startup},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_scope_struct__startup},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_4main___pyx_scope_struct__startup_spec = {
+  "main.__pyx_scope_struct__startup",
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct__startup),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER,
+  __pyx_type_4main___pyx_scope_struct__startup_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_4main___pyx_scope_struct__startup = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "main.""__pyx_scope_struct__startup", /*tp_name*/
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct__startup), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_4main___pyx_scope_struct__startup, /*tp_dealloc*/
+  0, /*tp_vectorcall_offset*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER, /*tp_flags*/
+  0, /*tp_doc*/
+  0, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_4main___pyx_scope_struct__startup, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if !CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_1_home(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_1_home > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_1_home, sizeof(struct __pyx_obj_4main___pyx_scope_struct_1_home))))
+  {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_1_home[--__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_1_home];
+    #if CYTHON_USE_TYPE_SPECS
+    Py_DECREF(Py_TYPE(o));
+    #endif
+    memset(o, 0, sizeof(struct __pyx_obj_4main___pyx_scope_struct_1_home));
     #if CYTHON_COMPILING_IN_LIMITED_API
     (void) PyObject_Init(o, t);
     #else
@@ -9160,26 +9022,22 @@ static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(Py
   return o;
 }
 
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(PyObject *o) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *)o;
+static void __pyx_tp_dealloc_4main___pyx_scope_struct_1_home(PyObject *o) {
+  struct __pyx_obj_4main___pyx_scope_struct_1_home *p = (struct __pyx_obj_4main___pyx_scope_struct_1_home *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_scope_struct_1_home) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
   #endif
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_cache_mb);
-  Py_CLEAR(p->__pyx_v_cache_size);
-  Py_CLEAR(p->__pyx_v_genexpr);
   Py_CLEAR(p->__pyx_v_request);
-  Py_CLEAR(p->__pyx_v_stats);
-  Py_CLEAR(p->__pyx_v_total_dl);
+  Py_CLEAR(p->__pyx_v_uptime);
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_1_home < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_1_home, sizeof(struct __pyx_obj_4main___pyx_scope_struct_1_home))))
   {
-    __pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats[__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats++] = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *)o);
+    __pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_1_home[__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_1_home++] = ((struct __pyx_obj_4main___pyx_scope_struct_1_home *)o);
   } else
   #endif
   {
@@ -9198,9 +9056,176 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(PyO
   }
 }
 
-static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_4main___pyx_scope_struct_1_home(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats *)o;
+  struct __pyx_obj_4main___pyx_scope_struct_1_home *p = (struct __pyx_obj_4main___pyx_scope_struct_1_home *)o;
+  {
+    e = __Pyx_call_type_traverse(o, 1, v, a);
+    if (e) return e;
+  }
+  if (p->__pyx_v_request) {
+    e = (*v)(p->__pyx_v_request, a); if (e) return e;
+  }
+  if (p->__pyx_v_uptime) {
+    e = (*v)(p->__pyx_v_uptime, a); if (e) return e;
+  }
+  return 0;
+}
+#if CYTHON_USE_TYPE_SPECS
+static PyType_Slot __pyx_type_4main___pyx_scope_struct_1_home_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_scope_struct_1_home},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_4main___pyx_scope_struct_1_home},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_scope_struct_1_home},
+  {0, 0},
+};
+static PyType_Spec __pyx_type_4main___pyx_scope_struct_1_home_spec = {
+  "main.__pyx_scope_struct_1_home",
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_1_home),
+  0,
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
+  __pyx_type_4main___pyx_scope_struct_1_home_slots,
+};
+#else
+
+static PyTypeObject __pyx_type_4main___pyx_scope_struct_1_home = {
+  PyVarObject_HEAD_INIT(0, 0)
+  "main.""__pyx_scope_struct_1_home", /*tp_name*/
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_1_home), /*tp_basicsize*/
+  0, /*tp_itemsize*/
+  __pyx_tp_dealloc_4main___pyx_scope_struct_1_home, /*tp_dealloc*/
+  0, /*tp_vectorcall_offset*/
+  0, /*tp_getattr*/
+  0, /*tp_setattr*/
+  0, /*tp_as_async*/
+  0, /*tp_repr*/
+  0, /*tp_as_number*/
+  0, /*tp_as_sequence*/
+  0, /*tp_as_mapping*/
+  0, /*tp_hash*/
+  0, /*tp_call*/
+  0, /*tp_str*/
+  0, /*tp_getattro*/
+  0, /*tp_setattro*/
+  0, /*tp_as_buffer*/
+  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
+  0, /*tp_doc*/
+  __pyx_tp_traverse_4main___pyx_scope_struct_1_home, /*tp_traverse*/
+  0, /*tp_clear*/
+  0, /*tp_richcompare*/
+  0, /*tp_weaklistoffset*/
+  0, /*tp_iter*/
+  0, /*tp_iternext*/
+  0, /*tp_methods*/
+  0, /*tp_members*/
+  0, /*tp_getset*/
+  0, /*tp_base*/
+  0, /*tp_dict*/
+  0, /*tp_descr_get*/
+  0, /*tp_descr_set*/
+  #if !CYTHON_USE_TYPE_SPECS
+  0, /*tp_dictoffset*/
+  #endif
+  0, /*tp_init*/
+  0, /*tp_alloc*/
+  __pyx_tp_new_4main___pyx_scope_struct_1_home, /*tp_new*/
+  0, /*tp_free*/
+  0, /*tp_is_gc*/
+  0, /*tp_bases*/
+  0, /*tp_mro*/
+  0, /*tp_cache*/
+  0, /*tp_subclasses*/
+  0, /*tp_weaklist*/
+  0, /*tp_del*/
+  0, /*tp_version_tag*/
+  #if CYTHON_USE_TP_FINALIZE
+  0, /*tp_finalize*/
+  #else
+  NULL, /*tp_finalize*/
+  #endif
+  #if !CYTHON_COMPILING_IN_PYPY || PYPY_VERSION_NUM >= 0x07030800
+  0, /*tp_vectorcall*/
+  #endif
+  #if __PYX_NEED_TP_PRINT_SLOT == 1
+  0, /*tp_print*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030C0000
+  0, /*tp_watched*/
+  #endif
+  #if PY_VERSION_HEX >= 0x030d00A4
+  0, /*tp_versions_used*/
+  #endif
+  #if CYTHON_COMPILING_IN_PYPY && PY_VERSION_HEX >= 0x03090000 && PY_VERSION_HEX < 0x030a0000
+  0, /*tp_pypy_flags*/
+  #endif
+};
+#endif
+
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_2_api_stats(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  PyObject *o;
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_2_api_stats > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_2_api_stats, sizeof(struct __pyx_obj_4main___pyx_scope_struct_2_api_stats))))
+  {
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_2_api_stats[--__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_2_api_stats];
+    #if CYTHON_USE_TYPE_SPECS
+    Py_DECREF(Py_TYPE(o));
+    #endif
+    memset(o, 0, sizeof(struct __pyx_obj_4main___pyx_scope_struct_2_api_stats));
+    #if CYTHON_COMPILING_IN_LIMITED_API
+    (void) PyObject_Init(o, t);
+    #else
+    (void) PyObject_INIT(o, t);
+    #endif
+    PyObject_GC_Track(o);
+  } else
+  #endif
+  {
+    o = __Pyx_AllocateExtensionType(t, 1);
+    if (unlikely(!o)) return 0;
+  }
+  return o;
+}
+
+static void __pyx_tp_dealloc_4main___pyx_scope_struct_2_api_stats(PyObject *o) {
+  struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *p = (struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *)o;
+  #if CYTHON_USE_TP_FINALIZE
+  if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_scope_struct_2_api_stats) {
+      if (PyObject_CallFinalizerFromDealloc(o)) return;
+    }
+  }
+  #endif
+  PyObject_GC_UnTrack(o);
+  Py_CLEAR(p->__pyx_v_cache_mb);
+  Py_CLEAR(p->__pyx_v_cache_size);
+  Py_CLEAR(p->__pyx_v_genexpr);
+  Py_CLEAR(p->__pyx_v_request);
+  Py_CLEAR(p->__pyx_v_stats);
+  Py_CLEAR(p->__pyx_v_total_dl);
+  #if CYTHON_USE_FREELISTS
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_2_api_stats < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_2_api_stats, sizeof(struct __pyx_obj_4main___pyx_scope_struct_2_api_stats))))
+  {
+    __pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_2_api_stats[__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_2_api_stats++] = ((struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *)o);
+  } else
+  #endif
+  {
+    PyTypeObject *tp = Py_TYPE(o);
+    #if CYTHON_USE_TYPE_SLOTS
+    (*tp->tp_free)(o);
+    #else
+    {
+      freefunc tp_free = (freefunc)PyType_GetSlot(tp, Py_tp_free);
+      if (tp_free) tp_free(o);
+    }
+    #endif
+    #if CYTHON_USE_TYPE_SPECS
+    Py_DECREF(tp);
+    #endif
+  }
+}
+
+static int __pyx_tp_traverse_4main___pyx_scope_struct_2_api_stats(PyObject *o, visitproc v, void *a) {
+  int e;
+  struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *p = (struct __pyx_obj_4main___pyx_scope_struct_2_api_stats *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -9226,27 +9251,27 @@ static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats(PyO
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats},
+static PyType_Slot __pyx_type_4main___pyx_scope_struct_2_api_stats_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_scope_struct_2_api_stats},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_4main___pyx_scope_struct_2_api_stats},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_scope_struct_2_api_stats},
   {0, 0},
 };
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats_spec = {
-  "YUKIYTAPI.main.__pyx_scope_struct_2_api_stats",
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats),
+static PyType_Spec __pyx_type_4main___pyx_scope_struct_2_api_stats_spec = {
+  "main.__pyx_scope_struct_2_api_stats",
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_2_api_stats),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats_slots,
+  __pyx_type_4main___pyx_scope_struct_2_api_stats_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats = {
+static PyTypeObject __pyx_type_4main___pyx_scope_struct_2_api_stats = {
   PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_scope_struct_2_api_stats", /*tp_name*/
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats), /*tp_basicsize*/
+  "main.""__pyx_scope_struct_2_api_stats", /*tp_name*/
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_2_api_stats), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats, /*tp_dealloc*/
+  __pyx_tp_dealloc_4main___pyx_scope_struct_2_api_stats, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -9263,7 +9288,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats =
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats, /*tp_traverse*/
+  __pyx_tp_traverse_4main___pyx_scope_struct_2_api_stats, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -9281,7 +9306,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats =
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats, /*tp_new*/
+  __pyx_tp_new_4main___pyx_scope_struct_2_api_stats, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9314,16 +9339,16 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats =
 };
 #endif
 
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_3_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_3_genexpr > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_3_genexpr, sizeof(struct __pyx_obj_4main___pyx_scope_struct_3_genexpr))))
   {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr[--__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr];
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_3_genexpr[--__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_3_genexpr];
     #if CYTHON_USE_TYPE_SPECS
     Py_DECREF(Py_TYPE(o));
     #endif
-    memset(o, 0, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr));
+    memset(o, 0, sizeof(struct __pyx_obj_4main___pyx_scope_struct_3_genexpr));
     #if CYTHON_COMPILING_IN_LIMITED_API
     (void) PyObject_Init(o, t);
     #else
@@ -9339,11 +9364,11 @@ static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyTy
   return o;
 }
 
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyObject *o) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *)o;
+static void __pyx_tp_dealloc_4main___pyx_scope_struct_3_genexpr(PyObject *o) {
+  struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_scope_struct_3_genexpr) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -9353,9 +9378,9 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyObj
   Py_CLEAR(p->__pyx_v_f);
   Py_CLEAR(p->__pyx_t_0);
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_3_genexpr < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_3_genexpr, sizeof(struct __pyx_obj_4main___pyx_scope_struct_3_genexpr))))
   {
-    __pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr[__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr++] = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *)o);
+    __pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_3_genexpr[__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_3_genexpr++] = ((struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *)o);
   } else
   #endif
   {
@@ -9374,9 +9399,9 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyObj
   }
 }
 
-static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_4main___pyx_scope_struct_3_genexpr(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr *)o;
+  struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_4main___pyx_scope_struct_3_genexpr *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -9393,27 +9418,27 @@ static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr(PyObj
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr},
+static PyType_Slot __pyx_type_4main___pyx_scope_struct_3_genexpr_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_scope_struct_3_genexpr},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_4main___pyx_scope_struct_3_genexpr},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_scope_struct_3_genexpr},
   {0, 0},
 };
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr_spec = {
-  "YUKIYTAPI.main.__pyx_scope_struct_3_genexpr",
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr),
+static PyType_Spec __pyx_type_4main___pyx_scope_struct_3_genexpr_spec = {
+  "main.__pyx_scope_struct_3_genexpr",
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_3_genexpr),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr_slots,
+  __pyx_type_4main___pyx_scope_struct_3_genexpr_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr = {
+static PyTypeObject __pyx_type_4main___pyx_scope_struct_3_genexpr = {
   PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_scope_struct_3_genexpr", /*tp_name*/
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr), /*tp_basicsize*/
+  "main.""__pyx_scope_struct_3_genexpr", /*tp_name*/
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_3_genexpr), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr, /*tp_dealloc*/
+  __pyx_tp_dealloc_4main___pyx_scope_struct_3_genexpr, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -9430,7 +9455,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr, /*tp_traverse*/
+  __pyx_tp_traverse_4main___pyx_scope_struct_3_genexpr, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -9448,7 +9473,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr, /*tp_new*/
+  __pyx_tp_new_4main___pyx_scope_struct_3_genexpr, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9481,16 +9506,16 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr = {
 };
 #endif
 
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_4_generate_token(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_4_generate_token > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_4_generate_token, sizeof(struct __pyx_obj_4main___pyx_scope_struct_4_generate_token))))
   {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token[--__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token];
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_4_generate_token[--__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_4_generate_token];
     #if CYTHON_USE_TYPE_SPECS
     Py_DECREF(Py_TYPE(o));
     #endif
-    memset(o, 0, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token));
+    memset(o, 0, sizeof(struct __pyx_obj_4main___pyx_scope_struct_4_generate_token));
     #if CYTHON_COMPILING_IN_LIMITED_API
     (void) PyObject_Init(o, t);
     #else
@@ -9506,11 +9531,11 @@ static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_tok
   return o;
 }
 
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token(PyObject *o) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *)o;
+static void __pyx_tp_dealloc_4main___pyx_scope_struct_4_generate_token(PyObject *o) {
+  struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *p = (struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_scope_struct_4_generate_token) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -9522,9 +9547,9 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_toke
   Py_CLEAR(p->__pyx_v_video_id);
   Py_CLEAR(p->__pyx_v_yuki_token);
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_4_generate_token < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_4_generate_token, sizeof(struct __pyx_obj_4main___pyx_scope_struct_4_generate_token))))
   {
-    __pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token[__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token++] = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *)o);
+    __pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_4_generate_token[__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_4_generate_token++] = ((struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *)o);
   } else
   #endif
   {
@@ -9543,9 +9568,9 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_toke
   }
 }
 
-static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_4main___pyx_scope_struct_4_generate_token(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token *)o;
+  struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *p = (struct __pyx_obj_4main___pyx_scope_struct_4_generate_token *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -9559,27 +9584,27 @@ static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_toke
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token},
+static PyType_Slot __pyx_type_4main___pyx_scope_struct_4_generate_token_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_scope_struct_4_generate_token},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_4main___pyx_scope_struct_4_generate_token},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_scope_struct_4_generate_token},
   {0, 0},
 };
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token_spec = {
-  "YUKIYTAPI.main.__pyx_scope_struct_4_generate_token",
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token),
+static PyType_Spec __pyx_type_4main___pyx_scope_struct_4_generate_token_spec = {
+  "main.__pyx_scope_struct_4_generate_token",
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_4_generate_token),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token_slots,
+  __pyx_type_4main___pyx_scope_struct_4_generate_token_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token = {
+static PyTypeObject __pyx_type_4main___pyx_scope_struct_4_generate_token = {
   PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_scope_struct_4_generate_token", /*tp_name*/
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token), /*tp_basicsize*/
+  "main.""__pyx_scope_struct_4_generate_token", /*tp_name*/
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_4_generate_token), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token, /*tp_dealloc*/
+  __pyx_tp_dealloc_4main___pyx_scope_struct_4_generate_token, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -9596,7 +9621,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_to
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token, /*tp_traverse*/
+  __pyx_tp_traverse_4main___pyx_scope_struct_4_generate_token, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -9614,7 +9639,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_to
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token, /*tp_new*/
+  __pyx_tp_new_4main___pyx_scope_struct_4_generate_token, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9647,16 +9672,16 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_to
 };
 #endif
 
-static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_4main___pyx_scope_struct_5_stream_music(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_5_stream_music > 0) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(t, __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_5_stream_music, sizeof(struct __pyx_obj_4main___pyx_scope_struct_5_stream_music))))
   {
-    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music[--__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music];
+    o = (PyObject*)__pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_5_stream_music[--__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_5_stream_music];
     #if CYTHON_USE_TYPE_SPECS
     Py_DECREF(Py_TYPE(o));
     #endif
-    memset(o, 0, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music));
+    memset(o, 0, sizeof(struct __pyx_obj_4main___pyx_scope_struct_5_stream_music));
     #if CYTHON_COMPILING_IN_LIMITED_API
     (void) PyObject_Init(o, t);
     #else
@@ -9672,11 +9697,11 @@ static PyObject *__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music
   return o;
 }
 
-static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(PyObject *o) {
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *)o;
+static void __pyx_tp_dealloc_4main___pyx_scope_struct_5_stream_music(PyObject *o) {
+  struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *p = (struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(__Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_4main___pyx_scope_struct_5_stream_music) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -9705,9 +9730,9 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(
   Py_CLEAR(p->__pyx_t_1);
   Py_CLEAR(p->__pyx_t_2);
   #if CYTHON_USE_FREELISTS
-  if (likely((int)(__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music, sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music))))
+  if (likely((int)(__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_5_stream_music < 8) & __PYX_CHECK_FINAL_TYPE_FOR_FREELISTS(Py_TYPE(o), __pyx_mstate_global->__pyx_ptype_4main___pyx_scope_struct_5_stream_music, sizeof(struct __pyx_obj_4main___pyx_scope_struct_5_stream_music))))
   {
-    __pyx_mstate_global->__pyx_freelist_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music[__pyx_mstate_global->__pyx_freecount_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music++] = ((struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *)o);
+    __pyx_mstate_global->__pyx_freelist_4main___pyx_scope_struct_5_stream_music[__pyx_mstate_global->__pyx_freecount_4main___pyx_scope_struct_5_stream_music++] = ((struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *)o);
   } else
   #endif
   {
@@ -9726,9 +9751,9 @@ static void __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(
   }
 }
 
-static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_4main___pyx_scope_struct_5_stream_music(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *p = (struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music *)o;
+  struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *p = (struct __pyx_obj_4main___pyx_scope_struct_5_stream_music *)o;
   {
     e = __Pyx_call_type_traverse(o, 1, v, a);
     if (e) return e;
@@ -9741,6 +9766,9 @@ static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(
   }
   if (p->__pyx_v_actual_tmp) {
     e = (*v)(p->__pyx_v_actual_tmp, a); if (e) return e;
+  }
+  if (p->__pyx_v_actual_token) {
+    e = (*v)(p->__pyx_v_actual_token, a); if (e) return e;
   }
   if (p->__pyx_v_background_tasks) {
     e = (*v)(p->__pyx_v_background_tasks, a); if (e) return e;
@@ -9775,6 +9803,9 @@ static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(
   if (p->__pyx_v_token_data) {
     e = (*v)(p->__pyx_v_token_data, a); if (e) return e;
   }
+  if (p->__pyx_v_x_download_token) {
+    e = (*v)(p->__pyx_v_x_download_token, a); if (e) return e;
+  }
   if (p->__pyx_t_0) {
     e = (*v)(p->__pyx_t_0, a); if (e) return e;
   }
@@ -9787,27 +9818,27 @@ static int __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music(
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music},
-  {Py_tp_new, (void *)__pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music},
+static PyType_Slot __pyx_type_4main___pyx_scope_struct_5_stream_music_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_4main___pyx_scope_struct_5_stream_music},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_4main___pyx_scope_struct_5_stream_music},
+  {Py_tp_new, (void *)__pyx_tp_new_4main___pyx_scope_struct_5_stream_music},
   {0, 0},
 };
-static PyType_Spec __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music_spec = {
-  "YUKIYTAPI.main.__pyx_scope_struct_5_stream_music",
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music),
+static PyType_Spec __pyx_type_4main___pyx_scope_struct_5_stream_music_spec = {
+  "main.__pyx_scope_struct_5_stream_music",
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_5_stream_music),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC,
-  __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music_slots,
+  __pyx_type_4main___pyx_scope_struct_5_stream_music_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music = {
+static PyTypeObject __pyx_type_4main___pyx_scope_struct_5_stream_music = {
   PyVarObject_HEAD_INIT(0, 0)
-  "YUKIYTAPI.main.""__pyx_scope_struct_5_stream_music", /*tp_name*/
-  sizeof(struct __pyx_obj_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music), /*tp_basicsize*/
+  "main.""__pyx_scope_struct_5_stream_music", /*tp_name*/
+  sizeof(struct __pyx_obj_4main___pyx_scope_struct_5_stream_music), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music, /*tp_dealloc*/
+  __pyx_tp_dealloc_4main___pyx_scope_struct_5_stream_music, /*tp_dealloc*/
   0, /*tp_vectorcall_offset*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -9824,7 +9855,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_musi
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music, /*tp_traverse*/
+  __pyx_tp_traverse_4main___pyx_scope_struct_5_stream_music, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -9842,7 +9873,7 @@ static PyTypeObject __pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_musi
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music, /*tp_new*/
+  __pyx_tp_new_4main___pyx_scope_struct_5_stream_music, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9929,136 +9960,136 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_defaults_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults)) __PYX_ERR(0, 148, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_defaults_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_defaults = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_defaults_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_defaults)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_defaults_spec, __pyx_mstate->__pyx_ptype_4main___pyx_defaults) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults = &__pyx_type_9YUKIYTAPI_4main___pyx_defaults;
+  __pyx_mstate->__pyx_ptype_4main___pyx_defaults = &__pyx_type_4main___pyx_defaults;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_defaults) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_defaults);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_defaults->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_defaults->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_defaults->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup)) __PYX_ERR(0, 55, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup) < (0)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_scope_struct__startup_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup)) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_scope_struct__startup_spec, __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup) < (0)) __PYX_ERR(0, 55, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup = &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct__startup;
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup = &__pyx_type_4main___pyx_scope_struct__startup;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup) < (0)) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup) < (0)) __PYX_ERR(0, 55, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct__startup->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct__startup->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home)) __PYX_ERR(0, 106, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home) < (0)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_scope_struct_1_home_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home)) __PYX_ERR(0, 106, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_scope_struct_1_home_spec, __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home) < (0)) __PYX_ERR(0, 106, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home = &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_1_home;
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home = &__pyx_type_4main___pyx_scope_struct_1_home;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home) < (0)) __PYX_ERR(0, 106, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home) < (0)) __PYX_ERR(0, 106, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_1_home->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_1_home->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats)) __PYX_ERR(0, 117, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats) < (0)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_scope_struct_2_api_stats_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats)) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_scope_struct_2_api_stats_spec, __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats) < (0)) __PYX_ERR(0, 117, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats = &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats;
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats = &__pyx_type_4main___pyx_scope_struct_2_api_stats;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats) < (0)) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats) < (0)) __PYX_ERR(0, 117, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_2_api_stats->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_2_api_stats->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr)) __PYX_ERR(0, 121, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr) < (0)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_scope_struct_3_genexpr_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr)) __PYX_ERR(0, 121, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_scope_struct_3_genexpr_spec, __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr) < (0)) __PYX_ERR(0, 121, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr = &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr;
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr = &__pyx_type_4main___pyx_scope_struct_3_genexpr;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr) < (0)) __PYX_ERR(0, 121, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr) < (0)) __PYX_ERR(0, 121, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_3_genexpr->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_3_genexpr->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token)) __PYX_ERR(0, 131, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_scope_struct_4_generate_token_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token)) __PYX_ERR(0, 131, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_scope_struct_4_generate_token_spec, __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token = &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token;
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token = &__pyx_type_4main___pyx_scope_struct_4_generate_token;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_4_generate_token->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_4_generate_token->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music)) __PYX_ERR(0, 148, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music_spec, __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_4main___pyx_scope_struct_5_stream_music_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_4main___pyx_scope_struct_5_stream_music_spec, __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   #else
-  __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music = &__pyx_type_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music;
+  __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music = &__pyx_type_4main___pyx_scope_struct_5_stream_music;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
-  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music);
+  PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music);
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music->tp_dictoffset && __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_mstate->__pyx_ptype_9YUKIYTAPI_4main___pyx_scope_struct_5_stream_music->tp_getattro = PyObject_GenericGetAttr;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music->tp_dictoffset && __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_mstate->__pyx_ptype_4main___pyx_scope_struct_5_stream_music->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -10350,13 +10381,13 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (__Pyx_InitConstants(__pyx_mstate) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
   stringtab_initialized = 1;
   if (__Pyx_InitGlobals() < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__pyx_module_is_main_YUKIYTAPI__main) {
-    if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__pyx_module_is_main_main) {
+    if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_name, __pyx_mstate_global->__pyx_n_u_main_2) < (0)) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "YUKIYTAPI.main")) {
-      if (unlikely((PyDict_SetItemString(modules, "YUKIYTAPI.main", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "main")) {
+      if (unlikely((PyDict_SetItemString(modules, "main", __pyx_m) < 0))) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   /*--- Builtin init code ---*/
@@ -10374,7 +10405,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   (void)__Pyx_modinit_function_import_code(__pyx_mstate);
   /*--- Execution code ---*/
 
-  /* "YUKIYTAPI/main.py":14
+  /* "main.py":14
  * """
  * 
  * import sys             # <<<<<<<<<<<<<<
@@ -10387,7 +10418,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_sys, __pyx_t_2) < (0)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":16
+  /* "main.py":16
  * import sys
  * 
  * if __doc__ is None or " 2026  | .   ." not in __doc__:             # <<<<<<<<<<<<<<
@@ -10411,7 +10442,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   __pyx_L3_bool_binop_done:;
   if (__pyx_t_3) {
 
-    /* "YUKIYTAPI/main.py":17
+    /* "main.py":17
  * 
  * if __doc__ is None or " 2026  | .   ." not in __doc__:
  *     print("\n[!]  :   .")             # <<<<<<<<<<<<<<
@@ -10429,7 +10460,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":18
+    /* "main.py":18
  * if __doc__ is None or " 2026  | .   ." not in __doc__:
  *     print("\n[!]  :   .")
  *     print("[!]         .")             # <<<<<<<<<<<<<<
@@ -10447,7 +10478,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":19
+    /* "main.py":19
  *     print("\n[!]  :   .")
  *     print("[!]         .")
  *     print("[!]  x .  x...\n")             # <<<<<<<<<<<<<<
@@ -10465,7 +10496,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":20
+    /* "main.py":20
  *     print("[!]         .")
  *     print("[!]  x .  x...\n")
  *     sys.exit(1)             # <<<<<<<<<<<<<<
@@ -10489,7 +10520,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":16
+    /* "main.py":16
  * import sys
  * 
  * if __doc__ is None or " 2026  | .   ." not in __doc__:             # <<<<<<<<<<<<<<
@@ -10498,7 +10529,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
 */
   }
 
-  /* "YUKIYTAPI/main.py":22
+  /* "main.py":22
  *     sys.exit(1)
  * 
  * import os             # <<<<<<<<<<<<<<
@@ -10511,7 +10542,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_os, __pyx_t_2) < (0)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":23
+  /* "main.py":23
  * 
  * import os
  * import re             # <<<<<<<<<<<<<<
@@ -10524,7 +10555,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_re, __pyx_t_2) < (0)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":24
+  /* "main.py":24
  * import os
  * import re
  * import time             # <<<<<<<<<<<<<<
@@ -10537,7 +10568,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_time, __pyx_t_2) < (0)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":25
+  /* "main.py":25
  * import re
  * import time
  * import uuid             # <<<<<<<<<<<<<<
@@ -10550,7 +10581,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_uuid, __pyx_t_2) < (0)) __PYX_ERR(0, 25, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":26
+  /* "main.py":26
  * import time
  * import uuid
  * import socket             # <<<<<<<<<<<<<<
@@ -10563,7 +10594,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_socket, __pyx_t_2) < (0)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":27
+  /* "main.py":27
  * import uuid
  * import socket
  * import asyncio             # <<<<<<<<<<<<<<
@@ -10576,7 +10607,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_asyncio, __pyx_t_2) < (0)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":28
+  /* "main.py":28
  * import socket
  * import asyncio
  * from fastapi import FastAPI, BackgroundTasks, Header, HTTPException, Request             # <<<<<<<<<<<<<<
@@ -10600,7 +10631,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":29
+  /* "main.py":29
  * import asyncio
  * from fastapi import FastAPI, BackgroundTasks, Header, HTTPException, Request
  * from fastapi.responses import FileResponse, JSONResponse             # <<<<<<<<<<<<<<
@@ -10624,7 +10655,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":31
+  /* "main.py":31
  * from fastapi.responses import FileResponse, JSONResponse
  * 
  * from YUKIYTAPI.database.stats import init_db, add_download, get_stats             # <<<<<<<<<<<<<<
@@ -10648,7 +10679,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":33
+  /* "main.py":33
  * from YUKIYTAPI.database.stats import init_db, add_download, get_stats
  * 
  * app = FastAPI(title="YUKI YT API")             # <<<<<<<<<<<<<<
@@ -10674,7 +10705,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_app, __pyx_t_2) < (0)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":35
+  /* "main.py":35
  * app = FastAPI(title="YUKI YT API")
  * 
  * ROOT_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))             # <<<<<<<<<<<<<<
@@ -10737,7 +10768,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_ROOT_DIR, __pyx_t_2) < (0)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":36
+  /* "main.py":36
  * 
  * ROOT_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
  * CACHE_DIR    = os.path.join(ROOT_DIR, "YUKIYTAPI", "saved")             # <<<<<<<<<<<<<<
@@ -10766,7 +10797,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_CACHE_DIR, __pyx_t_2) < (0)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":37
+  /* "main.py":37
  * ROOT_DIR     = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
  * CACHE_DIR    = os.path.join(ROOT_DIR, "YUKIYTAPI", "saved")
  * COOKIES_FILE = os.path.join(ROOT_DIR, "cookies.txt")             # <<<<<<<<<<<<<<
@@ -10795,7 +10826,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_COOKIES_FILE, __pyx_t_2) < (0)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":38
+  /* "main.py":38
  * CACHE_DIR    = os.path.join(ROOT_DIR, "YUKIYTAPI", "saved")
  * COOKIES_FILE = os.path.join(ROOT_DIR, "cookies.txt")
  * os.makedirs(CACHE_DIR, exist_ok=True)             # <<<<<<<<<<<<<<
@@ -10826,7 +10857,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":40
+  /* "main.py":40
  * os.makedirs(CACHE_DIR, exist_ok=True)
  * 
  * DEFAULT_PORT = int(os.environ.get("PORT", 8080))             # <<<<<<<<<<<<<<
@@ -10850,7 +10881,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_DEFAULT_PORT, __pyx_t_2) < (0)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":43
+  /* "main.py":43
  * 
  * 
  * def find_free_port(preferred: int) -> int:             # <<<<<<<<<<<<<<
@@ -10861,7 +10892,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_preferred, __pyx_mstate_global->__pyx_n_u_int) < (0)) __PYX_ERR(0, 43, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_int) < (0)) __PYX_ERR(0, 43, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_1find_free_port, 0, __pyx_mstate_global->__pyx_n_u_find_free_port, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_4main_1find_free_port, 0, __pyx_mstate_global->__pyx_n_u_find_free_port, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -10871,7 +10902,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_find_free_port, __pyx_t_5) < (0)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "YUKIYTAPI/main.py":55
+  /* "main.py":55
  * 
  * 
  * @app.on_event("startup")             # <<<<<<<<<<<<<<
@@ -10894,7 +10925,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_3startup, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_startup, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 55, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_4main_3startup, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_startup, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[0])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
@@ -10912,7 +10943,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_startup, __pyx_t_5) < (0)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "YUKIYTAPI/main.py":59
+  /* "main.py":59
  *     await init_db()
  * 
  * TOKENS     = {}             # <<<<<<<<<<<<<<
@@ -10924,7 +10955,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_TOKENS, __pyx_t_5) < (0)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "YUKIYTAPI/main.py":60
+  /* "main.py":60
  * 
  * TOKENS     = {}
  * START_TIME = time.time()             # <<<<<<<<<<<<<<
@@ -10949,7 +10980,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_START_TIME, __pyx_t_5) < (0)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "YUKIYTAPI/main.py":63
+  /* "main.py":63
  * 
  * 
  * def extract_video_id(url: str) -> str:             # <<<<<<<<<<<<<<
@@ -10960,7 +10991,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 63, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_6extract_video_id, 0, __pyx_mstate_global->__pyx_n_u_extract_video_id, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_4main_6extract_video_id, 0, __pyx_mstate_global->__pyx_n_u_extract_video_id, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -10970,7 +11001,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_extract_video_id, __pyx_t_2) < (0)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":82
+  /* "main.py":82
  * 
  * 
  * def find_cached_file(video_id: str, type: str) -> str | None:             # <<<<<<<<<<<<<<
@@ -10982,7 +11013,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_video_id, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 82, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_type, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 82, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_kp_u_str_None) < (0)) __PYX_ERR(0, 82, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_8find_cached_file, 0, __pyx_mstate_global->__pyx_n_u_find_cached_file, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_4main_8find_cached_file, 0, __pyx_mstate_global->__pyx_n_u_find_cached_file, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[8])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -10992,7 +11023,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_find_cached_file, __pyx_t_5) < (0)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "YUKIYTAPI/main.py":95
+  /* "main.py":95
  * 
  * 
  * def _move_to_cache(tmp_path: str, cache_path: str) -> None:             # <<<<<<<<<<<<<<
@@ -11004,7 +11035,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_tmp_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 95, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_cache_path, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 95, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_return, __pyx_mstate_global->__pyx_n_u_None) < (0)) __PYX_ERR(0, 95, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_10_move_to_cache, 0, __pyx_mstate_global->__pyx_n_u_move_to_cache, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_4main_10_move_to_cache, 0, __pyx_mstate_global->__pyx_n_u_move_to_cache, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[9])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_2);
@@ -11014,7 +11045,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_move_to_cache, __pyx_t_2) < (0)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":106
+  /* "main.py":106
  * 
  * 
  * @app.get("/")             # <<<<<<<<<<<<<<
@@ -11040,7 +11071,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_request, __pyx_mstate_global->__pyx_n_u_Request) < (0)) __PYX_ERR(0, 106, __pyx_L1_error)
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_12home, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_home, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_4main_12home, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_home, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
@@ -11060,7 +11091,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_home, __pyx_t_2) < (0)) __PYX_ERR(0, 106, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":117
+  /* "main.py":117
  * 
  * 
  * @app.get("/stats")             # <<<<<<<<<<<<<<
@@ -11086,7 +11117,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_request, __pyx_mstate_global->__pyx_n_u_Request) < (0)) __PYX_ERR(0, 117, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_15api_stats, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_api_stats, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_4main_15api_stats, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_api_stats, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
@@ -11106,7 +11137,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_api_stats, __pyx_t_2) < (0)) __PYX_ERR(0, 117, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":131
+  /* "main.py":131
  * 
  * 
  * @app.get("/download")             # <<<<<<<<<<<<<<
@@ -11134,7 +11165,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_request, __pyx_mstate_global->__pyx_n_u_Request) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_url, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_8, __pyx_mstate_global->__pyx_n_u_type, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
-  __pyx_t_12 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_18generate_token, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_generate_token, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_t_12 = __Pyx_CyFunction_New(&__pyx_mdef_4main_18generate_token, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_generate_token, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_12);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_12);
@@ -11155,7 +11186,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_generate_token, __pyx_t_2) < (0)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":148
+  /* "main.py":148
  * 
  * 
  * @app.get("/stream/{video_id}")             # <<<<<<<<<<<<<<
@@ -11178,25 +11209,24 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 148, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
   }
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_request, __pyx_mstate_global->__pyx_n_u_Request) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_video_id, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_background_tasks, __pyx_mstate_global->__pyx_n_u_BackgroundTasks) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_type, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_token, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_7, __pyx_mstate_global->__pyx_n_u_x_download_token, __pyx_mstate_global->__pyx_n_u_str) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
-  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_9YUKIYTAPI_4main_21stream_music, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_stream_music, NULL, __pyx_mstate_global->__pyx_n_u_YUKIYTAPI_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_CyFunction_New(&__pyx_mdef_4main_21stream_music, __Pyx_CYFUNCTION_COROUTINE, __pyx_mstate_global->__pyx_n_u_stream_music, NULL, __pyx_mstate_global->__pyx_n_u_main, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_11);
   #endif
-  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_11, __pyx_mstate_global->__pyx_ptype_9YUKIYTAPI_4main___pyx_defaults)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (!__Pyx_CyFunction_InitDefaults(__pyx_t_11, __pyx_mstate_global->__pyx_ptype_4main___pyx_defaults)) __PYX_ERR(0, 148, __pyx_L1_error)
 
-  /* "YUKIYTAPI/main.py":155
+  /* "main.py":155
  *     type:             str = "audio",
  *     token:            str = None,
- *     x_download_token: str = Header(None),             # <<<<<<<<<<<<<<
+ *     x_download_token = Header(None),             # <<<<<<<<<<<<<<
  * ):
  *     actual_token = token or x_download_token
 */
@@ -11212,11 +11242,10 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
   }
-  if (!(likely(PyUnicode_CheckExact(__pyx_t_8))||((__pyx_t_8) == Py_None) || __Pyx_RaiseUnexpectedTypeError("str", __pyx_t_8))) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_11)->arg0 = ((PyObject*)__pyx_t_8);
+  __Pyx_CyFunction_Defaults(struct __pyx_defaults, __pyx_t_11)->arg0 = __pyx_t_8;
   __Pyx_GIVEREF(__pyx_t_8);
   __pyx_t_8 = 0;
-  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_11, __pyx_pf_9YUKIYTAPI_4main_23__defaults__);
+  __Pyx_CyFunction_SetDefaultsGetter(__pyx_t_11, __pyx_pf_4main_23__defaults__);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_11, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_6 = 1;
@@ -11232,7 +11261,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_stream_music, __pyx_t_2) < (0)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "YUKIYTAPI/main.py":241
+  /* "main.py":241
  * 
  * 
  * if __name__ == "__main__":             # <<<<<<<<<<<<<<
@@ -11241,11 +11270,11 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
 */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_main, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PyUnicode_Equals(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_main_2, Py_EQ)); if (unlikely((__pyx_t_3 < 0))) __PYX_ERR(0, 241, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "YUKIYTAPI/main.py":242
+    /* "main.py":242
  * 
  * if __name__ == "__main__":
  *     import uvicorn             # <<<<<<<<<<<<<<
@@ -11258,7 +11287,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_uvicorn, __pyx_t_2) < (0)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":243
+    /* "main.py":243
  * if __name__ == "__main__":
  *     import uvicorn
  *     port = find_free_port(DEFAULT_PORT)             # <<<<<<<<<<<<<<
@@ -11283,7 +11312,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_port, __pyx_t_2) < (0)) __PYX_ERR(0, 243, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":244
+    /* "main.py":244
  *     import uvicorn
  *     port = find_free_port(DEFAULT_PORT)
  *     uvicorn.run(app, host="0.0.0.0", port=port)             # <<<<<<<<<<<<<<
@@ -11317,7 +11346,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "YUKIYTAPI/main.py":241
+    /* "main.py":241
  * 
  * 
  * if __name__ == "__main__":             # <<<<<<<<<<<<<<
@@ -11326,7 +11355,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
 */
   }
 
-  /* "YUKIYTAPI/main.py":1
+  /* "main.py":1
  * """             # <<<<<<<<<<<<<<
  * ========================================================================
  *      -
@@ -11352,7 +11381,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
   __Pyx_XDECREF(__pyx_t_15);
   if (__pyx_m) {
     if (__pyx_mstate->__pyx_d && stringtab_initialized) {
-      __Pyx_AddTraceback("init YUKIYTAPI.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init main", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     #if !CYTHON_USE_MODULE_STATE
     Py_CLEAR(__pyx_m);
@@ -11366,7 +11395,7 @@ __Pyx_RefNannySetupContext("PyInit_main", 0);
     }
     #endif
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init YUKIYTAPI.main");
+    PyErr_SetString(PyExc_ImportError, "init main");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -11403,7 +11432,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "YUKIYTAPI/main.py":44
+  /* "main.py":44
  * 
  * def find_free_port(preferred: int) -> int:
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:             # <<<<<<<<<<<<<<
@@ -11414,7 +11443,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[0]);
 
-  /* "YUKIYTAPI/main.py":51
+  /* "main.py":51
  *             pass
  *     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
  *         s.bind(("0.0.0.0", 0))             # <<<<<<<<<<<<<<
@@ -11425,7 +11454,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[1]);
 
-  /* "YUKIYTAPI/main.py":120
+  /* "main.py":120
  * async def api_stats(request: Request):
  *     stats = await get_stats()
  *     total_dl = stats.get("total_downloads", 0)             # <<<<<<<<<<<<<<
@@ -11436,7 +11465,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[2]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[2]);
 
-  /* "YUKIYTAPI/main.py":134
+  /* "main.py":134
  * async def generate_token(request: Request, url: str, type: str = "audio"):
  *     video_id   = extract_video_id(url)
  *     yuki_token = f"YUKIMusic{uuid.uuid4().hex[:16]}YukiBots"             # <<<<<<<<<<<<<<
@@ -11447,7 +11476,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[0]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[0]);
 
-  /* "YUKIYTAPI/main.py":212
+  /* "main.py":212
  *             raise HTTPException(
  *                 status_code=500,
  *                 detail=f"yt-dlp error: {stderr.decode()[:300]}",             # <<<<<<<<<<<<<<
@@ -11458,7 +11487,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_slice[1]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_slice[1]);
 
-  /* "YUKIYTAPI/main.py":228
+  /* "main.py":228
  *         raise HTTPException(status_code=500, detail="Download failed  file not found")
  * 
  *     actual_ext  = actual_tmp.rsplit(".", 1)[-1]             # <<<<<<<<<<<<<<
@@ -11469,7 +11498,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[3]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[3]);
 
-  /* "YUKIYTAPI/main.py":40
+  /* "main.py":40
  * os.makedirs(CACHE_DIR, exist_ok=True)
  * 
  * DEFAULT_PORT = int(os.environ.get("PORT", 8080))             # <<<<<<<<<<<<<<
@@ -11480,7 +11509,7 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
   __Pyx_GOTREF(__pyx_mstate_global->__pyx_tuple[4]);
   __Pyx_GIVEREF(__pyx_mstate_global->__pyx_tuple[4]);
 
-  /* "YUKIYTAPI/main.py":131
+  /* "main.py":131
  * 
  * 
  * @app.get("/download")             # <<<<<<<<<<<<<<
@@ -11547,31 +11576,31 @@ static int __Pyx_InitCachedConstants(__pyx_mstatetype *__pyx_mstate) {
 static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
-    const struct { const unsigned int length: 8; } index[] = {{1},{7},{104},{34},{27},{179},{10},{13},{39},{19},{17},{11},{106},{155},{1},{1},{19},{8},{9},{53},{40},{9},{11},{7},{9},{10},{26},{6},{16},{2},{2},{9},{13},{25},{2},{7},{19},{27},{6},{10},{18},{5},{4},{12},{25},{9},{95},{29},{29},{6},{14},{7},{15},{9},{12},{12},{7},{12},{13},{6},{12},{4},{4},{4},{20},{8},{7},{11},{10},{6},{9},{9},{9},{24},{14},{8},{1},{7},{13},{10},{10},{12},{12},{8},{12},{9},{26},{3},{7},{18},{5},{9},{16},{4},{8},{10},{10},{6},{18},{5},{3},{11},{22},{6},{4},{6},{7},{7},{14},{1},{8},{9},{7},{8},{6},{8},{4},{7},{3},{16},{4},{1},{7},{17},{8},{11},{16},{14},{5},{8},{14},{7},{3},{9},{7},{11},{5},{3},{4},{4},{7},{3},{13},{6},{5},{4},{7},{3},{8},{8},{5},{10},{7},{3},{10},{14},{3},{3},{8},{4},{3},{8},{4},{2},{7},{5},{4},{7},{8},{3},{4},{9},{5},{7},{12},{2},{6},{7},{7},{6},{10},{5},{6},{3},{1},{5},{6},{4},{12},{10},{6},{10},{7},{5},{6},{11},{6},{6},{3},{12},{10},{7},{3},{3},{8},{5},{4},{5},{8},{5},{10},{19},{8},{15},{20},{4},{6},{3},{5},{4},{5},{7},{5},{6},{8},{4},{16},{10},{11},{2},{2},{5},{5},{30},{71},{89},{87},{111}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (2044 bytes) */
-const char* const cstring = "BZh91AY&SY\0213=\213\000\000\225\177\377w\377\353\367\367\377\377\367\277\177\377\277\277\377\377\376F\312\304l\320pd@P0@@p\020`\006\3376z]i\253\346\005\252\314E68\\\006I)\264\023\t\264$\333R\036\246\365G\250\314\246\364\210d\365\032h=C\322\017P=@\365\r24\r6\243F\231\036\241\3526SOI\264zM@\365\006F)\351\242mC&\2322\030#F\2312dh\032\032i\211\223L\021\220da\001\210\304a6\223\001\0320\t\204\004\030\214#!\200\230&F&\t\200C\000\021\200&\023\023C\t\241\223\0040\214#\00442dd\30050A\r\t\246\211\350\tOSh\324\311\265\032h\006\214\231\006\200\r\000\000\000\000\000i\246\200hh\000\320jyHh\325<\324e\0235\r=O\325\007\250\323!\240\000\000\000\000\000\000\000\000\000\000\032\000\000%\020M4\320\010MS\363P\247\251\346\2424\364\207\352\206OH\320\320\3206\210\r\000\000\000\000\000\017P\320\320\365\001\240\376\203\343\374\224>\306\177i\320\025E9\373\362\374\024\373g&D \2508c.\003\227\304\376\0350\364\236w\010\271z$h\364\231L\245\314\300\255-\235%*\013\025\2626\021\2739\032\332\233\301R\007\235\245\375\031\001\21682rh\205\020\226\006\374Qv\275%\013ToR\2631J\0040\240\320\014\002B\n\020 \010DA\204\253\265/n\332+b\365\313\355E\357\366\334\266\376\224\007\036\335\305S\372\205\261\215\202\3367\345\307\223x\225\350<8\024\217i7\324^O}\235\003\t\003\264\013\207Q\266\035a_<[O,\031\243\320\016\250<\027\271\217\002FH\310\025X\026U+y\325/\003Y\242\371\370\235\024\233\317\233\177\023\330.\257\357\215Z\350\247\216\307\240\326\234\232\202\375\260\233\301\277|\376\307\354\005\361\363\217\022\272\016\003\034\036\003x\230\253\314S\245,\220t$]\006i\311P`#/X\321\2371\3402\271w\354\273\227\037\023Eb\273\321\302\317\307p\035&t\322\201|\212MEH\336r\032]\275\352\360\346\325\372\341\277\223y\307\013P\321Ly\1777/\216*\346s>\225\252\272\361&I_\206\215\276\302\233\001;\232g\252\204\023[\202\000b{\273\375\033\302\250\225\3657^\345\304\2516:\345\212\233\356\203*\315h\352#)\351BJS2\226d\204<&Q\022\336N\234\372\261\2677M\217\267\356p\310t\261\332\272\253\327\001\206[i\000][m;-\321\310\001mBf\351\244\260\324\260d\014V)""\330\303#\224{\377\023\221\006\203\360q\353\202\323Q\233\216\263\222[XJ\262\214;<\377\227\n\346&\rv\236$\364\276\005\266G\"`?F)\324\302\2104\006(\247~\241\3600\244\304D$\352$\200\301\016A!1\257 \224\002\020\353\203#\303\006BC\004\324ZP\361\004\264{]R\321l\257\003w\361WdY\343m\341-\353\233z\220!\306\306\233\352\330\251\241Hf,Z\220R\347\207Yn\356OR\233\020\337\216[j2\026\3116\002\313\306E\263(\311\032\247y@\034\002\212\016R\332\026\332\270\351\3034\263\220r\030;\271\302\230\354\334\343J\263\244\344\234\345\320\272j\264\366N\360\237\\Z\t\357\3623WM\263)\022;EDt`\232\334\302\200\026\353\200\301\212B\014\005\0260\247\022\305\\w/MQ\343eh\234\244\tb34\006\244I\022\244\201\211\221\310\021\266\031\330\253\304\233\017\245\301\031\210\"\336\034\366\261N\261P2vb\023b*A\323K\266(\226\345\227*\230[\326F\240\3203\314\200Hv\245Q\007\310\213\215\203\250%\277\200%\235\370>\034\372\254\026\342k\004qg\\Ep\342\275!E\262\t\005g\363\312\3148\032\336$\325\270\313\225y\226\253\322..MG~\243\311r g\n\363\345;B\227\03285\021x\203\367mLB\3730H%5\202\245\317!1\2653\002\2242\242E\215\216(Y\214]H\255\226X\306\305\261AZ\r\357R;F\255\237\267o\007w{\306\327\237cB\n\250i\204%\025*\t\272\033\211\322+\363JP\235^\236\031C\345\302xe\2662\370\253\365\200\330J\204E\344K\207\2074\344\034ewWy%r\230\362\021\260ZD9\321\035E\331su\212\305\037z`\256I=4I\345\024\263\001\366_\225PW\214\200\245\313T\352K6\2506\014\"Yq\213\241\304\233\326Hm\244\367\324\306\004H\274\010(\205\310\300\0258Xk\231\005\212\214RN\204\013g\3419\250\233\257~!\344Y&\231ha\272\326Kg)Iq\236\2470`\025D\215A6DM,/\304-dqB\361\330\230\247\310.\245A\241\020fdn;uG\002\331\253\202\037B\tH\031\031\225\0015\241\241\352DAB\004G\226\205\017s\226!\242\361\031\005\223\216\t F@\313qM\3279u\020Bq\022\033\254s\223\006L\231\214\311V\245\224i\326\334\032\201}\344uT[6\027\206F\313\030\220\027bC\334\216#t\031t\001H\334\316\303>\255\"d\241\304\tp^$\315r\006\241\\\370\346[*\222g\300\031\240\317\267EV+\002UG4r,\354\330*)\230\321\212N5\372t\343m\260\024W\022\210\307""\033\253\261\001\243\264\353\030h\206y\311\325\302\334\324\306\243;\236\n$U\253\226{!\211\206\204\001\262\276Ou\000\353\357q\346\225\017C\341\317x\214DDy\267\311q4vQhR\274\321^\220>\356V\304c\272\233\350\r\206\002\231\300\267\366\006\t\321M\330 V\236\313P\352\212$\3430a\361*\0329JX:\271`\246\026D\212\021\246\273\2370\351\256\246v\301\305\032\321\036\370V_\3029\276\033Dx\013\224^\306GU\201\t \204\262zH\006\002\260a\220\007\022\230bP\256\"\021hFbM+`\221\264\021\t\234\024\312[\374{\031E\251\nl\022\312\344\246\314\030\254\2504\n\210S>\372\304*\2219\341\006Bi\234\345\035\332q\203\312\006\231Z\021\024V\270q\322\306\352\255k)\2707\357x\325H\210\342\262\241\227\362\2653B}\252C?\027\030\332\361\212f[yS\271\323\tL8\374\007\360\266u\246]r+{\233\227\201\034\3719\264n\033D\256\305\002\224\016\230\2043\315\311\264EP+T&\333\334\365\314;\354.\264\321\313\313P:m\256fZ4\211\252a\367An$!\333\007s\315\251\255\003_\370uE\305\001\240\210P\004D\010\204\202>b\254\317\241\022\353\346\013\032\302\261\252\233\270J\002\000\"\010B\023\331\2200\022\024\341],0\203?*x\235\016\322E\230\"\004\344\332\313?\213(&\336k\354\312\244(\331\211\203\013\310\235\215\246\200h \007\374HQ*B\005\254\354\337\0359\314l\355\265\026\037\274C\204\005\302\037\346\312\243\225!\237\005k\217\210:Wu\"F\235n\366%\302C\341\377\010\202\nnkt8\273\3075\227`~\211\314\342\007?\330E\265\274\357\333\310\234c\025<\006\r\030=\262\034\345t\211\334\347s\340 :\0102i\356\010\371\335x\353xa\277\324\017\3458\370\246\334\235\267\247\212g\016D\006\340fb\240\034\034O`u\257C.[\314\365ni@\316q\340\210\024\301\352\322\232Y\322\327\256\257T-#Y\235.*:\0232F\222\246\317\363\000Ih:\304\n\014R\205\217zF\017\020\220\201\320\323\010\370\177\342\356H\247\n\022\002&g\261`";
-    PyObject *data = __Pyx_DecompressString(cstring, 2044, 2);
+    const struct { const unsigned int length: 8; } index[] = {{1},{7},{104},{34},{27},{179},{10},{13},{39},{19},{17},{11},{106},{155},{1},{1},{19},{8},{9},{53},{40},{9},{11},{7},{9},{10},{26},{6},{16},{2},{2},{9},{13},{25},{2},{7},{19},{27},{6},{10},{18},{5},{4},{12},{25},{9},{95},{29},{29},{6},{14},{7},{15},{9},{12},{12},{7},{12},{13},{6},{12},{4},{4},{4},{20},{8},{7},{11},{10},{6},{9},{9},{9},{24},{8},{1},{7},{13},{10},{10},{12},{12},{8},{12},{9},{26},{3},{7},{18},{5},{9},{16},{4},{8},{10},{10},{6},{17},{18},{5},{3},{11},{22},{6},{4},{6},{7},{7},{14},{1},{8},{9},{7},{8},{6},{8},{4},{7},{3},{16},{4},{1},{7},{17},{8},{11},{16},{14},{5},{8},{14},{7},{3},{9},{7},{11},{5},{3},{4},{4},{7},{3},{13},{6},{5},{4},{7},{3},{4},{8},{8},{5},{10},{7},{3},{10},{14},{3},{3},{8},{4},{3},{8},{4},{2},{7},{5},{4},{7},{8},{3},{4},{9},{5},{7},{12},{2},{6},{7},{7},{6},{10},{5},{6},{3},{1},{5},{6},{4},{12},{10},{6},{10},{7},{5},{6},{11},{6},{6},{3},{12},{10},{7},{3},{3},{8},{5},{4},{5},{8},{5},{10},{19},{8},{15},{20},{4},{6},{3},{5},{4},{5},{7},{5},{6},{8},{4},{16},{10},{11},{2},{2},{5},{5},{28},{71},{89},{87},{111}};
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (2033 bytes) */
+const char* const cstring = "BZh91AY&SY\334a\2711\000\000\224\377\377w\377\353\363\367\377\377\367\277\177\377\277\277\377\377\376F\312\304l\320pd@P0@@p\020`\006\337#\242^\341\323kPP\331[Tr\3404\204\232z&I\264\022y\244\215\211\244oP\302A\352a2z\201\220z\203@\323CCC@di\3453S\014\2206\215\242 \320\203\t\2022`&\0010L\020\030\000\004\300\004\300\010\323\010b0\021\243\010\302h\320\014\2312\003S)\201\032h!\014M\252z\023A\352\0004\000\000\000\000\000\000\000\000\003@\003@\000514L\246\"j~\246\236\241\211\006\217Pd\032\003A\240\000\000\000\000\000\000\000\0004\000\006\2100\230#&\002`\023\004\301\001\200\000L\000L\000\2150\206#\001\0320\214&\215\000\311\223 %4\204\rM\031\021\224\364\322\236\232\rL\233H\332\214\214\215\000\320\032\000\000\000\003@\000\003#\006\241\2404\037\320}\035\024\034\267\376\333\246$#o\245>z?\032\212\031\212S\021\035\357\003\223\303\376#A&\252\250\214\263n\032\004\232\204f/}\006\026\272\246\234\3541Bd5\331n\364\336\335\3346\021\241\360w\241\233\031MMC\323\272\254\217{\327\235\035\024\342\324\371\247m\232\254}!.\206R}\225\003\325R\203\205L\253*\355\331\301\267\274c\330\271v-Ec\333wy\214\306]Y\3643\261\252S\2509:\206\373\251\304\345mu\222Rs\013\270iyi\312_=\227\014\036\230*\036D\260\361\310\251E?\020,A\352\005X\026\n\331\311\006\210h\206\007\256\t\263\337\336hSz\243\211<\272\020\330\245Y\343\327\323u1\275\255}Q\311\254Q\3334\311b\340O\255\220X5\345\027\250\365\004.Z\003\312~\243\240\243\002\343M\236\362n\023\303\240\317\375\267j\006\375\327\247\020A\233Z\016\226L\344\202\277\243\035\267\270\021\247\351 \225Xq\375t\035\005\246\3353R\013\230\346\250{\271\034\311J\315\274U\254=}\231\214^\300\305\010\245\035\362u\265u\250\206665\324a\373\366\221\021h\261\345\343.\374\030V9\370k 0\243A\004p\304\307\033\256\014b\020\315\325JJ\261!u\341%g\323C\016[3\204\306\351\032\360$ \365\220\232k\ro\000\344qbA\366\256WV>\014\353\243\330\005\361\310\243\2357!S\005\233\371\344B)\202\260\221}Kl \260\246\266\221\356\304\300\005t0\232\321\374L!\315/\rR\306}I\200T6\201I\223\016dT;.b\003\233\206\202\366FB\221""\354O\206\362P\270\203Q=\265qT#\220\224\017\232\224\311P\224E\356h\272\2217m\016y\206\222\221\"\025\265\225\304q\030\224\025\017\036\341D\021W\030\224($J\n\016)Y\241S\345\215t\241\033U\227O\030\034\236\202\216\232\252\273\261\204\371\227\303\032))\343i7IB\264oR3\253\372\210\023l\264\215u\375^_k\005\320z4\254\336\304\312\267*Y\332\3553,qf2\325\202\3355HD\004 \212.\261]o\035\270-\264\375\261\3339\036\363W\005{\273\342m'\335\362\016r\327[X\367\021\241\361\203\216\352tO\301\303u\332*i\241l\322J\251o\025\326 \214\001U\330\013\311Y\002|\001\0333)\206\275\373\031V9h\252\006\004\356$\316\253\200A\335!\025;\270\242\322\240\206h\265\370o\206k&\304%$B:CQ,Q|&\001\323gE\262Jc\316m\232\310\\\253]\2550\332\033\003h4\n\343 \021\373\002\224\203\240E\215K\"M\2436!|\352\\\374\207\314'\241S\006\321i4\025#R\270\231\034\356\0211*^AL0/T\260\345A\006[\332\346W(I\030[)N\213Gw]\020+\004\367\326\016\260icIJ\306G\007\273\016\262]\n*\322\217J\223\212mB-7V\270N\016\254\255d\223\325\001gs\034\3142\215y\014\327U\003\014\r\216\030\327\254\352\354\032\330Xy|kw\327\227\350%\212\314\020\232%j\t\230\373\211\231k\257[\010>iz\024\330\024W\2631\265\231\263'\325}\3740\324\344U\210\253\205\302\257\002\026\246\274\364\267\217\261|\267Rc3\242\230\326F\313\363g\353\223\242X\333B\213NM\275\234\2130>\202X\261\346L)\017H\213\325\270\036\213\267\026\254K\014\345\016\t\2364\244\262\265\013Y\336\3131\263\016\221\2448\3616$\0068\262\247X\323\025htN4\322]WU\0303re,\204\212\336p3X\347&\020\204\326R\345\025;\344\306\375>\n \343\302\207J\346U\355\2504\243nJv\364\254\240\235N@2\006fF\303\253fK\302\267.\020tPB\000\310\314\242\022\322\032\035\224D\021@\210\345\251\022\206h\324J\252\n\253#[=0\254N\207[\350\273ch\352\242\t\222\203\266&hj=\r\234\316\326\345\305f\326\257\024\203\006<ez\250X\267+\202W\213\023\265\"\334\314\224Z%w\322\367\322\010\256\367\354\2655p\r\247dJI\354Hj!\026\014\246\032\264\250X\255\233jh\007\336\032\234\013-\304\234'my\353\323U>\271i\202\203g$\342kp\033\215\262\340\205\022n\006\203D&\210\034H\301\250`[e""\251\\\2102{25\346t\254\023H\240\224&\\\220Q(_\240\013a\320s\"\016}\316J\366\021r\036$\331dR\"#\275\314%rY0\021\261h*\r\032\344y\355\341ZA\222\257R\210\205\246\221Rg\226j\250P\2319\231J\006\254\330\013\026JR\020\"3\006\026\321(\210$\203\314&\022[!ng\007 9\360\241K\t]\017lLH\216\343\202\253\347\025\363\3473\237\224#\244Wh\241L\216Z\241\t\036\204\3309 \002\20180\250\006QrJ$Y\"\242T\325i\\\253\272\230Up\221k\323\027U\365Y3e.\2053\023\007_\")'\202\016s\204@R@\335\035\374\320\245f\310\301\204A\316c\rU\215\205\010\311\305}P\034\255\224\"D\337W}\267A\360^\035,r \232\261\242a-\037\037\177\227=-\304x\026\261\253\210\241\\\020\262S\355Z\224\254!\354\323\342\253/\207qePqR\230\257\361]j\306\376=\031\274'~JL\014\033\362\232u(\344\\2@aLQ\263\305\345\032<M\027\334o|\014\326\204h\336x9\254\332\033U\257\363\006\3532b<\241\265y\037g:\336\207M\277\023\375p\367\222d\t!&a\217\274\3748\\\2666y\276\231\321\347\237\223r\326\266'\013F0\211\205\361\361\315\322\305\334\234\325\321\306\217w+$s\332\264hs\204 l\213^2\334\3350\303\201a\317\217\200v\367Z\205}\003\320l\2732\200\224\014\001\177\210\201\310\216b\002\327\237>\214\0336\344B\270\324\027\014\201\300A\366u\367k\245\304\213\233_\201r\005\246\372\254(\224w\356r\177\254\305\207\3743\014#\257\367\372|Na\343\275\372\017\321\274\016 m\362\231]\016w\355\347T;\246\361\\ 0\251\001\216\326@\231\216\317\243\303\306B\013\275\016\316\332b\342\205\365\205\375\240v\361\207\2525\324\340\2718&o\326<\\\n\252Q\006\366\023\224\034\355\310\261b\203;W,\240V0\351D\r0v\254\245\225d-\333\227\242\033P[3\250\302\216D\306H\260j`~^\t+\003\234<\236\245\007\325s\222G\270>\001\347\025\230#\237\377\027rE8P\220\334a\2711";
+    PyObject *data = __Pyx_DecompressString(cstring, 2033, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1889 bytes) */
-const char* const cstring = "x\332\205V\315o\033\307\025\267\003\245Vl\267vP\304\375@\235\216\215\246\226\322r)\271j\233\nq\014Z\242`V\261\244HT\013\307u\007\303\335Gr\254\375\322\316,E\332\r\240\203\215\020(\002\361\320\003\003\0330\221\223\352\223\002\360\240c\220\233t\322QG)\307\374\025\375\315,\245\250\255\212B\3347of\336\233y\237\277\2213\346\330\277\257\377\311n\216\335\374\035;\354\377\375\260\277\276\363\352\260\377\374\260\277\301\376\306v_\034\366?\335}\271\373\362\333\027[;\257v\3271;\354?\263\264\367\355\213/\035h\254\233m\266\013\255\235/\214\370s\2543+\t\306h\203\355ez\316t\264\026\372\221\360XUH\237<\366\315\372?X\025\034\013#\315\252Q\032z\245\260!|\351\261r\264B!+\270.)\305\246)\224\344\315E\232\230\256\013\315\246Z\272\036\205L*\346\221/+\224\010M~\213)\235HWSb\204B\266P\\\310M\2747\301D\350\261\204\036\221\253\025Si\305\365\205R\244XTe\225T\372Z\206L\267bR\016+UY+JYH0LG,\206\334I\005]\207A\212\264a\330\r\021\302d\241e\024r\250\313\260v\203y2\301%\262AF{F\370\212\234\3054\014\261\3478N\346O\261\031C\310[VF\306,\304\"\021\001\031\233aG\036\016\220\010\030\205^\034\311P\377\231|7\n\354q\367\227gK\254\260P2\343\3752\230| d\350\304-\273q\277l\366\316?\270\366\220!OH\211\315\037\022\303l\374M\0066v\327'1{\n\356\260\337\335\3358\221/\226I\037\366?\303\216U\300V\177\347\013v\224\351\347\226>=b\2369\346\"\314lq\374\277\022\371_\227Z5{\3553{\247]X\267\265\363\271\335\371t\247\317\254M\320}\266\363\312\236\236\235\315\254;lpU&qTa\371\333\177} r\217\013\271\217\307r\177\340\271\207O\306\307?\371\205\360<\216t\221H=\031\345\203x\242BJ\333\311\003j\352[\301\204x\230\377\367\245(N\325\2115\313\215\030\322\220\036E\017\352$ku\375\376\255\333\277\2779\366\360W\307b\243V.\227s\243hE\222\032\014\216njO*Q\361)\357\r\032\200\036\251\311\232\324\365\264\222\247\240B^~\344\277\254\036\245\320\250\344r\260'\021\256\216\222\234Hj*W\255\271Re{^.\367H\345\2224\3242 \225\367Q{\247\035\224\213r\271\325T\022,K(@\034``\020G!\205Z\345U=J0\234\242\206r\024Z\241&\201\003s\220\036\224g\376\211\215\001\227\336'""\216\016b\307\022\363\2753\002KG\325\310\355\311\306\255\321S\316\263j&\372Y\371 {\335\235W\246B\233G\365e\n\303$y\003\251\337\375|\367\245\315\354S\013J6\271\250\356/w7,\254d\245\370\231U\267x\225\325,:\355<\232X\247\177q*\247\306\302nVh2\366E\213\022\356\372\022Q\270\245\033\277\016\326\250\322\3229\317\2173\312(I\242d\222\025fxi\256X\276#\334\225Zb\020\252,\324\212\232*L\335-\362\351\322\342\324\374\374l\251\270\304gJ\037\026\247\2133\205\345\017\313|a~\261<#\224FO\316\000\334\026I!\330\212\356\226\313\013\305\246K\261A\215\273\204\"H\376\2704?w\264mB\274P\002jA\233\363\205V\023\3374\360\214\317!\254\213T]\234\237/\233\033\027i5E\225-\315O\315\362\245\362b\261po\251\\\200J\271t\257X\236\237-\316-\031L\270\267\274T\232\262L\252\244{\014\033\307\214\343\t-*\002\030e\263\374\335\272\301\225\373\351\212\274\023i\305EE\305\002hja\215[\310R\230\244\302\3470j\300!\367G\234\0210\315vT\346\206\327\210\027\347\003\274$p\261\344\366\316c\306y\337\217\\\340\345\007N\215Bj\306\211\210\001\276\255\320\225\321`p\334\010\261\007V\223\262\215\206S\326\204\324\234W\216\323b\357Q\025\031z\256p\353\304\203J6\032\3733N\311\307d9\017Y\017\211K@7\032\213\314\031\256\037)r\003\017\215\021\244\241ta\251\213b\207\275x\001\342$2\317\020\\&\327#7\362\310\243\020T\343\021\003\350\207@p\016\227]~\354w\026\t\002\220\2535t9\347(2T\033\206\206L\220\347\246T\232C\304\214\n\313M\343\213\241d\037\010\205\340\016\272\236\0375\033\346\252ZEU!l\203\301I\006\245\203#\314+jh\2104X'\301z\031\347\331M;\257&\204\210\240\341\253\231\321\3254\204\325&\352\346\t\315\254\036\344\240F\032\277,A`L\360\314\020\271+F\325\304<\256S\263\216\367\251\036)d\006\036x\210\276\346R\361\343lIe\256\206[\201z\204\027\315\207\273\010\030\360\226sSg\206\256\020VT \264[\017\300\n\363\234\022\320L\211\032\005+\r\210D^j|\003ck0s*\210\177\003$\341<\363\003\026\353\250V\303cL\r\204\332\240w\244`\002J\323GJ(1U\200\017I\010\007\003\"\027\233H\304\tU\321\352\344\305\t\254?J5_E=gg'd@\263\001\n\314p1\330\366KH\247I\230QS\021\266\006""\023\025\373R\003\217a}\203<E\"q\353\300j\217s\374\3430\260\025\234GU\221\3726\230\010\251\026\000`S&\226K\343\001\354\n\235\016(7\027 r0\023\024n\341\372\014\213y`\272\373\273\022U\251\233\r\201j\301\t\r-\320z\022\255\231\027BK\355\023Bb{\302\346\332\022n\240@\243;\007\225c\033\005\375\223-y\376`\034\224\266\312\246*\nk'\326\220\26346w\244\211\237\232\324\245\251\364\3147\2216$\312\301\374W\227\222%\352\250\242\001\270A\363?Z\246\005\344\311\270\365\263\373\327\307\266^\337\372\323\366x\257\260~\026\323\037\377\004\344\352\333\353g\017\256\374h?\373\r]\351\210\214\\\371Yw\246w\2557\276w\346\352\336Ug\263\276\205\365\327\367\207/\264o\266\227;7\272ov\337\355Mo\276\266\371\316fsku\373\374W\327\277*\354_\374A\273\336\021\235\307\2757\367/\\\334\037~\303,\324:\037\341\260K\227\367\316\274\335\255\367\304\376\033\227\332k\220it?\3565\366r\037l\013+\367}\234y\2753\333]\335\277\370\303\3168\304\017N\223k\277\325\256t.t\307\367\207/\265W;\027\273w\272\242\273\272w\346\247\335\221\336\265\375\241s\353I\373J{u\357\362\310\346Y+q0\004b\216?\361;\030\032n_\300\r\303\227;\257Y/F{\343\306\251qs\361o\273\3373'\036\014a\276w\346\347\335'\233#[\366\340\264=eN2\267\236\3534\273\315\336\332\2468\030L\327\272\302\034z.\023H:ou\250;\336\235\355\251\315w\267\n[\037\235\214\330/{C\275;=\332|ok|kf\373\372v!\363\326\\\367/\002\364-\337";
-    PyObject *data = __Pyx_DecompressString(cstring, 1889, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1892 bytes) */
+const char* const cstring = "x\332\205V\315o\033\307\025\267\003\245Vl\267v\020\304i\0138\235\030M-\245\345Rr\3256\025\342\030\264D\301\214bI\226\250\026\216\353\016\206\273\217\344X\373\245\235Y\212\264\033@\007\033!P\004\342\241\007\0066`\"'\325'\005\320A\307\2407\351\244\243\216R\217\371+\362\233YRU[\025\205\270o\336\314\2747\363>\177#g\314\261\177\377\370;\2731v\343\267\354h\373\257G\333\353\273\257\216\266\237\037mo\260\277\260\275\027G\333_\354\275\334{\371\335\213\255\335W{\353\230\035m?\263\264\367\335\213o\034h\254\233m\266\007\255\335\257\215\370s\2543+\t\306h\203\355ez\316t\264\026\372\221\360XUH\237<\366\317\365\277\261*8\026F\232U\2434\364JaC\370\322c\345h\205BVp]R\212MS(\311\233\21341]\027\232M\265t=\n\231T\314#_V(\021\232\374\026S:\221\256\246\304\010\205l\241\270\220\233\370p\202\211\320c\t=\"W+\246\322\212\353\013\245H\261\250\312*\251\364\265\014\231n\305\244\034V\252\262V\224\262\220`\230\216X\014\271\223\n\272\016\203\024i\303\260\353\"\204\311B\313(\344P\227a\355:\363d\202Kd\203\214\366\214\360\0259\213i\030b\317q\234\314\237b3\206\220\267\254\214\214Y\210E\"\00226\303\216<\034 \0210\n\2758\222\241\376#\371n\024\330\343\356/\317\226Xa\241d\306\373e0\371@\310\320\211[v\343~\331\354\235\177\360\336C\206<!%6\177H\014\263\3617\031\330\330[\237\304\354)\270\243\355\356\336\306\211|\261L\372h\373K\354X\005lm\357~\315\006\231~n\351\323\001\363\3141\027af\213\343\377\225\310\377\272\324\252\331k\237\331;\355\302\272\255\235\257\354\316\027\273\333\314\332\004\335g\273\257\354\351\331\331\314\272\303\372We\022\203\n\313\337\372\363\003\221{\\\310}6\226\373=\317=|2>\376\371\317\205\347q\244\213D\352\311(\037\304\023\025R\332N\036PS\337\014&\304\303\374\277/Eq\252N\254Yn\304\220\206\364(zP'Y\253\353\217n\336\372\335\215\261\207\277<\026\033\265r\271\234\033E+\222T\177ptS{R\211\212Oy\257\337\000\364HM\326\244\256\247\225<\005\025\362\362#\377e\365(\205F%\227\203=\211pu\224\344DRS\271j\315\225*\333\363r\271G*\227\244\241\226\001\251\274\217\332;\355\240\\\224\313\255\246\222`YB\001\342""\000\003\2038\n)\324*\257\352Q\202\341\0245\224\243\320\n5\t\034\230\203t\277<\363Ol\014\270\364>wt\020;\226\230\357\375\021X:\252FnM6n\216\236r\236U3\321\317\312\007\331\353\356\2762\025\332\034\324\227)\014\223\344\r\244~\357\253\275\2276\263O-(\331\344\242\272\277\331\333\260\260\222\225\342\227V\335\342UV\263\350\264\363hb\235\376\311\251\234\032\013\273Y\241\311\330\027-J\270\353KD\341\246n\374*X\243JK\347<?\316(\243$\211\222IV\230\341\245\271b\371\266pWj\211A\250\262P+j\2520u\247\310\247K\213S\363\363\263\245\342\022\237)}Z\234.\316\024\226?-\363\205\371\305\362\214P\032=9\003p[$\205`+\272S./\024\233.\305\0065\356\020\212 \371di~n\260mB\274P\002jA\233\363\205V\023\3374\360\214\317!\254\213T]\234\237/\233\033\027i5E\225-\315O\315\362\245\362b\261pw\251\\\200J\271t\267X\236\237-\316-\031L\270\273\274T\232\262L\252\244{\014\033\307\214\343\t-*\002\030e\263|?]\221\267#\255\270\250\250X\000?-\220q\013R\n\223T\370\034f\3649d{\300\031\001\323^\203\3026\274F\2048\357#$\201\213%\267\267\0343\316G~\344\002!?vj\024R3ND\014\270m\205\256\214\372\203\343F\2106\320\231\224m-\234\262&\244\346\274r\234\010{\217\252\310\320s\205['\036T\262\321\330\237qJ>&\313y\234[\030\3475\322RS`\2468\232K\2407z\213\314\241\256\037)r\003\017\275\021\244\241ta\272\213z\207\003x\004\342$2/\021b@\256Gn\344\221G!\250\306;\006\334\017\001\342\0341p\371q \262\320\020\260\\\255\241\3219G\235\241\34004d\202T7\245\322\034\"fTXn\032\347\014%\373F(D\273\337\370|\320o\230\253j\025\205\2058\366\007'\351W\017\2160\017\251\241!\362b\275\006\353\361\276\377f\323\316\253\t!D\350\371jft5\ra\265I\203yE3\253\373IA\260\360\3132\006\306D\323\014\221\273bTM\022\342:5\353x\242\352\221B\252\340\201\207th.\025?N\237T\346j\023t\365\010\217\232\017w\0210@\256y\3008\037\320\025\302\252\n\204v\353\001Xa^U\002\250)Q\243`\245\001\221\310K\215\177`laf\216\005\361\257\001(\234g\276\300j\035\325jx\223\251\201p\033\020\217\024\314@\275\372H\013%\2464\360!\021a\177@\364b\023\2158\241*:\236\2748\201\007\203t\363U\024yvvB\006;\033""\240\200\016\027\203\355\302\204t\232\204\0315Ua\0133Q\261/5`\031\3267\310S$\022\267\016\310F\025\342\377\207\276\255\340<\252\212\324\267\001EX\265\000\016\233R\261\\\032\367\321W\350\264O\271\271\000\321\203\231\240p\013\327g\220\314\003\323\344\377*S\225\272\331\020\250\026\234\320\320\002\255'\321\232y(\320\001>!$\266Ql\276-\341\006\0214Z\266_=\266{\320T\331\222\347\367\307~y\253l\252\242\260vb\r9KcsG\232\370\251I]\232J\317|\023iC\242$\314?w)Y\242\006U\r\334\r\232\377\3216-\300Q\306\255\237=\2706\266\365\372\326\037v\306{\205\365\263\230\376\370' W\337]?{x\345\235\203\3547t\245#2\362\316\325\356\275\256\330?su\377\252\263Y\337\302\352\353\007\303\027\3327\332\313\235\353\3357\273\037\364\2467_\333|\177\263\271\265\272s\376\333k\337\026\016.\376\250]\357\210\316\343\336\233\007\027.\036\014\277a\026j\235{8\352\322\345\3753\357v\353=q\360\306\245\366\032d\032\335\317z\215\375\334\307;\302\312\375\020g^\353\314vW\017.\276\325\031\207\370\341ir\355\267\333\225\316\205\356\370\301\360\245\366j\347b\367vWtW\367\317\374\264;\322{\357`\350\334z\322\276\322^\335\277<\262y\326J\034\016\201\230\343O\374\016\207\206\333\027p\303\360\345\316k\326\213\321\336\270qj\334\\\374\233\356\017\314\211\207C\230\357\237\371Y\367\311\346\310\226=8mO\231\223\314\255\347:\315n\263\267\266)\016\373\323\265\2560\207\236\313\004\222\316\333\035\352\216wg{j\363\203\255\302\326\275\223\021\373Eo\250w\273G\233\037n\215o\315\354\\\333)d\336\232\353\276\007\324\0211<";
+    PyObject *data = __Pyx_DecompressString(cstring, 1892, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #else /* compression: none (3128 bytes) */
-const char* const bytes = ".0.0.0.0\302\251 2026 \341\264\213\341\264\200\311\252\341\264\233\341\264\217 | \312\234\341\264\207\312\237\312\237\352\234\260\311\252\312\200\341\264\207\341\264\205\341\264\207\341\264\240\352\234\261. \341\264\200\312\237\312\237 \312\200\311\252\311\242\312\234\341\264\233\352\234\261 \312\200\341\264\207\352\234\261\341\264\207\312\200\341\264\240\341\264\207\341\264\205.Download failed \342\200\224 file not foundInvalid Token Access DeniedNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Running...Token ExpiredUse token parameter in /stream endpointWelcome to YUKI APIYUKIYTAPI/main.pyYUKI YT API\n[!] \352\234\260\341\264\200\341\264\233\341\264\200\312\237 \341\264\207\312\200\312\200\341\264\217\312\200: \341\264\204\341\264\217\341\264\230\312\217\312\200\311\252\311\242\312\234\341\264\233 \341\264\233\341\264\200\341\264\215\341\264\230\341\264\207\312\200\311\252\311\264\311\242 \341\264\205\341\264\207\341\264\233\341\264\207\341\264\204\341\264\233\341\264\207\341\264\205.[!] \341\264\233\312\234\341\264\207 \312\234\341\264\207\312\237\312\237\352\234\260\311\252\312\200\341\264\207\341\264\205\341\264\207\341\264\240\352\234\261 \341\264\204\341\264\217\341\264\230\312\217\312\200\311\252\311\242\312\234\341\264\233 \312\234\341\264\207\341\264\200\341\264\205\341\264\207\312\200 \312\234\341\264\200\352\234\261 \312\231\341\264\207\341\264\207\311\264 \341\264\215\341\264\217\341\264\205\311\252\352\234\260\311\252\341\264\207\341\264\205 \341\264\217\312\200 \312\200\341\264\207\341\264\215\341\264\217\341\264\240\341\264\207\341\264\205./?^[a-zA-Z0-9_-]{11}$add_noteaudio/mp4bestaudio[ext=m4a]/bestaudio[ext=opus]/bestaudio/best(bestvideo[height<=?720]+bestaudio)/best--cookiescookies.txtdisable/downloadejs:github/embed/([a-zA-Z0-9_-]{11})enable--extractor-args-fgcisenabled--js-runtimes/live/([a-zA-Z0-9_-]{11})-o--quiet--""remote-components/shorts/([a-zA-Z0-9_-]{11})/statsstr | None/stream/{video_id}.tmp..tmp.tmp.%(ext)s(?:v=)([a-zA-Z0-9_-]{11})video/mp4[!] \341\264\200\341\264\230\311\252 \341\264\207x\341\264\207\341\264\204\341\264\234\341\264\233\311\252\341\264\217\311\264 \312\231\312\237\341\264\217\341\264\204\341\264\213\341\264\207\341\264\205. \352\234\261\312\217\352\234\261\341\264\233\341\264\207\341\264\215 \341\264\207x\311\252\341\264\233\311\252\311\264\311\242...\nyoutu\\.be/([a-zA-Z0-9_-]{11})youtube:player_client=tv,mwebyt-dlpyt-dlp error: AF_INETBackgroundTasksCACHE_DIRCOOKIES_FILEDEFAULT_PORTFastAPIFileResponseHTTPExceptionHeaderJSONResponseNonePIPEPORT__Pyx_PyDict_NextRefROOT_DIRRequestSOCK_STREAMSTART_TIMETOKENSYUKIMUSICYUKIMusicYUKIYTAPIYUKIYTAPI.database.statsYUKIYTAPI.mainYukiBots_abspathactive_tokensactual_extactual_tmpactual_tokenadd_downloadadd_task__annotate__api_statsapi_stats.<locals>.genexprappasyncioasyncio.coroutinesaudio__await__background_tasksbindcache_mbcache_pathcache_sizecachedcline_in_tracebackclosecmdcommunicatecreate_subprocess_execdecodedenodetaildirname__doc__download_tokeneendswith__enter__environexist_okexists__exit__exitexpiresextextract_video_idextsffastapifastapi.responses__file__final_cachefind_cached_filefind_free_portfname__func__generate_tokengenexprgetget_statsgetsizegetsocknamegrouphexhomehostinit_dbint_is_coroutineisfileitemsjoinlistdirm4a__main__makedirsmatchmedia_typemessagemkv__module___move_to_cachemp3mp4__name__nextoggon_eventopusosouttmplownerpathpatternpatternspopportpreferredprintprocess__qualname__reremovereplacerequestreturnreturncoderoundrsplitrunssavedsearchsend__set_name__setdefaultsocketstartswithstartupstatsstatusstatus_codestderrstdoutstrstream_musicsubprocesssuccesssumsys__test__throwtimetitletmp_pathtokentoken_datatotal_cache_size_mbtotal_dltotal_downloadstotal_song_downloadstypeuptimeurlusageuuiduuid4uvicornvaluevaluesvideo_idwebmx_download_tokenyuki_token\200\001\330\"0\260\005\260V\2701\240A\200\001\200""\001\330\030\031\200\001\330\035\036\200\001\340\026\027\330\026\027\330\026\027\330\004\026\220a\330\004\026\220a\330\026\034\230F\240!\2401\320\000\035\320\035.\250h\260a\330\004\005\330\010\013\2102\210U\220'\230\021\230*\240D\250\002\250%\250x\260q\270\n\300\"\300A\330\014\016\210h\220a\220z\240\021\330\013\014\330\010\t\330\014\016\210g\220Q\220a\330\017\020\320\000\036\230h\240a\330\t\017\210w\220a\220v\230Z\240v\320->\270a\330\010\t\330\014\r\210U\220\"\220K\230q\330\014\023\2201\330\017\020\340\t\017\210w\220a\220v\230Z\240v\320->\270a\330\010\t\210\025\210b\220\013\2301\330\010\017\210q\220\014\230B\230a\230q\320\000\032\230(\240!\330\004\007\200r\210\026\210q\320\020(\250\001\330\010\017\210q\340\004\017\210q\330\010\t\330\010\t\330\010\t\330\010\t\330\010\t\340\004\010\210\013\2201\330\010\020\220\002\220'\230\021\230)\2401\330\010\013\2101\330\014\023\2205\230\006\230a\230q\340\004\013\2101\320\000\037\230{\250(\260!\330\004\007\200u\210C\210q\330\010\017\210q\220\007\220x\230x\240w\250a\340\010\017\210q\220\007\220w\230a\340\004\010\210\007\210q\330\010\017\210r\220\025\220e\2301\230K\240s\250*\260A\260Q\330\010\013\2102\210U\220'\230\021\230&\240\004\240B\240e\2508\2601\260F\270\"\270A\330\014\023\2201\330\004\013\2101";
+    #else /* compression: none (3133 bytes) */
+const char* const bytes = ".0.0.0.0\302\251 2026 \341\264\213\341\264\200\311\252\341\264\233\341\264\217 | \312\234\341\264\207\312\237\312\237\352\234\260\311\252\312\200\341\264\207\341\264\205\341\264\207\341\264\240\352\234\261. \341\264\200\312\237\312\237 \312\200\311\252\311\242\312\234\341\264\233\352\234\261 \312\200\341\264\207\352\234\261\341\264\207\312\200\341\264\240\341\264\207\341\264\205.Download failed \342\200\224 file not foundInvalid Token Access DeniedNote that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Running...Token ExpiredUse token parameter in /stream endpointWelcome to YUKI APIYUKIYTAPI/main.pyYUKI YT API\n[!] \352\234\260\341\264\200\341\264\233\341\264\200\312\237 \341\264\207\312\200\312\200\341\264\217\312\200: \341\264\204\341\264\217\341\264\230\312\217\312\200\311\252\311\242\312\234\341\264\233 \341\264\233\341\264\200\341\264\215\341\264\230\341\264\207\312\200\311\252\311\264\311\242 \341\264\205\341\264\207\341\264\233\341\264\207\341\264\204\341\264\233\341\264\207\341\264\205.[!] \341\264\233\312\234\341\264\207 \312\234\341\264\207\312\237\312\237\352\234\260\311\252\312\200\341\264\207\341\264\205\341\264\207\341\264\240\352\234\261 \341\264\204\341\264\217\341\264\230\312\217\312\200\311\252\311\242\312\234\341\264\233 \312\234\341\264\207\341\264\200\341\264\205\341\264\207\312\200 \312\234\341\264\200\352\234\261 \312\231\341\264\207\341\264\207\311\264 \341\264\215\341\264\217\341\264\205\311\252\352\234\260\311\252\341\264\207\341\264\205 \341\264\217\312\200 \312\200\341\264\207\341\264\215\341\264\217\341\264\240\341\264\207\341\264\205./?^[a-zA-Z0-9_-]{11}$add_noteaudio/mp4bestaudio[ext=m4a]/bestaudio[ext=opus]/bestaudio/best(bestvideo[height<=?720]+bestaudio)/best--cookiescookies.txtdisable/downloadejs:github/embed/([a-zA-Z0-9_-]{11})enable--extractor-args-fgcisenabled--js-runtimes/live/([a-zA-Z0-9_-]{11})-o--quiet--""remote-components/shorts/([a-zA-Z0-9_-]{11})/statsstr | None/stream/{video_id}.tmp..tmp.tmp.%(ext)s(?:v=)([a-zA-Z0-9_-]{11})video/mp4[!] \341\264\200\341\264\230\311\252 \341\264\207x\341\264\207\341\264\204\341\264\234\341\264\233\311\252\341\264\217\311\264 \312\231\312\237\341\264\217\341\264\204\341\264\213\341\264\207\341\264\205. \352\234\261\312\217\352\234\261\341\264\233\341\264\207\341\264\215 \341\264\207x\311\252\341\264\233\311\252\311\264\311\242...\nyoutu\\.be/([a-zA-Z0-9_-]{11})youtube:player_client=tv,mwebyt-dlpyt-dlp error: AF_INETBackgroundTasksCACHE_DIRCOOKIES_FILEDEFAULT_PORTFastAPIFileResponseHTTPExceptionHeaderJSONResponseNonePIPEPORT__Pyx_PyDict_NextRefROOT_DIRRequestSOCK_STREAMSTART_TIMETOKENSYUKIMUSICYUKIMusicYUKIYTAPIYUKIYTAPI.database.statsYukiBots_abspathactive_tokensactual_extactual_tmpactual_tokenadd_downloadadd_task__annotate__api_statsapi_stats.<locals>.genexprappasyncioasyncio.coroutinesaudio__await__background_tasksbindcache_mbcache_pathcache_sizecached__class_getitem__cline_in_tracebackclosecmdcommunicatecreate_subprocess_execdecodedenodetaildirname__doc__download_tokeneendswith__enter__environexist_okexists__exit__exitexpiresextextract_video_idextsffastapifastapi.responses__file__final_cachefind_cached_filefind_free_portfname__func__generate_tokengenexprgetget_statsgetsizegetsocknamegrouphexhomehostinit_dbint_is_coroutineisfileitemsjoinlistdirm4amain__main__makedirsmatchmedia_typemessagemkv__module___move_to_cachemp3mp4__name__nextoggon_eventopusosouttmplownerpathpatternpatternspopportpreferredprintprocess__qualname__reremovereplacerequestreturnreturncoderoundrsplitrunssavedsearchsend__set_name__setdefaultsocketstartswithstartupstatsstatusstatus_codestderrstdoutstrstream_musicsubprocesssuccesssumsys__test__throwtimetitletmp_pathtokentoken_datatotal_cache_size_mbtotal_dltotal_downloadstotal_song_downloadstypeuptimeurlusageuuiduuid4uvicornvaluevaluesvideo_idwebmx_download_tokenyuki_token\200\001\330\"0\260\005\260V\2701\240A\200""\001\200\001\330\030\031\200\001\330\035\036\200\001\340\026\027\330\026\027\330\026\027\330\004\026\220a\330\004\026\220a\330\027\035\230Q\230a\320\000\035\320\035.\250h\260a\330\004\005\330\010\013\2102\210U\220'\230\021\230*\240D\250\002\250%\250x\260q\270\n\300\"\300A\330\014\016\210h\220a\220z\240\021\330\013\014\330\010\t\330\014\016\210g\220Q\220a\330\017\020\320\000\036\230h\240a\330\t\017\210w\220a\220v\230Z\240v\320->\270a\330\010\t\330\014\r\210U\220\"\220K\230q\330\014\023\2201\330\017\020\340\t\017\210w\220a\220v\230Z\240v\320->\270a\330\010\t\210\025\210b\220\013\2301\330\010\017\210q\220\014\230B\230a\230q\320\000\032\230(\240!\330\004\007\200r\210\026\210q\320\020(\250\001\330\010\017\210q\340\004\017\210q\330\010\t\330\010\t\330\010\t\330\010\t\330\010\t\340\004\010\210\013\2201\330\010\020\220\002\220'\230\021\230)\2401\330\010\013\2101\330\014\023\2205\230\006\230a\230q\340\004\013\2101\320\000\037\230{\250(\260!\330\004\007\200u\210C\210q\330\010\017\210q\220\007\220x\230x\240w\250a\340\010\017\210q\220\007\220w\230a\340\004\010\210\007\210q\330\010\017\210r\220\025\220e\2301\230K\240s\250*\260A\260Q\330\010\013\2102\210U\220'\230\021\230&\240\004\240B\240e\2508\2601\260F\270\"\270A\330\014\023\2201\330\004\013\2101";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
     PyObject **stringtab = __pyx_mstate->__pyx_string_tab;
     Py_ssize_t pos = 0;
-    for (int i = 0; i < 228; i++) {
+    for (int i = 0; i < 229; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyUnicode_DecodeUTF8(bytes + pos, bytes_length, NULL);
       if (likely(string) && i >= 51) PyUnicode_InternInPlace(&string);
@@ -11582,7 +11611,7 @@ const char* const bytes = ".0.0.0.0\302\251 2026 \341\264\213\341\264\200\311\25
       stringtab[i] = string;
       pos += bytes_length;
     }
-    for (int i = 228; i < 238; i++) {
+    for (int i = 229; i < 239; i++) {
       Py_ssize_t bytes_length = index[i].length;
       PyObject *string = PyBytes_FromStringAndSize(bytes + pos, bytes_length);
       stringtab[i] = string;
@@ -11593,14 +11622,14 @@ const char* const bytes = ".0.0.0.0\302\251 2026 \341\264\213\341\264\200\311\25
       }
     }
     Py_XDECREF(data);
-    for (Py_ssize_t i = 0; i < 238; i++) {
+    for (Py_ssize_t i = 0; i < 239; i++) {
       if (unlikely(PyObject_Hash(stringtab[i]) == -1)) {
         __PYX_ERR(0, 1, __pyx_L1_error)
       }
     }
     #if CYTHON_IMMORTAL_CONSTANTS
     {
-      PyObject **table = stringtab + 228;
+      PyObject **table = stringtab + 229;
       for (Py_ssize_t i=0; i<10; ++i) {
         #if PY_VERSION_HEX >= 0x030F0000
         PyUnstable_SetImmortal(table[i]);
@@ -11710,7 +11739,7 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
   {
     const __Pyx_PyCode_New_function_description descr = {6, 0, 0, 19, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS|CO_COROUTINE), 148};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_request, __pyx_mstate->__pyx_n_u_video_id, __pyx_mstate->__pyx_n_u_background_tasks, __pyx_mstate->__pyx_n_u_type, __pyx_mstate->__pyx_n_u_token, __pyx_mstate->__pyx_n_u_x_download_token, __pyx_mstate->__pyx_n_u_actual_token, __pyx_mstate->__pyx_n_u_token_data, __pyx_mstate->__pyx_n_u_cached, __pyx_mstate->__pyx_n_u_outtmpl, __pyx_mstate->__pyx_n_u_cmd, __pyx_mstate->__pyx_n_u_process, __pyx_mstate->__pyx_n_u__9, __pyx_mstate->__pyx_n_u_stderr, __pyx_mstate->__pyx_n_u_e, __pyx_mstate->__pyx_n_u_actual_tmp, __pyx_mstate->__pyx_n_u_fname, __pyx_mstate->__pyx_n_u_actual_ext, __pyx_mstate->__pyx_n_u_final_cache};
-    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_YUKIYTAPI_main_py, __pyx_mstate->__pyx_n_u_stream_music, __pyx_mstate->__pyx_kp_b_iso88591_a_a_F_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
+    __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_YUKIYTAPI_main_py, __pyx_mstate->__pyx_n_u_stream_music, __pyx_mstate->__pyx_kp_b_iso88591_a_a_Qa, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
     const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 43};
@@ -16099,6 +16128,61 @@ bad:
           return -1;
       }
       return PyDict_SetItem(builder, key, value);
+  }
+  #endif
+  
+/* ObjectGetItem */
+  #if CYTHON_USE_TYPE_SLOTS
+  static PyObject *__Pyx_PyObject_GetIndex(PyObject *obj, PyObject *index) {
+      PyObject *runerr = NULL;
+      Py_ssize_t key_value;
+      key_value = __Pyx_PyIndex_AsSsize_t(index);
+      if (likely(key_value != -1 || !(runerr = PyErr_Occurred()))) {
+          return __Pyx_GetItemInt_Fast(obj, key_value, 0, 1, 1, 1);
+      }
+      if (PyErr_GivenExceptionMatches(runerr, PyExc_OverflowError)) {
+          __Pyx_TypeName index_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(index));
+          PyErr_Clear();
+          PyErr_Format(PyExc_IndexError,
+              "cannot fit '" __Pyx_FMT_TYPENAME "' into an index-sized integer", index_type_name);
+          __Pyx_DECREF_TypeName(index_type_name);
+      }
+      return NULL;
+  }
+  static PyObject *__Pyx_PyObject_GetItem_Slow(PyObject *obj, PyObject *key) {
+      __Pyx_TypeName obj_type_name;
+      if (likely(PyType_Check(obj))) {
+          #if __PYX_LIMITED_VERSION_HEX >= 0x03090000
+          if ((PyTypeObject*)obj == &PyType_Type) {
+              return Py_GenericAlias(obj, key);
+          }
+          #endif
+          PyObject *meth = __Pyx_PyObject_GetAttrStrNoError(obj, __pyx_mstate_global->__pyx_n_u_class_getitem);
+          if (!meth) {
+              PyErr_Clear();
+          } else {
+              PyObject *result = __Pyx_PyObject_CallOneArg(meth, key);
+              Py_DECREF(meth);
+              return result;
+          }
+      }
+      obj_type_name = __Pyx_PyType_GetFullyQualifiedName(Py_TYPE(obj));
+      PyErr_Format(PyExc_TypeError,
+          "'" __Pyx_FMT_TYPENAME "' object is not subscriptable", obj_type_name);
+      __Pyx_DECREF_TypeName(obj_type_name);
+      return NULL;
+  }
+  static PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject *key) {
+      PyTypeObject *tp = Py_TYPE(obj);
+      PyMappingMethods *mm = tp->tp_as_mapping;
+      PySequenceMethods *sm = tp->tp_as_sequence;
+      if (likely(mm && mm->mp_subscript)) {
+          return mm->mp_subscript(obj, key);
+      }
+      if (likely(sm && sm->sq_item)) {
+          return __Pyx_PyObject_GetIndex(obj, key);
+      }
+      return __Pyx_PyObject_GetItem_Slow(obj, key);
   }
   #endif
   
