@@ -109,15 +109,12 @@ setup_venv() {
             rm -rf "$VENV_DIR"
             exit 1
         fi
-    else
-    fi
     # shellcheck disable=SC1091
     source "$VENV_DIR/bin/activate"
 }
 
 check_deno() {
-    if command -v deno &>/dev/null; then
-    else
+    if ! command -v deno &>/dev/null; then
         curl -fsSL https://deno.land/install.sh | sh -s -- -y
         export PATH="$HOME/.deno/bin:$PATH"
         if ! command -v deno &>/dev/null; then
@@ -177,8 +174,6 @@ check_port_and_zombies() {
             err "Free the port manually or change PORT in this script."
             exit 1
         fi
-    else
-    fi
 
     PIDS=$(pgrep -f "$APP_MODULE" || true)
     if [ -n "$PIDS" ]; then
