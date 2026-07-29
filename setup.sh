@@ -77,14 +77,14 @@ clone_or_update_repo() {
     log "Setting up repo ${REPO_DIR}..."
     if [ -d "$REPO_DIR/.git" ]; then
         log "Repo already exists, pulling latest..."
-        (cd "$REPO_DIR" && git pull --ff-only) || err "git pull failed, continuing with existing copy"
+        (cd "$REPO_DIR" && git pull --ff-only > /dev/null 2>&1) || err "git pull failed, continuing with existing copy"
     else
         if [ -d "$REPO_DIR" ]; then
             err "${REPO_DIR} exists but is not a git repo, removing and re-cloning..."
             rm -rf "$REPO_DIR"
         fi
         log "Cloning ${REPO_URL}..."
-        git clone "$REPO_URL" "$REPO_DIR"
+        git clone "$REPO_URL" "$REPO_DIR" > /dev/null 2>&1
     fi
     cd "$REPO_DIR" || { err "Could not cd into ${REPO_DIR}"; exit 1; }
     log "Now working inside $(pwd)"
@@ -217,7 +217,7 @@ check_port_and_zombies() {
 start_tmux() {
     log "Starting ${APP_NAME} in tmux session '${TMUX_SESSION}'..."
     tmux new-session -d -s "$TMUX_SESSION" \
-        "cd $(pwd) && source ${VENV_DIR}/bin/activate && uvicorn ${APP_MODULE} --host 0.0.0.0 --port ${PORT} 2>&1 | tee ${LOG_FILE}"
+        "cd $(pwd) && source ${VENV_DIR}/bin/activate && export PYTHONPATH=$(pwd) && uvicorn ${APP_MODULE} --host 0.0.0.0 --port ${PORT} 2>&1 | tee ${LOG_FILE}"
     sleep 5
     if ! tmux has-session -t "$TMUX_SESSION" 2>/dev/null; then
         err "tmux session died immediately. Check ${LOG_FILE} in ${REPO_DIR}."
