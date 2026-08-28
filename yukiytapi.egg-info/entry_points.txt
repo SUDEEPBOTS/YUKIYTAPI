@@ -1,0 +1,3 @@
+[console_scripts]
+yuki-dl = yukiytapi.cli:main
+yukiytapi = yukiytapi.cli:main

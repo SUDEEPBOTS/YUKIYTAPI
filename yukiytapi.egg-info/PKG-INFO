@@ -1,3 +1,41 @@
+Metadata-Version: 2.4
+Name: yukiytapi
+Version: 1.0.0
+Summary: Official High-Speed Python SDK & API Wrapper for Yuki YouTube Music Streaming Engine
+Home-page: https://github.com/SUDEEPBOTS/YUKIYTAPI
+Author: SUDEEPBOTS
+Author-email: sudeepbots@gmail.com
+Project-URL: Documentation, https://yukiapi.site/docs
+Project-URL: Source, https://github.com/SUDEEPBOTS/YUKIYTAPI
+Project-URL: Tracker, https://github.com/SUDEEPBOTS/YUKIYTAPI/issues
+Keywords: yukiytapi yukimusic telegram-music-bot youtube-stream pytgcalls audio downloader
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp>=3.8.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # 🎵 YukiYTAPI — Python SDK
 
 [![PyPI Version](https://img.shields.io/pypi/v/yukiytapi.svg)](https://pypi.org/project/yukiytapi/)
