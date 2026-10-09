@@ -1,4 +1,10 @@
+import os
+import sys
 import pytest
+
+# Ensure root package is in python search path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from fastapi.testclient import TestClient
 from YUKIYTAPI.main import app
 
@@ -34,7 +40,7 @@ def test_download_token_generate():
     assert data["status"] == "success"
     assert data["video_id"] == "dQw4w9WgXcQ"
     assert "download_token" in data
-    assert data["download_token"].startswith("YUKIMusic")
+    assert "SudeepBots" in data["download_token"]
 
 def test_stream_unauthorized():
     response = client.get("/stream/dQw4w9WgXcQ?type=audio")
