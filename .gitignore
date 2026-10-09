@@ -1,0 +1,43 @@
+# Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Sensitive Configuration & Credentials
+.env
+.env.local
+cookies.txt
+credentials.json
+*.session
+*.session-journal
+
+# Downloaded Media & Local Cache
+YUKIYTAPI/saved/
+saved/
+downloads/
+cache/
+*.mp3
+*.mp4
+*.mkv
+*.webm
+*.part
+*.ytdl
+
+# Logs & PIDs
+logs/
+*.log
+*.pid
+
+# IDE & OS Artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

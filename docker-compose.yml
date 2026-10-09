@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  yukiytapi:
+    build: .
+    container_name: yukiytapi
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
+      - WORKERS=2
+    volumes:
+      - ./cookies.txt:/app/cookies.txt:ro
+      - media-cache:/app/YUKIYTAPI/saved
+
+volumes:
+  media-cache:

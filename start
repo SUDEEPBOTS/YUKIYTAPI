@@ -1,0 +1,12 @@
+#!/bin/bash
+# ========================================================================
+#   YUKI YT API - Startup Script
+#   Copyright (c) 2026 SUDEEPBOTS. All Rights Reserved.
+# ========================================================================
+
+HOST="${HOST:-0.0.0.0}"
+PORT="${PORT:-8000}"
+WORKERS="${WORKERS:-2}"
+
+echo "⚡ Starting YUKI YT API on ${HOST}:${PORT} (Workers: ${WORKERS})..."
+exec uvicorn YUKIYTAPI.main:app --host "${HOST}" --port "${PORT}" --workers "${WORKERS}"

@@ -1,0 +1,14 @@
+# Netscape HTTP Cookie File
+# http://curl.haxx.se/rfc/cookie_spec.html
+# This file is an example template for your cookies.txt
+#
+# Instructions:
+# 1. Install a browser extension such as "Cookie-Editor" or "Get cookies.txt LOCALLY".
+# 2. Open YouTube in your browser and ensure you are logged in.
+# 3. Export cookies in Netscape format.
+# 4. Save the content as `cookies.txt` in the root of this project.
+#
+# Example line format:
+# .youtube.com	TRUE	/	FALSE	1893456000	SID	example_cookie_value_here
+# .youtube.com	TRUE	/	TRUE	1893456000	HSID	example_cookie_value_here
+# .youtube.com	TRUE	/	TRUE	1893456000	SSID	example_cookie_value_here

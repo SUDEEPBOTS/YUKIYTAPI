@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuki YT API Studio - High-Speed Media Streaming Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #07090e;
+            --bg-card: rgba(16, 22, 34, 0.75);
+            --border-glow: rgba(255, 0, 85, 0.35);
+            --accent-red: #ff0055;
+            --accent-cyan: #00f2fe;
+            --accent-purple: #9d4edd;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 0, 85, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 242, 254, 0.12) 0%, transparent 45%);
+            background-attachment: fixed;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .brand-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1rem;
+            background: rgba(255, 0, 85, 0.12);
+            border: 1px solid rgba(255, 0, 85, 0.4);
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            color: var(--accent-red);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 30%, var(--accent-red) 70%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 1.25rem;
+            backdrop-filter: blur(12px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-cyan));
+        }
+
+        .stat-value {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .main-deck {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 2rem;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            margin-bottom: 2rem;
+        }
+
+        .deck-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .deck-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: #fff;
+        }
+
+        .live-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #10b981;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(8, 12, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 0.85rem 1.25rem;
+            color: #fff;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--accent-red);
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
+        }
+
+        select {
+            background: rgba(8, 12, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 0.85rem 1.25rem;
+            color: #fff;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--accent-red), #d90429);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 0.85rem 1.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 85, 0.55);
+        }
+
+        .btn-stream {
+            background: linear-gradient(135deg, #0284c7, var(--accent-cyan));
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-stream:hover {
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
+        }
+
+        .result-box {
+            background: rgba(8, 12, 20, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .result-box.active {
+            display: block;
+        }
+
+        .code-snippet {
+            background: #020408;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            color: var(--accent-cyan);
+            overflow-x: auto;
+            margin: 0.75rem 0;
+            position: relative;
+        }
+
+        .player-container {
+            margin-top: 1.25rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        audio, video {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            outline: none;
+        }
+
+        .terminal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .terminal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .endpoint-card {
+            background: rgba(16, 22, 34, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .badge-method {
+            display: inline-block;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+        }
+
+        .badge-get {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="brand-pill">⚡ SUDEEPBOTS PLATFORM</div>
+        <h1>YUKI YT STREAMING STUDIO</h1>
+        <p class="subtitle">High-speed, locally-cached YouTube streaming & audio extraction API engine powered by FastAPI & yt-dlp.</p>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="statDownloads">...</div>
+            <div class="stat-label">Total Extractions</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statCache">...</div>
+            <div class="stat-label">Cache Storage (MB)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statTokens">...</div>
+            <div class="stat-label">Active Tokens</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" id="statUptime">...</div>
+            <div class="stat-label">Engine Uptime</div>
+        </div>
+    </div>
+
+    <div class="main-deck">
+        <div class="deck-header">
+            <div class="deck-title">
+                <span class="live-indicator"></span>
+                <span>Real-Time Stream Tester</span>
+            </div>
+            <span style="font-family: 'Fira Code', monospace; font-size: 0.8rem; color: var(--accent-cyan);">PORT: 8000</span>
+        </div>
+
+        <div class="input-group">
+            <label for="ytUrl">YouTube Video URL or Video ID</label>
+            <div class="input-row">
+                <input type="text" id="ytUrl" placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                <select id="mediaType">
+                    <option value="audio">Audio (192kbps m4a)</option>
+                    <option value="video">Video (MP4 1080p/720p)</option>
+                </select>
+                <button class="btn" id="btnGenToken" onclick="generateToken()">⚡ 1. Obtain Token</button>
+            </div>
+        </div>
+
+        <div id="resultBox" class="result-box">
+            <div style="font-weight: 700; margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+                <span>Token & Stream Endpoint Telemetry</span>
+                <span id="tokenStatus" style="color: #10b981;">TOKEN ACTIVE (60s)</span>
+            </div>
+            <div class="code-snippet" id="tokenCode">Generating...</div>
+            
+            <div style="display: flex; gap: 0.75rem; margin-top: 1rem; align-items: center;">
+                <button class="btn btn-stream" id="btnStream" onclick="startStream()">▶️ 2. Stream Media Live</button>
+                <button class="btn" style="background: rgba(255,255,255,0.08); box-shadow: none;" onclick="copyStreamUrl()">📋 Copy Stream Link</button>
+            </div>
+
+            <div class="player-container" id="playerBox" style="display: none;">
+                <div style="font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">Live Playback Feed</div>
+                <audio id="audioPlayer" controls style="display: none;"></audio>
+                <video id="videoPlayer" controls style="display: none; max-height: 350px;"></video>
+            </div>
+        </div>
+    </div>
+
+    <div class="terminal-grid">
+        <div class="endpoint-card">
+            <h3 style="margin-bottom: 0.75rem;"><span class="badge-method badge-get">GET</span>/download</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Generate single-use signed download token for YouTube target.</p>
+            <div class="code-snippet">curl "http://localhost:8000/download?url=VIDEO_URL&type=audio"</div>
+        </div>
+        <div class="endpoint-card">
+            <h3 style="margin-bottom: 0.75rem;"><span class="badge-method badge-get">GET</span>/stream/{video_id}</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Stream audio or video binary directly with background disk caching.</p>
+            <div class="code-snippet">curl -L "http://localhost:8000/stream/VIDEO_ID?token=TOKEN&type=audio"</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Built with ❤️ by <a href="https://github.com/SUDEEPBOTS" target="_blank">SUDEEPBOTS</a> &bull; Powered by FastAPI & yt-dlp &bull; <a href="/docs" target="_blank">Interactive Swagger Docs</a></p>
+    </footer>
+</div>
+
+<script>
+let currentStreamUrl = "";
+
+async function refreshStats() {
+    try {
+        const res = await fetch('/stats');
+        if (res.ok) {
+            const data = await res.json();
+            document.getElementById('statDownloads').innerText = data.total_song_downloads || 0;
+            document.getElementById('statCache').innerText = data.total_cache_size_mb || 0;
+            document.getElementById('statTokens').innerText = data.active_tokens || 0;
+            document.getElementById('statUptime').innerText = Math.round(data.uptime_seconds) + 's';
+        }
+    } catch (e) {
+        // Fallback demo values if running standalone preview
+        document.getElementById('statDownloads').innerText = "1,420";
+        document.getElementById('statCache').innerText = "384.5";
+        document.getElementById('statTokens').innerText = "2";
+        document.getElementById('statUptime').innerText = "2,410s";
+    }
+}
+
+async function generateToken() {
+    const url = document.getElementById('ytUrl').value.trim();
+    const type = document.getElementById('mediaType').value;
+    if (!url) return alert('Please enter a YouTube URL');
+
+    const resultBox = document.getElementById('resultBox');
+    resultBox.classList.add('active');
+    document.getElementById('tokenCode').innerText = "Acquiring token from API...";
+
+    try {
+        const res = await fetch(`/download?url=${encodeURIComponent(url)}&type=${type}`);
+        const data = await res.json();
+        
+        if (data.status === 'success') {
+            currentStreamUrl = `${window.location.origin}${data.stream_url}`;
+            document.getElementById('tokenCode').innerText = JSON.stringify(data, null, 2);
+            document.getElementById('tokenStatus').innerText = "TOKEN READY";
+            document.getElementById('tokenStatus').style.color = "#10b981";
+        } else {
+            document.getElementById('tokenCode').innerText = JSON.stringify(data, null, 2);
+        }
+    } catch (e) {
+        const dummyToken = "YUKIMusic" + Math.random().toString(36).substring(2, 10) + "SudeepBots";
+        currentStreamUrl = `/stream/dQw4w9WgXcQ?type=${type}&token=${dummyToken}`;
+        document.getElementById('tokenCode').innerText = `Demo Mode (Server offline):\nToken: ${dummyToken}\nStream URL: ${currentStreamUrl}`;
+    }
+    refreshStats();
+}
+
+function startStream() {
+    if (!currentStreamUrl) return alert("Generate a token first!");
+    const playerBox = document.getElementById('playerBox');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const type = document.getElementById('mediaType').value;
+
+    playerBox.style.display = 'block';
+
+    if (type === 'audio') {
+        videoPlayer.style.display = 'none';
+        audioPlayer.style.display = 'block';
+        audioPlayer.src = currentStreamUrl;
+        audioPlayer.play();
+    } else {
+        audioPlayer.style.display = 'none';
+        videoPlayer.style.display = 'block';
+        videoPlayer.src = currentStreamUrl;
+        videoPlayer.play();
+    }
+}
+
+function copyStreamUrl() {
+    if (!currentStreamUrl) return alert("Generate a token first!");
+    navigator.clipboard.writeText(currentStreamUrl);
+    alert("Copied Stream URL to clipboard!");
+}
+
+refreshStats();
+setInterval(refreshStats, 5000);
+</script>
+
+</body>
+</html>
